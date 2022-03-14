@@ -66,7 +66,7 @@ const Takar: React.FC = () => {
                     <input
                         value={damage}
                         onChange={event => setDamage(event.target.value)}
-                        placeholder='40'>
+                        placeholder='0-40'>
                     </input>
                     Vida: {life}
                 </div>
