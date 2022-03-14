@@ -6,10 +6,7 @@ import Takar from './Takar';
 const Home: NextPage = () => {
   return (
     <>
-      <GlobalStyles />
-      <NavBar />
-      <Takar />
-
+      index
     </>
 
   )
