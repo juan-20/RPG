@@ -9,10 +9,16 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@chakra-ui/react": "^1.8.6",
+    "@emotion/react": "^11",
+    "@emotion/styled": "^11",
+    "framer-motion": "^6",
     "next": "12.1.0",
+    "polished": "^4.1.4",
     "react": "17.0.2",
     "react-dom": "17.0.2",
     "react-icons": "^4.3.1",
+    "react-switch": "^6.0.0",
     "react-toastify": "^8.2.0",
     "styled-components": "^5.3.3"
   },

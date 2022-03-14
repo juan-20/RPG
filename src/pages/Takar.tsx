@@ -58,87 +58,93 @@ const Takar: React.FC = () => {
             </div>
 
             <Life>
-                Ponto de vida máximo: 40
+                <p>Ponto de vida máximo: 40</p>
                 <div className="heart">
                     <BsHeart size={64} color="red">
                     </BsHeart>
-                    <p>Dano:</p>
+                    <span>Dano:</span>
                     <input
                         value={damage}
                         onChange={event => setDamage(event.target.value)}
                         placeholder='0-40'>
                     </input>
-                    Vida: {life}
+
+                    <span> Vida: {life} </span>
+
                 </div>
-                <span>5d8</span>
+                <p>5d8</p>
 
-                <button onClick={() => {
-                    const lifeLocal: any = localStorage.getItem('health');
-                    console.log("Você levou: ", damage, " de dano");
-                    if (lifeLocal < 0) {
-                        toast.error('Você caiu camarada', {
-                            position: "top-right",
-                            autoClose: 5000,
-                            hideProgressBar: false,
-                            closeOnClick: true,
-                            pauseOnHover: true,
-                            draggable: true,
-                            progress: undefined,
-                        });
-                    }
-                    if (lifeLocal) {
-                        let lifeDamaged: number = lifeLocal - damage;
-                        localStorage.setItem('health', lifeDamaged.toString());
-                        toast.warn(({ data }) => `Essa doeu. Agora está com ${data} de vida`, {
-                            data: lifeDamaged,
-                            position: "top-right",
-                            autoClose: 5000,
-                            hideProgressBar: false,
-                            closeOnClick: true,
-                            pauseOnHover: true,
-                            draggable: true,
-                            progress: undefined,
-                        });
-                        const updatedLife = lifeDamaged
-                        setLife(updatedLife)
-                        console.log(life)
-                    } else {
-                        let lifeDamaged: number = 40 - damage;
-                        console.log(lifeDamaged);
-                        localStorage.setItem('health', lifeDamaged.toString())
+                <button
+                    className='damage'
+                    onClick={() => {
+                        const lifeLocal: any = localStorage.getItem('health');
+                        console.log("Você levou: ", damage, " de dano");
+                        if (lifeLocal < 0) {
+                            toast.error('Você caiu camarada', {
+                                position: "top-right",
+                                autoClose: 5000,
+                                hideProgressBar: false,
+                                closeOnClick: true,
+                                pauseOnHover: true,
+                                draggable: true,
+                                progress: undefined,
+                            });
+                        }
+                        if (lifeLocal) {
+                            let lifeDamaged: number = lifeLocal - damage;
+                            localStorage.setItem('health', lifeDamaged.toString());
+                            toast.warn(({ data }) => `Essa doeu. Agora está com ${data} de vida`, {
+                                data: lifeDamaged,
+                                position: "top-right",
+                                autoClose: 5000,
+                                hideProgressBar: false,
+                                closeOnClick: true,
+                                pauseOnHover: true,
+                                draggable: true,
+                                progress: undefined,
+                            });
+                            const updatedLife = lifeDamaged
+                            setLife(updatedLife)
+                            console.log(life)
+                        } else {
+                            let lifeDamaged: number = 40 - damage;
+                            console.log(lifeDamaged);
+                            localStorage.setItem('health', lifeDamaged.toString())
 
-                        toast.warn("Tomou seu primeiro dano :(", {
-                            position: "top-right",
-                            autoClose: 5000,
-                            hideProgressBar: false,
-                            closeOnClick: true,
-                            pauseOnHover: true,
-                            draggable: true,
-                            progress: undefined,
-                        });
+                            toast.warn("Tomou seu primeiro dano :(", {
+                                position: "top-right",
+                                autoClose: 5000,
+                                hideProgressBar: false,
+                                closeOnClick: true,
+                                pauseOnHover: true,
+                                draggable: true,
+                                progress: undefined,
+                            });
 
-                        const updatedLife = lifeDamaged
-                        setLife(updatedLife)
-                        console.log(life)
-                    }
-                }}>
+                            const updatedLife = lifeDamaged
+                            setLife(updatedLife)
+                            console.log(life)
+                        }
+                    }}>
                     Tomar dano
                 </button>
 
-                <button onClick={() => {
-                    let lifeDamaged: any = 40;
-                    lifeDamaged = localStorage.setItem('health', lifeDamaged)
+                <button
+                    className='sleep'
+                    onClick={() => {
+                        let lifeDamaged: any = 40;
+                        lifeDamaged = localStorage.setItem('health', lifeDamaged)
 
-                    toast.success('Dormiu e recuperou sua vida.', {
-                        position: "top-right",
-                        autoClose: 5000,
-                        hideProgressBar: false,
-                        closeOnClick: true,
-                        pauseOnHover: true,
-                        draggable: true,
-                        progress: undefined,
-                    });
-                }}>
+                        toast.success('Dormiu e recuperou sua vida.', {
+                            position: "top-right",
+                            autoClose: 5000,
+                            hideProgressBar: false,
+                            closeOnClick: true,
+                            pauseOnHover: true,
+                            draggable: true,
+                            progress: undefined,
+                        });
+                    }}>
                     Descanso longo
                 </button>
             </Life>

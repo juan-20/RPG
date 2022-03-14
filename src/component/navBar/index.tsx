@@ -1,12 +1,15 @@
-import { ReactNode } from 'react';
-
+import { useContext } from 'react';
+import Switch from 'react-switch'
 import { Container } from './styles';
+import { ThemeContext } from 'styled-components'
+import { shade } from 'polished'
 
-interface NavBarProps {
-  children: ReactNode;
+interface props {
+  toggleTheme(): void;
 }
 
-function NavBar() {
+function NavBar({ toggleTheme }: props) {
+  const { colors, title } = useContext(ThemeContext)
   return (
     <Container>
       <nav>
@@ -19,6 +22,14 @@ function NavBar() {
           </a>
         </div>
         <div className="characters">
+          <Switch
+            onChange={toggleTheme}
+            checked={title === 'dark'}
+            checkedIcon={true}
+            uncheckedIcon={false}
+            offColor={colors.secondary}
+            onColor={colors.primary}
+          />
           <a href="/Takar">
             <h1>Takar</h1>
           </a>

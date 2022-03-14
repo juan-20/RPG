@@ -1,7 +1,8 @@
 import styled from 'styled-components';
 
 export const Container = styled.div`
-    margin-top: 1rem;
+    background: ${props => props.theme.colors.background};
+    padding-top: 1rem;
 
 .atribute{
     display: flex;
@@ -90,7 +91,7 @@ export const Container = styled.div`
 `;
 
 export const AttributeSquare = styled.div`
-    border: 1px solid #333;
+    border: 1px solid ${props => props.theme.colors.secondary};
     border-radius: 15px;
     display: flex;
     flex-direction: column ;
@@ -103,7 +104,7 @@ export const AttributeSquare = styled.div`
     
     p{
         font-size: 2rem ;
-        color: #565964;
+        color: ${props => props.theme.colors.textSecondary};
     }
     .description{
         margin-top: 1rem;
@@ -115,7 +116,7 @@ export const AttributeSquare = styled.div`
         border-radius: 20px ;
         width: 2rem ;
         height: 2rem ;
-        border: 1px solid #333;
+        border: 1px solid ${props => props.theme.colors.secondary};
         font-weight: bold;
     }
 
@@ -127,27 +128,49 @@ export const Life = styled.div`
     justify-content: center;
     align-items: center;
     flex-direction: column;
-
     margin-bottom: 5rem;
-   
+
+    >p{
+       color: ${props => props.theme.colors.text}
+    }
+
+    >p:first-of-type{
+        padding: 1rem;
+        color: #000;
+        font-size: 1.5rem;
+    }
+    
     .heart{
         display: flex;
         align-items: center;
         gap: 1rem;
+        >span{
+            color: ${props => props.theme.colors.textSecondary}
+        }
+        
     >input:first-of-type{
         font-size: 1rem;
-        border: 1px solid #333;
+        border: 1px solid ${props => props.theme.colors.secondary};
         width: 2.5rem;
     }
-}
+    }
     
+    .damage{
+        background: ${props => props.theme.colors.primary};
+    }
+    .sleep{
+        background: ${props => props.theme.colors.secondary};
+    }
     >button{
         margin-top: 1rem;
         margin-bottom: 1rem;
+        width: 10rem;
+        height: 2rem;
+        border-radius: 5px
     }
 `;
 export const Caracteristics = styled.div`
-   border: 1px solid #333;
+   border: 1px solid ${props => props.theme.colors.secondary};
     border-radius: 15px;
     display: flex;
     flex-direction: column ;
@@ -162,7 +185,7 @@ export const Caracteristics = styled.div`
     
     p{
         font-size: 3rem ;
-        color: #565964;
+        color: ${props => props.theme.colors.textSecondary};
     }
     
     span{
@@ -172,13 +195,13 @@ export const Caracteristics = styled.div`
         border-radius: 20px ;
         width: 2rem ;
         height: 2rem ;
-        border: 1px solid #333;
+        border: 1px solid ${props => props.theme.colors.secondary};
     }
     `;
 
 export const Skills = styled.div`
 
-    border: 1px solid #333;
+    border: 1px solid ${props => props.theme.colors.secondary};
     border-radius: 15px;
     display: flex;
     flex-direction: column ;
@@ -193,7 +216,7 @@ export const Skills = styled.div`
     
     p{
         font-size: 3rem ;
-        color: #565964;
+        color: ${props => props.theme.colors.textSecondary};
     }
     
     span{
@@ -201,7 +224,7 @@ export const Skills = styled.div`
         display: flex;
         align-items: center;
         justify-content: center;
-        color: #565964;
+        color: ${props => props.theme.colors.textSecondary};
         font-weight: bold;
         width: 2rem ;
         height: 2rem ;
@@ -211,7 +234,7 @@ export const Skills = styled.div`
 
 export const Spells = styled.div`
     
-    border: 1px solid #333;
+    border: 1px solid ${props => props.theme.colors.secondary};
     border-radius: 15px;
     display: flex;
     flex-direction: column ;
@@ -228,7 +251,7 @@ export const Spells = styled.div`
     
     p{
         font-size: 1rem ;
-        color: #565964;
+        color: ${props => props.theme.colors.textSecondary};
     }
     
     span{
@@ -236,7 +259,7 @@ export const Spells = styled.div`
         display: flex;
         align-items: center;
         justify-content: center;
-        color: #565964;
+        color: ${props => props.theme.colors.textSecondary};
         font-weight: bold;
         width: 2rem ;
         height: 2rem ;
