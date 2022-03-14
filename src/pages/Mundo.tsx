@@ -1,5 +1,4 @@
 import React from 'react';
-import NavBar from '../component/navBar';
 
 // import { Container } from './styles';
 
