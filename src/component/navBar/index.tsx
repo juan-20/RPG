@@ -2,7 +2,6 @@ import { useContext } from 'react';
 import Switch from 'react-switch'
 import { Container } from './styles';
 import { ThemeContext } from 'styled-components'
-import { shade } from 'polished'
 
 interface props {
   toggleTheme(): void;
@@ -27,8 +26,8 @@ function NavBar({ toggleTheme }: props) {
             checked={title === 'dark'}
             checkedIcon={true}
             uncheckedIcon={false}
-            offColor={colors.secondary}
-            onColor={colors.primary}
+            offColor={colors.titleLight}
+            onColor={colors.titleDark}
           />
           <a href="/Takar">
             <h1>Takar</h1>

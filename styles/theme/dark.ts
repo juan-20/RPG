@@ -8,5 +8,8 @@ export default {
         background: '#333',
         text: '#FBFAF8',
         textSecondary: '#D8E9A8',
+
+        titleDark: "#0F1A20",
+        titleLight: "#F9DC5C",
     },
 }
