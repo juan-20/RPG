@@ -26,6 +26,12 @@ export const Container = styled.div`
     justify-items: center;
     margin-bottom: 5rem;
 }
+@media only screen and (max-width: 600px) {
+    .skills-especific{
+        grid-template-columns: 1fr 1fr;
+    }
+
+}
 
 .spells{
     display: grid;
