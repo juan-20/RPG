@@ -1,12 +1,15 @@
+import Image from 'next/image';
 import React from 'react';
 
-// import { Container } from './styles';
+import { Container } from '../../styles/mundo';
+
+import mapa from '../../assets/mapa.png'
 
 const Mundo: React.FC = () => {
     return (
-        <>
-            <h1>Mundo</h1>
-        </>
+        <Container>
+            <Image src={mapa} alt="" />
+        </Container>
     );
 }
 

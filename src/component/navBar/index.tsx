@@ -13,7 +13,7 @@ function NavBar({ toggleTheme }: props) {
     <Container>
       <nav>
         <div className="world-informations">
-          <a href="/">
+          <a href="/Mundo">
             <h1>🗺️</h1>
           </a>
           <a href="/Lore">
