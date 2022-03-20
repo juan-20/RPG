@@ -56,7 +56,7 @@ const Takar: React.FC = () => {
                     <span>18</span>
                 </AttributeSquare>
             </div>
-
+            PP = 9 | PO = 24 || PL = 2
             <Life>
                 <p>Ponto de vida máximo: 40</p>
                 <div className="heart">
