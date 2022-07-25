@@ -1,10 +1,10 @@
 import { useState } from 'react'
 import type { AppProps } from 'next/app'
 import GlobalStyles from '../../styles/GlobalStyles'
-import NavBar from '../component/navBar'
 import { ThemeProvider } from 'styled-components'
 import dark from '../../styles/theme/dark'
 import light from '../../styles/theme/light'
+import NavBar from '../components/navBar'
 
 function MyApp({ Component, pageProps }: AppProps) {
 

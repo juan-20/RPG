@@ -8,17 +8,19 @@ export default createGlobalStyle`
     margin: 0px;
     margin: 0px;
     box-sizing: border-box;
-}
-
-html, #root, body{
+  }
+  
+  html, #root, body{
     height: 100vh;
+  }
+  
+main{
+    padding: 1rem;
 }
 
 *, button, input {
     font-family: 'Poppins', sans-serif;
 
-    border: 0;
-    outline: 0;
 
     /* width */
 ::-webkit-scrollbar {
