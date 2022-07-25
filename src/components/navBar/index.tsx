@@ -1,7 +1,19 @@
 import { useContext } from 'react';
 import Switch from 'react-switch'
 import { Container } from './styles';
+import {
+  Menu,
+  MenuButton,
+  MenuList,
+  MenuItem,
+  MenuItemOption,
+  MenuGroup,
+  MenuOptionGroup,
+  MenuDivider,
+  Button,
+} from '@chakra-ui/react'
 import { ThemeContext } from 'styled-components'
+import Link from 'next/link';
 
 interface props {
   toggleTheme(): void;
@@ -13,12 +25,12 @@ function NavBar({ toggleTheme }: props) {
     <Container>
       <nav>
         <div className="world-informations">
-          <a href="/Mundo">
+          <Link href="/Mundo">
             <h1>🗺️</h1>
-          </a>
-          <a href="/Lore">
+          </Link>
+          <Link href="/Lore">
             <h1>📜</h1>
-          </a>
+          </Link>
         </div>
         <div className="characters">
           <Switch
@@ -29,9 +41,26 @@ function NavBar({ toggleTheme }: props) {
             offColor={colors.titleLight}
             onColor={colors.titleDark}
           />
-          <a href="/Takar">
+
+          <Menu>
+            {({ isOpen }) => (
+              <>
+                <MenuButton isActive={isOpen} as={Button} >
+                  {isOpen ? 'Takar' : 'Takar'}
+                </MenuButton>
+                <MenuList>
+                  <MenuItem>Vida</MenuItem>
+                  <MenuItem onClick={() => alert('Kagebunshin')}>Magias</MenuItem>
+                </MenuList>
+              </>
+            )}
+          </Menu>
+
+          {/* <a href="/Takar">
             <h1>Takar</h1>
-          </a>
+          </a> */}
+
+
         </div>
       </nav>
     </Container>

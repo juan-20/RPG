@@ -5,6 +5,7 @@ import { ThemeProvider } from 'styled-components'
 import dark from '../../styles/theme/dark'
 import light from '../../styles/theme/light'
 import NavBar from '../components/navBar'
+import { ChakraProvider } from '@chakra-ui/react'
 
 function MyApp({ Component, pageProps }: AppProps) {
 
@@ -16,9 +17,11 @@ function MyApp({ Component, pageProps }: AppProps) {
 
   return (
     <ThemeProvider theme={theme}>
+      <ChakraProvider>
       <GlobalStyles />
       <NavBar toggleTheme={toggleTheme} />
       <Component {...pageProps} />
+      </ChakraProvider>
     </ThemeProvider>
   )
 }
