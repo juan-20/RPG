@@ -5,11 +5,11 @@ export default {
         primary: '#82FF9E',
         secondary: '#DA3E52',
 
-        background: '#FCEFF9',
+        background: '#e5e5e5',
         text: '#454851',
         textSecondary: '#333',
 
-        titleDark: "#0F1A20",
-        titleLight: "#F9DC5C",
+        titleDark: "#14213d",
+        titleLight: "#fca311",
     },
 }

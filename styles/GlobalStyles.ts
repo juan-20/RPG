@@ -8,6 +8,7 @@ export default createGlobalStyle`
     margin: 0px;
     margin: 0px;
     box-sizing: border-box;
+    transition: background 0.2s linear;
   }
   
   html, #root, body{

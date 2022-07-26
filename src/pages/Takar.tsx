@@ -1,21 +1,19 @@
 import { InferGetStaticPropsType } from 'next/types';
 import React, { useState } from 'react';
-import { BsHeart } from 'react-icons/bs';
-import { BiDownArrow } from 'react-icons/bi';
-import { ToastContainer, toast } from 'react-toastify';
+import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-
 import { Container, } from '../../styles/takar';
 import Spells from '../components/spells';
-import { SpellsType } from '../types/Takar.type';
+import { InvocationType, skillsType, SpellsType, TakarType } from '../types/Takar.type';
 import { Accordion, AccordionButton, AccordionIcon, AccordionItem, AccordionPanel, Box } from '@chakra-ui/react';
 import Life from '../components/life';
+import Invocation from '../components/invocation';
+import Skills from '../components/skills';
 
-export default function Takar({spells}: InferGetStaticPropsType<typeof getStaticProps>) {
-
-    const [damage, setDamage]: any = useState();
-    const [life, setLife]: any = useState(54);
-
+export default function Takar({Takar}: InferGetStaticPropsType<typeof getStaticProps>) {
+    let spells = Takar.magic
+    let invocation = Takar.invocation
+    let skills = Takar.skills
 
     return (
         <Container>
@@ -36,13 +34,9 @@ export default function Takar({spells}: InferGetStaticPropsType<typeof getStatic
 
             PP = 7 | PO = 24 || PL = 2
         
-        <Life startLife={54}/>
+        <Life startLife={54} character='Takar'/>
 
-          
-          
-
-        
-            <Accordion allowToggle>
+            <Accordion id='magics' allowToggle>
                 <AccordionItem>
                 <h2>
                 <AccordionButton className='spells-section-header'>
@@ -55,12 +49,58 @@ export default function Takar({spells}: InferGetStaticPropsType<typeof getStatic
                 <AccordionPanel pb={4}>
                      <div id='spells' className="spells">
                     {spells.map((spell: SpellsType) => (
-                    <Spells spells={spell} key={1} />
+                    <Spells spells={spell} key={spell.id} />
                     ))}
                     </div>
                     </AccordionPanel>
             </AccordionItem>
             </Accordion>
+
+
+            <Accordion id='invocation' allowToggle>
+                <AccordionItem>
+                <h2>
+                <AccordionButton className='spells-section-header'>
+                    <Box flex='1' textAlign='left'>
+                    Invocações
+                    </Box>
+                    <AccordionIcon />
+                </AccordionButton>
+                </h2>
+                <AccordionPanel pb={4}>
+                     <div id='spells' className="spells">
+                   
+
+            {invocation.map((invocations: InvocationType) => (
+            <Invocation invocation={invocations} key={invocations.id}/>
+            ) )}
+                    </div>
+                    </AccordionPanel>
+            </AccordionItem>
+            </Accordion>
+
+            <Accordion id='skills' defaultIndex={[0]} allowToggle>
+                <AccordionItem>
+                <h2>
+                <AccordionButton className='spells-section-header'>
+                    <Box flex='1' textAlign='left'>
+                    Invocações
+                    </Box>
+                    <AccordionIcon />
+                </AccordionButton>
+                </h2>
+                <AccordionPanel pb={4}>
+                     <div id='spells' className="spells">
+                   
+
+            {skills.map((skill: skillsType) => (
+            <Skills skills={skill} />
+            ) )}
+                    </div>
+                    </AccordionPanel>
+            </AccordionItem>
+            </Accordion>
+
 
             </main>
 
@@ -76,11 +116,11 @@ export const getStaticProps = async () => {
     }else{
         url = 'https://aeternat-o97dhu0sc-juan-20.vercel.app/'
     }
-    const res = await fetch(url + '/api/magic')
-    const spells: SpellsType[] = await res.json()
+    const res = await fetch(url + '/api/Takar')
+    const Takar: TakarType = await res.json()
     return{
       props:{
-        spells,
+        Takar,
       }
     }
     

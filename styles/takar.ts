@@ -23,11 +23,14 @@ export const Container = styled.div`
             border: 1px solid ${props => props.theme.colors.text};
         }
     }
-    .spells{
-        padding: 1rem;
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
-    /* align-items: center; */
-    justify-items: center;
-}
+        #magics, #invocation, #skills{
+            padding: 1rem;
+        }
+        .spells{
+            padding: 1rem;
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            justify-items: center;
+            gap: 10px;
+        }
 `;

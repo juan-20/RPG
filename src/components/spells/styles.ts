@@ -1,19 +1,13 @@
 import styled from "styled-components";
 
 export const Spells = styled.div`
-    width: 400px;
     border: 1px solid ${props => props.theme.colors.text};
     padding: 1rem;
-    >head{
+    >header{
         display: flex;
         flex-direction: column;
-        >h1{
-            font-size: 1.5rem ;
-            padding-bottom: 3rem;
-            border-bottom: 1px solid ${props => props.theme.colors.text};
-            padding-top: 1rem;
-        }
         .subHead{
+            border-bottom: 1px solid ${props => props.theme.colors.text};
             display: flex;
             justify-content: center;
             padding: 1rem;

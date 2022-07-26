@@ -20,9 +20,4 @@ export const Container = styled.div`
             justify-content: flex-end;
         }
     }
-    
-    *{
-        color: #fff;
-        text-decoration: none;
-    }
 `;

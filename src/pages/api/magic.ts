@@ -2,8 +2,6 @@
 import type { NextApiRequest, NextApiResponse } from 'next'
 import { SpellsType } from '../../types/Takar.type'
 
-
-
 export default function handler(
   req: NextApiRequest,
   res: NextApiResponse<SpellsType[]>

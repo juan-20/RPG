@@ -4,9 +4,10 @@ import { BsHeart } from 'react-icons/bs';
 import { toast } from 'react-toastify';
 import { LifeMain } from './styles'
 
-export default function Life({startLife}: any) {
+export default function Life({startLife, character}: any ) {
     const [damage, setDamage]: any = useState();
     const [life, setLife]: any = useState(startLife);
+    console.log(character)
   return (
     <LifeMain>
     <h1>Ponto de vida máximo: {startLife}</h1>
@@ -28,7 +29,7 @@ export default function Life({startLife}: any) {
     <button
         className='damage'
         onClick={() => {
-            const lifeLocal: any = localStorage.getItem('health');
+            const lifeLocal: any = localStorage.getItem('@'+ character+ '_health');
             console.log("Você levou: ", damage, " de dano");
             if (lifeLocal < 0) {
                 toast.error('Você caiu camarada', {
@@ -43,7 +44,7 @@ export default function Life({startLife}: any) {
             }
             if (lifeLocal) {
                 let lifeDamaged: number = lifeLocal - damage;
-                localStorage.setItem('health', lifeDamaged.toString());
+                localStorage.setItem('@'+ character+ '_health', lifeDamaged.toString());
                 toast.warn(({ data }) => `Essa doeu. Agora está com ${data} de vida`, {
                     data: lifeDamaged,
                     position: "top-right",
@@ -60,7 +61,7 @@ export default function Life({startLife}: any) {
             } else {
                 let lifeDamaged: number = life - damage;
                 console.log(lifeDamaged);
-                localStorage.setItem('health', lifeDamaged.toString())
+                localStorage.setItem('@'+ character+ '_health', lifeDamaged.toString())
 
                 toast.warn("Tomou seu primeiro dano :(", {
                     position: "top-right",
@@ -84,7 +85,7 @@ export default function Life({startLife}: any) {
         className='sleep'
         onClick={() => {
             let lifeDamaged: any = startLife;
-            lifeDamaged = localStorage.setItem('health', lifeDamaged)
+            lifeDamaged = localStorage.setItem('@'+ character+ '_health', lifeDamaged)
             setLife(54)
 
             toast.success('Dormiu e recuperou sua vida.', {

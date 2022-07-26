@@ -6,14 +6,11 @@ import {
   MenuButton,
   MenuList,
   MenuItem,
-  MenuItemOption,
-  MenuGroup,
-  MenuOptionGroup,
-  MenuDivider,
   Button,
 } from '@chakra-ui/react'
 import { ThemeContext } from 'styled-components'
 import Link from 'next/link';
+import { useRouter } from 'next/router';
 
 interface props {
   toggleTheme(): void;
@@ -21,6 +18,10 @@ interface props {
 
 function NavBar({ toggleTheme }: props) {
   const { colors, title } = useContext(ThemeContext)
+  const router = useRouter();
+  console.log(router.pathname);
+  const { name } = router.query;
+    
   return (
     <Container>
       <nav>
@@ -42,24 +43,28 @@ function NavBar({ toggleTheme }: props) {
             onColor={colors.titleDark}
           />
 
-          <Menu>
-            {({ isOpen }) => (
-              <>
-                <MenuButton isActive={isOpen} as={Button} >
-                  {isOpen ? 'Takar' : 'Takar'}
-                </MenuButton>
-                <MenuList>
-                  <MenuItem>Vida</MenuItem>
-                  <MenuItem onClick={() => alert('Kagebunshin')}>Magias</MenuItem>
-                </MenuList>
-              </>
-            )}
-          </Menu>
+          {router.pathname === '/Takar' ? (
+                     <Menu>
+                     {({ isOpen }) => (
+                       <>
+                         <MenuButton isActive={isOpen} as={Button} >
+                           {isOpen ? 'Takar' : 'Takar'}
+                         </MenuButton>
+                         <MenuList>
+                           <MenuItem>Vida</MenuItem>
+                           <MenuItem onClick={() => alert('Kagebunshin')}>Magias</MenuItem>
+                         </MenuList>
+                       </>
+                     )}
+                   </Menu>
+          ) :  (
+             <Button onClick={() => router.push('/Takar')} colorScheme='gray' variant='solid'>
+             Takar
+           </Button>
+          )}
 
-          {/* <a href="/Takar">
-            <h1>Takar</h1>
-          </a> */}
-
+ 
+      
 
         </div>
       </nav>
