@@ -1,9 +1,9 @@
 import { InferGetStaticPropsType } from 'next/types';
-import React from 'react';
-import { Container, } from '../../styles/takar';
+import { Container } from '../../styles/takar';
 import Spells from '../components/spells';
 import { InvocationType, skillsType, SpellsType, TakarType } from '../types/Takar.type';
 import { Accordion, AccordionButton, AccordionIcon, AccordionItem, AccordionPanel, Box } from '@chakra-ui/react';
+
 import Life from '../components/life';
 import Invocation from '../components/invocation';
 import Skills from '../components/skills';
@@ -19,7 +19,7 @@ export default function Takar({Takar}: InferGetStaticPropsType<typeof getStaticP
 
             PP = 7 | PO = 24 || PL = 2
         
-        <Life startLife={54} character='Takar'/>
+            <Life startLife={54} character='Takar'/>
 
             <Accordion id='magics' allowToggle>
                 <AccordionItem>
@@ -94,13 +94,7 @@ export default function Takar({Takar}: InferGetStaticPropsType<typeof getStaticP
 }
 
 export const getStaticProps = async () => {
-    let host = process.env.ENVIROMENT
-    let url
-    if (host === 'dev'){
-        url = 'http://localhost:3000'
-    }else{
-        url = 'https://aeternat-o97dhu0sc-juan-20.vercel.app/'
-    }
+   let url = process.env.ENVIROMENT
     const res = await fetch(url + '/api/Takar')
     const Takar: TakarType = await res.json()
     return{
