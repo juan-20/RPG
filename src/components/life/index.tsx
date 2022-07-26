@@ -1,7 +1,6 @@
-import { Button, Input } from '@chakra-ui/react';
+import { Input } from '@chakra-ui/react';
 import React, { useState } from 'react'
 import { BsHeart } from 'react-icons/bs';
-import { toast } from 'react-toastify';
 import { LifeMain } from './styles'
 
 export default function Life({startLife, character}: any ) {
@@ -32,29 +31,29 @@ export default function Life({startLife, character}: any ) {
             const lifeLocal: any = localStorage.getItem('@'+ character+ '_health');
             console.log("Você levou: ", damage, " de dano");
             if (lifeLocal < 0) {
-                toast.error('Você caiu camarada', {
-                    position: "top-right",
-                    autoClose: 5000,
-                    hideProgressBar: false,
-                    closeOnClick: true,
-                    pauseOnHover: true,
-                    draggable: true,
-                    progress: undefined,
-                });
+                // toast.error('Você caiu camarada', {
+                //     position: "top-right",
+                //     autoClose: 5000,
+                //     hideProgressBar: false,
+                //     closeOnClick: true,
+                //     pauseOnHover: true,
+                //     draggable: true,
+                //     progress: undefined,
+                // });
             }
             if (lifeLocal) {
                 let lifeDamaged: number = lifeLocal - damage;
                 localStorage.setItem('@'+ character+ '_health', lifeDamaged.toString());
-                toast.warn(({ data }) => `Essa doeu. Agora está com ${data} de vida`, {
-                    data: lifeDamaged,
-                    position: "top-right",
-                    autoClose: 5000,
-                    hideProgressBar: false,
-                    closeOnClick: true,
-                    pauseOnHover: true,
-                    draggable: true,
-                    progress: undefined,
-                });
+                // toast.warn(({ data }) => `Essa doeu. Agora está com ${data} de vida`, {
+                //     data: lifeDamaged,
+                //     position: "top-right",
+                //     autoClose: 5000,
+                //     hideProgressBar: false,
+                //     closeOnClick: true,
+                //     pauseOnHover: true,
+                //     draggable: true,
+                //     progress: undefined,
+                // });
                 const updatedLife = lifeDamaged
                 setLife(updatedLife)
                 console.log(life)
@@ -63,15 +62,15 @@ export default function Life({startLife, character}: any ) {
                 console.log(lifeDamaged);
                 localStorage.setItem('@'+ character+ '_health', lifeDamaged.toString())
 
-                toast.warn("Tomou seu primeiro dano :(", {
-                    position: "top-right",
-                    autoClose: 5000,
-                    hideProgressBar: false,
-                    closeOnClick: true,
-                    pauseOnHover: true,
-                    draggable: true,
-                    progress: undefined,
-                });
+                // toast.warn("Tomou seu primeiro dano :(", {
+                //     position: "top-right",
+                //     autoClose: 5000,
+                //     hideProgressBar: false,
+                //     closeOnClick: true,
+                //     pauseOnHover: true,
+                //     draggable: true,
+                //     progress: undefined,
+                // });
 
                 const updatedLife = lifeDamaged
                 setLife(updatedLife)
@@ -88,15 +87,15 @@ export default function Life({startLife, character}: any ) {
             lifeDamaged = localStorage.setItem('@'+ character+ '_health', lifeDamaged)
             setLife(54)
 
-            toast.success('Dormiu e recuperou sua vida.', {
-                position: "top-right",
-                autoClose: 5000,
-                hideProgressBar: false,
-                closeOnClick: true,
-                pauseOnHover: true,
-                draggable: true,
-                progress: undefined,
-            });
+            // toast.success('Dormiu e recuperou sua vida.', {
+            //     position: "top-right",
+            //     autoClose: 5000,
+            //     hideProgressBar: false,
+            //     closeOnClick: true,
+            //     pauseOnHover: true,
+            //     draggable: true,
+            //     progress: undefined,
+            // });
         }}>
         Descanso longo
     </button>
