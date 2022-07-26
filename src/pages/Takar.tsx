@@ -11,6 +11,7 @@ import Life from '../components/life';
 import Invocation from '../components/invocation';
 import Skills from '../components/skills';
 import Tresure from '../components/tresure';
+import Speels from '../components/spells';
 
 export default function Takar({Takar}: InferGetStaticPropsType<typeof getStaticProps>) {
     let spells = Takar.magic
@@ -103,7 +104,7 @@ export default function Takar({Takar}: InferGetStaticPropsType<typeof getStaticP
                 <AccordionPanel pb={4}>
                      <div id='spells' className="spells">
                     {spells.map((spell: SpellsType) => (
-                    <Spells spells={spell} key={spell.id} />
+                    <Speels spells={spell} key={spell.id} />
                     ))}
                     </div>
                     </AccordionPanel>

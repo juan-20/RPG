@@ -61,8 +61,9 @@ function NavBar({ toggleTheme }: props) {
           <InputGroup>
         <InputLeftElement
         pointerEvents='none'
-        children={<AiOutlineSearch color='gray.300' />}
-        />
+        >
+        <AiOutlineSearch color='gray.300' />
+        </InputLeftElement>
         <Input placeholder='Pesquise aqui' />
         </InputGroup>
         </Stack>
