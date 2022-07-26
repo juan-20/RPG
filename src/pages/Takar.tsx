@@ -94,7 +94,7 @@ export default function Takar({Takar}: InferGetStaticPropsType<typeof getStaticP
                    
 
             {skills.map((skill: skillsType) => (
-            <Skills skills={skill} />
+            <Skills skills={skill} key={skill.id} />
             ) )}
                     </div>
                     </AccordionPanel>
