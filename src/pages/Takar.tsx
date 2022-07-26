@@ -1,7 +1,5 @@
 import { InferGetStaticPropsType } from 'next/types';
 import React from 'react';
-import { ToastContainer } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css';
 import { Container, } from '../../styles/takar';
 import Spells from '../components/spells';
 import { InvocationType, skillsType, SpellsType, TakarType } from '../types/Takar.type';
@@ -17,19 +15,6 @@ export default function Takar({Takar}: InferGetStaticPropsType<typeof getStaticP
 
     return (
         <Container>
-            <ToastContainer
-                position="top-right"
-                autoClose={5000}
-                hideProgressBar={false}
-                newestOnTop={false}
-                closeOnClick
-                rtl={false}
-                pauseOnFocusLoss
-                draggable
-                pauseOnHover
-            />
-
-
            <main>
 
             PP = 7 | PO = 24 || PL = 2
