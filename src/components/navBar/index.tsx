@@ -7,16 +7,42 @@ import {
   MenuList,
   MenuItem,
   Button,
+  Drawer,
+  useDisclosure,
+  Box,
+  DrawerBody,
+  DrawerCloseButton,
+  DrawerContent,
+  DrawerFooter,
+  DrawerHeader,
+  DrawerOverlay,
+  FormLabel,
+  Input,
+  InputGroup,
+  InputLeftAddon,
+  InputRightAddon,
+  Select,
+  Stack,
+  Textarea,
+  InputLeftElement,
+  Flex,
 } from '@chakra-ui/react'
 import { ThemeContext } from 'styled-components'
+import {GiHamburgerMenu} from 'react-icons/gi'
+import {AiOutlineSearch} from 'react-icons/ai'
 import Link from 'next/link';
 import { useRouter } from 'next/router';
+import React from 'react';
 
 interface props {
   toggleTheme(): void;
 }
 
 function NavBar({ toggleTheme }: props) {
+
+  const { isOpen, onOpen, onClose } = useDisclosure()
+  const firstField = React.useRef()
+
   const { colors, title } = useContext(ThemeContext)
   const router = useRouter();
   console.log(router.pathname);
@@ -26,24 +52,45 @@ function NavBar({ toggleTheme }: props) {
     <Container>
       <nav>
         <div className="world-informations">
-          <Link href="/Mundo">
-            <h1>🗺️</h1>
-          </Link>
-          <Link href="/Lore">
-            <h1>📜</h1>
+          <Link href="/">
+            <h1>Dashboard</h1>
           </Link>
         </div>
-        <div className="characters">
-          <Switch
-            onChange={toggleTheme}
-            checked={title === 'dark'}
-            checkedIcon={true}
-            uncheckedIcon={false}
-            offColor={colors.titleLight}
-            onColor={colors.titleDark}
-          />
 
-          {router.pathname === '/Takar' ? (
+        <Stack spacing={4}>
+          <InputGroup>
+        <InputLeftElement
+        pointerEvents='none'
+        children={<AiOutlineSearch color='gray.300' />}
+        />
+        <Input placeholder='Pesquise aqui' />
+        </InputGroup>
+        </Stack>
+
+
+        <div className="characters">
+
+
+
+<Button  colorScheme='teal' onClick={onOpen}>
+        <GiHamburgerMenu/>
+      </Button>
+      <Drawer
+        isOpen={isOpen}
+        placement='right'
+        onClose={onClose}
+      >
+        <DrawerOverlay />
+        <DrawerContent>
+          <DrawerCloseButton />
+          <DrawerHeader borderBottomWidth='1px'>
+            Personagens
+          </DrawerHeader>
+
+          <DrawerBody>
+            <Stack spacing='24px'>
+            
+            {router.pathname === '/Takar' ? (
                      <Menu>
                      {({ isOpen }) => (
                        <>
@@ -51,8 +98,8 @@ function NavBar({ toggleTheme }: props) {
                            {isOpen ? 'Takar' : 'Takar'}
                          </MenuButton>
                          <MenuList>
-                           <MenuItem>Vida</MenuItem>
-                           <MenuItem onClick={() => alert('Kagebunshin')}>Magias</MenuItem>
+                           <MenuItem>Mundo</MenuItem>
+                           <MenuItem>Personagens</MenuItem>
                          </MenuList>
                        </>
                      )}
@@ -62,6 +109,37 @@ function NavBar({ toggleTheme }: props) {
              Takar
            </Button>
           )}
+
+
+           <Flex >
+           <Box p='5'>
+            <p>
+            Mudar o tema:
+            </p>
+            </Box>
+           <Box p='5'>
+           <Switch
+            onChange={toggleTheme}
+            checked={title === 'dark'}
+            checkedIcon={true}
+            uncheckedIcon={false}
+            offColor={colors.titleLight}
+            onColor={colors.titleDark}
+            />
+            </Box>
+          </Flex>
+            </Stack>
+          </DrawerBody>
+
+
+          <DrawerFooter borderTopWidth='1px'>
+            <Button variant='outline' mr={3} onClick={onClose}>
+              Cancel
+            </Button>
+            <Button colorScheme='blue'>Submit</Button>
+          </DrawerFooter>
+        </DrawerContent>
+      </Drawer>
 
  
       

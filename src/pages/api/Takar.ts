@@ -10,6 +10,10 @@ export default function handler(
 ) {
   res.status(200).json({ 
     name: 'Takar',
+    photo: [{
+      url: 'https://pbs.twimg.com/media/FYmNdB2WYAIdIr2?format=png&name=360x360',
+      id: 1
+    }],
     invocation: [
         {
             name: 'Thirsting Blade',
@@ -25,6 +29,11 @@ export default function handler(
             name: 'Máscara de Muitas Faces (Mask of Many Faces)',
             id: 3,
             description: 'You can use any weapon you summon with your Pact of the Blade feature as a spellcasting focus for your warlock spells. In addition, the weapon gains a +1 bonus to its attack and damage rolls, unless it is a magic weapon that already has a bonus to those rolls.     Finally, the weapon you conjure can be a shortbow, longbow, light crossbow, or heavy crossbow.',
+        },
+        {
+            name: 'Sculptor of Flesh',
+            id: 4,
+            description: 'You can cast Polymorph once using a warlock spell slot. You cant do so again until you finish a long rest.',
         },
       ],
       magic: [

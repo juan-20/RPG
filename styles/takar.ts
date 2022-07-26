@@ -23,14 +23,31 @@ export const Container = styled.div`
             border: 1px solid ${props => props.theme.colors.text};
         }
     }
-        #magics, #invocation, #skills{
-            padding: 1rem;
+    .content{
+        padding: 1rem;
+    }
+    #magics, #invocation, #skills, #tresure, #life{
+        padding: 1rem;
+    }
+    .spells{
+        padding: 1rem;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        justify-items: center;
+        overflow: auto;
+        gap: 10px;
+
+        @media only screen and (max-width: 926px) {
+            display: flex;
+        justify-items: center;
         }
-        .spells{
-            padding: 1rem;
-            display: grid;
-            grid-template-columns: 1fr 1fr 1fr;
-            justify-items: center;
-            gap: 10px;
+    }
+    .skills{
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
+        padding: 1rem;
+        justify-items: center;
+        overflow: auto;
+        border: 1px solid ${props => props.theme.colors.text};
         }
 `;

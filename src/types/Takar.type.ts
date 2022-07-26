@@ -25,9 +25,16 @@ export type SpellsType = {
     id: number;
     
   }
+
+  export type ImageType ={
+    url: string,
+    desc?: string,
+    id: number
+  }
   
   export type TakarType = {
     name: string,
+    photo: ImageType[]
     invocation: InvocationType[],
     magic: SpellsType[],
     skills: skillsType[]

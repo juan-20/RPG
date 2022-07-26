@@ -1,12 +1,24 @@
-import type { NextPage } from 'next'
+import type { InferGetStaticPropsType, NextPage } from 'next'
+import Image from 'next/image'
+import { TakarType } from '../types/Takar.type'
 
-const Home: NextPage = () => {
+export default function Home({Takar}: InferGetStaticPropsType<typeof getStaticProps>) {
   return (
-    <>
-      index
-    </>
+    <div>
+      <Image src={Takar.photo[0].url} width='250px' height='300px' ></Image>
+    </div>
 
   )
 }
 
-export default Home
+export const getStaticProps = async () => {
+  let url = process.env.ENVIROMENT
+   const res = await fetch(url + '/api/Takar')
+   const Takar: TakarType = await res.json()
+   return{
+     props:{
+       Takar,
+     }
+   }
+   
+ }
