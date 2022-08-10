@@ -106,9 +106,14 @@ function NavBar({ toggleTheme }: props) {
                      )}
                    </Menu>
           ) :  (
-             <Button onClick={() => router.push('/Takar')} colorScheme='gray' variant='solid'>
-             Takar
-           </Button>
+             <>
+                      <Button onClick={() => router.push('/Takar')} colorScheme='gray' variant='solid'>
+                        Takar
+                      </Button>
+                      <Button onClick={() => router.push('/Samira')} colorScheme='gray' variant='solid'>
+                          Samira
+                        </Button>
+              </>
           )}
 
 
