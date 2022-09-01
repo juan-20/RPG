@@ -1,6 +1,6 @@
 // Next.js API route support: https://nextjs.org/docs/api-routes/introduction
 import type { NextApiRequest, NextApiResponse } from 'next'
-import { TakarType } from '../../types/Takar.type'
+import { TakarType } from '../../types/D&D.type'
 
 
 

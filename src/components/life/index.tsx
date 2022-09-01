@@ -1,13 +1,20 @@
 import { Button, Heading, Input } from '@chakra-ui/react';
 import React, { useState } from 'react'
-import { BsHeart } from 'react-icons/bs';
 import { LifeMain } from './styles'
 import { toast } from 'react-toastify';
 
 export default function Life({startLife, character}: any ) {
+    let lifeLocal
+    getlocalStorage()
+    function getlocalStorage(){
+        if (typeof window !== 'undefined'){
+        lifeLocal = localStorage.getItem('@'+ character+ '_health');
+        if(lifeLocal)startLife=lifeLocal
+        }
+    }
     const [damage, setDamage]: any = useState();
+  
     const [life, setLife]: any = useState(startLife);
-    console.log(character)
   return (
     <LifeMain>
 

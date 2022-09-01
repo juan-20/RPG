@@ -2,8 +2,13 @@ type IconType ={
     url: string,
     quantity: string
   }
-  
 
+export type LifeType = {
+  totalLife: number,
+  AtualLife: number,
+  dice: string
+}
+  
 export type SpellsType = {
     name: string,
     id: number

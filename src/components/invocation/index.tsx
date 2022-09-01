@@ -1,6 +1,6 @@
 import { Heading } from '@chakra-ui/react'
 import React from 'react'
-import { InvocationType } from '../../types/Takar.type'
+import { InvocationType } from '../../types/D&D.type'
 
 export default function Invocation(props:{invocation: InvocationType}  ) {
   return (

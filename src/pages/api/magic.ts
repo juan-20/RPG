@@ -1,6 +1,6 @@
 // Next.js API route support: https://nextjs.org/docs/api-routes/introduction
 import type { NextApiRequest, NextApiResponse } from 'next'
-import { SpellsType } from '../../types/Takar.type'
+import { SpellsType } from '../../types/D&D.type'
 
 export default function handler(
   req: NextApiRequest,

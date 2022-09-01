@@ -1,6 +1,6 @@
 import { Heading } from '@chakra-ui/react'
 import React from 'react'
-import { skillsType } from '../../types/Takar.type'
+import { skillsType } from '../../types/D&D.type'
 import { Container } from './styles'
 
 export default function Skills(props:{skills: skillsType}  ) {
