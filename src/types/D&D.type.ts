@@ -1,4 +1,31 @@
-type IconType ={
+export type CharactersType ={
+  Characters: [{ 
+      Id: number,
+      name: string
+      desc: string
+      weapons: WeaponsType[]
+  }]
+}
+
+export type TakarType = {
+  name: string,
+  photo: ImageType[]
+  invocation: InvocationType[],
+  magic: SpellsType[],
+  skills: skillsType[]
+
+}
+
+export type WeaponsType={
+  weaponType: string,
+  id: number,
+  weaponName?: string,
+  dice: string
+  cursed?: boolean,
+}
+
+
+export type IconType ={
     url: string,
     quantity: string
   }
@@ -37,11 +64,3 @@ export type SpellsType = {
     id: number
   }
   
-  export type TakarType = {
-    name: string,
-    photo: ImageType[]
-    invocation: InvocationType[],
-    magic: SpellsType[],
-    skills: skillsType[]
-
-  }

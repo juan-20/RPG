@@ -3,11 +3,11 @@ import styled  from "styled-components";
 export const LandingPageComponent = styled.div`
     display: flex;
     flex-direction: column;
-.hero-text{
- display: flex;
- justify-content: center;
- align-items: center;
- text-align: center;
+    .hero-text{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
  background: #d33f49;
  height: 210px;
  color: #F8E5EE;
@@ -15,12 +15,12 @@ export const LandingPageComponent = styled.div`
  font-family: 'Montserrat';
 }
 
- .hero-image{
+.hero-image{
     background-color: #d33f49;
     height: 400px;
     display: flex;
     justify-content: center;
-     .shadow{
+    .shadow{
         background: #FFAE03;
         height: 350px;
         /* mobile: */
@@ -34,5 +34,9 @@ export const LandingPageComponent = styled.div`
         justify-content: center;
         align-items: center;
     }
- }
+}
+`;
+export const CharactersResume = styled.div`
+    height: 100vh;
+    background: #5762D5;
 `;
