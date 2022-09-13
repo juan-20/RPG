@@ -20,7 +20,7 @@ main{
 }
 
 *, button, input {
-    font-family: 'Poppins', sans-serif;
+  font-family: 'Montserrat', sans-serif;
 
 
     /* width */

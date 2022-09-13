@@ -1,12 +1,11 @@
 import type { InferGetStaticPropsType, NextPage } from 'next'
 import Image from 'next/image'
+import Landing from '../components/Landing'
 import { TakarType } from '../types/D&D.type'
 
 export default function Home({Takar}: InferGetStaticPropsType<typeof getStaticProps>) {
   return (
-    <div>
-      <Image src={Takar.photo[0].url} width='250px' height='300px' ></Image>
-    </div>
+    <Landing />
 
   )
 }
