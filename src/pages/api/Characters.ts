@@ -5,14 +5,19 @@ import { CharactersType } from '../../types/D&D.type'
 
 export default function handler(
   req: NextApiRequest,
-  res: NextApiResponse<CharactersType>
+  res: NextApiResponse<CharactersType[]>
 ) {
-  res.status(200).json({
-      "Characters": [
+  res.status(200).json([
           {
             Id: 1,
             name: 'Takar',
-            desc: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.",
+            age: '61 anos e cabeça de 19',
+            desc: "Um meio orc vindo da realeza de mor-oka e tem vivodo como um mercenario em busca de respostas após virar um bruxo",
+            photo: {
+              id: 1,
+              url: 'https://cdn.discordapp.com/attachments/684162409937633291/871563174187520012/Takar_Token.png',
+              desc: 'Meio Orc com uma arma nas costas'
+            },
             weapons: [
                 {
                 id: 1,
@@ -26,7 +31,30 @@ export default function handler(
                 dice: "1d1"
                 },
             ]
-        }
-    ]
-  })
+        },
+          {
+            Id: 2,
+            name: 'Nephy',
+            age: '61 anos e cabeça de 19',
+            desc: "Um meio orc vindo da realeza de mor-oka e tem vivodo como um mercenario em busca de respostas após virar um bruxo",
+            photo: {
+              id: 1,
+              url: 'https://cdn.discordapp.com/attachments/684162409937633291/871563174187520012/Takar_Token.png',
+              desc: 'Meio Orc com uma arma nas costas'
+            },
+            weapons: [
+                {
+                id: 1,
+                weaponName: "katana",
+                weaponType: "Espada Longa",
+                dice: "1d10 + 10"
+                },
+                {
+                id: 2,
+                weaponType: "Adaga",
+                dice: "1d1"
+                },
+            ]
+        },
+    ])
 }

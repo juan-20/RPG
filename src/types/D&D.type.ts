@@ -1,10 +1,11 @@
 export type CharactersType ={
-  Characters: [{ 
       Id: number,
       name: string
+      surname?: string
       desc: string
+      age: string
+      photo: ImageType
       weapons: WeaponsType[]
-  }]
 }
 
 export type TakarType = {
