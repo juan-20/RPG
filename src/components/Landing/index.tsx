@@ -29,9 +29,7 @@ export default function Landing() {
         </div>
       </div>
 
-      <CharactersResume>
-    
-      </CharactersResume>
+     
     </LandingPageComponent>
   )
 }
