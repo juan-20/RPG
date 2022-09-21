@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 
 export const Container = styled.div`
-    background: #333;
+    background: #d33f49;
     
     >nav{
         display: flex;
@@ -16,12 +16,18 @@ export const Container = styled.div`
             display: flex;
             align-items: center;
             justify-content: flex-end;
+            >h1{
+                cursor: pointer;
+            }
         }
         .characters{
             gap: 20px;
             display: flex;
             align-items: center;
             justify-content: flex-end;
+            >svg{
+                cursor: pointer;
+            }
         }
     }
 `;

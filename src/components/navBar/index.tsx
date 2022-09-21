@@ -53,29 +53,15 @@ function NavBar({ toggleTheme }: props) {
       <nav>
         <div className="world-informations">
           <Link href="/">
-            <h1>Dashboard</h1>
+            <h1>🎲</h1>
           </Link>
         </div>
-
-        <Stack spacing={4}>
-          <InputGroup>
-        <InputLeftElement
-        pointerEvents='none'
-        >
-        <AiOutlineSearch color='gray.300' />
-        </InputLeftElement>
-        <Input placeholder='Pesquise aqui' />
-        </InputGroup>
-        </Stack>
 
 
         <div className="characters">
 
+        <GiHamburgerMenu onClick={onOpen}/>
 
-
-<Button  colorScheme='teal' onClick={onOpen}>
-        <GiHamburgerMenu/>
-      </Button>
       <Drawer
         isOpen={isOpen}
         placement='right'
