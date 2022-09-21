@@ -4,7 +4,7 @@ import GlobalStyles from '../../styles/GlobalStyles'
 import { ThemeProvider } from 'styled-components'
 import dark from '../../styles/theme/dark'
 import light from '../../styles/theme/light'
-import NavBar from '../components/navBar'
+import NavBar from '../components/layout/navBar'
 import { ChakraProvider } from '@chakra-ui/react'
 
 function MyApp({ Component, pageProps }: AppProps) {

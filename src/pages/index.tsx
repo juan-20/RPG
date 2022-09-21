@@ -1,8 +1,8 @@
 import type { InferGetStaticPropsType, NextPage } from 'next'
 import Image from 'next/image'
-import CharacterResume from '../components/Character-resume'
-import { Body } from '../components/Character-resume/styles'
-import Landing from '../components/Landing'
+import CharacterResume from '../components/layout/Character-resume'
+import { Body } from '../components/layout/Character-resume/styles'
+import Landing from '../components/layout/Landing'
 import { CharactersType, TakarType } from '../types/D&D.type'
 
 export default function Home({characters}: InferGetStaticPropsType<typeof getStaticProps>) {
