@@ -1,7 +1,8 @@
 import type { InferGetStaticPropsType, NextPage } from 'next'
 import Image from 'next/image'
+import CharacterResume from '../components/Character-resume'
+import { Body } from '../components/Character-resume/styles'
 import Landing from '../components/Landing'
-import { CharactersResume } from '../components/Landing/styles'
 import { CharactersType, TakarType } from '../types/D&D.type'
 
 export default function Home({characters}: InferGetStaticPropsType<typeof getStaticProps>) {
@@ -9,16 +10,13 @@ export default function Home({characters}: InferGetStaticPropsType<typeof getSta
   return (
     <>
     <Landing />
-    <div className="">
+
+    <Body>
         {characters.map((character: CharactersType) => (
-    <>
-            <CharactersResume>
-            </CharactersResume>
-            <div className="">
-                <h1>{character.name}</h1>
-            </div></>
+            <CharacterResume name={character.name} surname={character.surname} description={character.desc} age={character.age} image={character.photo.url}
+             role={character.role}/>
           ))}
-          </div>
+    </Body>
 
     </>
 

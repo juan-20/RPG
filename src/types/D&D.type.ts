@@ -2,6 +2,7 @@ export type CharactersType ={
       Id: number,
       name: string
       surname?: string
+      role: string
       desc: string
       age: string
       photo: ImageType

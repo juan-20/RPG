@@ -12,6 +12,7 @@ export default function handler(
             Id: 1,
             name: 'Takar',
             age: '61 anos e cabeça de 19',
+            role: "Bruxo",
             desc: "Um meio orc vindo da realeza de mor-oka e tem vivodo como um mercenario em busca de respostas após virar um bruxo",
             photo: {
               id: 1,
@@ -36,6 +37,7 @@ export default function handler(
             Id: 2,
             name: 'Nephy',
             age: '61 anos e cabeça de 19',
+            role: "Clérigo",
             desc: "Um meio orc vindo da realeza de mor-oka e tem vivodo como um mercenario em busca de respostas após virar um bruxo",
             photo: {
               id: 1,
