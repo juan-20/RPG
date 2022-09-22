@@ -1,6 +1,8 @@
 import React from 'react'
 import Image from 'next/image'
 import { Container } from './styles';
+import Button from '../../interface/Button';
+import Link from 'next/link';
 
 interface CharacterResumeProps {
   name: string,
@@ -20,7 +22,7 @@ export default function CharacterResume(props: CharacterResumeProps) {
     role,
     surname
   } = props
-  return (
+  return (    
     <Container>
       <p className='desc'>{description}</p>
       <div className="character-hero">
@@ -37,6 +39,7 @@ export default function CharacterResume(props: CharacterResumeProps) {
            </div>
           </div>
       </div>
+            <Button label='Ver ficha' redirect={name}/>
     </Container>
   )
 }

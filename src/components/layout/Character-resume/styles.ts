@@ -11,6 +11,9 @@ export const Body = styled.main`
     display: flex;
     gap: 1rem;
     text-align: center;
+    @media only screen and (max-width: 600px) {
+            flex-direction: column;
+        }
     .desc{
         font-size: 1rem;
     }
@@ -29,6 +32,6 @@ export const Body = styled.main`
             .role-age{
                 display: flex;
             }
-        }
+        }   
     }
 `;
