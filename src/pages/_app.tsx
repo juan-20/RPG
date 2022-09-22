@@ -7,6 +7,20 @@ import light from '../../styles/theme/light'
 import NavBar from '../components/layout/navBar'
 import { ChakraProvider } from '@chakra-ui/react'
 
+import ProgressBar from "@badrap/bar-of-progress";
+import Router from 'next/router'
+
+const progress = new ProgressBar({
+  size: 4,
+  color: "#5762d5",
+  delay: 100
+});
+Router.events.on('routeChangeStart', progress.start)
+Router.events.on('routeChangeComplete', progress.finish)
+Router.events.on('routeChangeError', progress.finish)
+
+
+
 function MyApp({ Component, pageProps }: AppProps) {
 
   const [theme, setTheme] = useState(dark);
