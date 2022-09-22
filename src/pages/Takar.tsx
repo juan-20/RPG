@@ -1,12 +1,10 @@
 import { InferGetStaticPropsType } from 'next/types';
 import { Container } from '../../styles/takar';
-import Spells from '../components/layout/spells';
 import { InvocationType, skillsType, SpellsType, TakarType } from '../types/D&D.type';
 import { Accordion, AccordionButton, AccordionIcon, AccordionItem, AccordionPanel, Box } from '@chakra-ui/react';
 import Image from 'next/image'
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-
 import Life from '../components/layout/life';
 import Invocation from '../components/layout/invocation';
 import Skills from '../components/layout/skills';
