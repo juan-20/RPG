@@ -13,7 +13,7 @@ export default function Home({characters}: InferGetStaticPropsType<typeof getSta
 
     <Body>
         {characters.map((character: CharactersType) => (
-            <CharacterResume name={character.name} surname={character.surname} description={character.desc} age={character.age} image={character.photo.url}
+            <CharacterResume key={character.Id} name={character.name} surname={character.surname} description={character.desc} age={character.age} image={character.photo.url}
              role={character.role}/>
           ))}
     </Body>
