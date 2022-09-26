@@ -1,3 +1,16 @@
+export const getStaticProps = async () => {
+  let url = process.env.ENVIROMENT
+   const res = await fetch(url + '/api/Characters')
+   const characters: CharactersType[] = await res.json()
+   return{
+     props:{
+      characters,
+      fallback: false
+     }
+   }
+   
+ }
+
 import type { InferGetStaticPropsType } from 'next'
 import CharacterResume from '../components/layout/Character-resume'
 import { Body } from '../components/layout/Character-resume/styles'
@@ -25,15 +38,3 @@ export default function Home({characters}: InferGetStaticPropsType<typeof getSta
   )
 }
 
-export const getStaticProps = async () => {
-  let url = process.env.ENVIROMENT
-   const res = await fetch(url + '/api/Characters')
-   const characters: CharactersType[] = await res.json()
-   return{
-     props:{
-      characters,
-      fallback: false
-     }
-   }
-   
- }
