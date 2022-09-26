@@ -8,16 +8,19 @@ export default function Home({characters}: InferGetStaticPropsType<typeof getSta
   console.log(characters)
   return (
     <>
-    <Landing />
-
-    <Body>
-        {characters.map((character: CharactersType) => (
+    {characters.length > 0 ?
+    <>
+    <Landing /><Body>
+          {characters.map((character: CharactersType) => (
             <CharacterResume key={character.Id} name={character.name} surname={character.surname} description={character.desc} age={character.age} image={character.photo.url}
-             role={character.role}/>
+              role={character.role} />
           ))}
-    </Body>
+        </Body>
+    </>
+    : 'eita kkk'  }
 
     </>
+
 
   )
 }
