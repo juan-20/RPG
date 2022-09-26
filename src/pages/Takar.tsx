@@ -146,6 +146,7 @@ export const getStaticProps = async () => {
     return{
       props:{
         Takar,
+        fallback: false
       }
     }
     
