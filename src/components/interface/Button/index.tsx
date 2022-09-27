@@ -10,21 +10,11 @@ interface ButtonProps{
 
 export default function Button(props : ButtonProps) {
   const {label, redirect} = props
-  const router = useRouter();
   return (
-    <div
-    onClick={() => {
-      router.push({
-     pathname: '/character',
-     query: {
-       name: redirect,
-     }
-    })}
-    }
-    >
+      <Link href={'/character/' + redirect}>
       <CustomButton>
         {label}
       </CustomButton>
-      </div>
+      </Link>
   )
 }

@@ -7,6 +7,7 @@ export type CharactersType ={
       age: string
       photo: ImageType
       weapons: WeaponsType[]
+      spells?: SpellsType[]
 }
 
 export type TakarType = {
@@ -39,12 +40,13 @@ export type LifeType = {
 }
   
 export type SpellsType = {
+    id: number,
     name: string,
-    id: number
     description: string,
-    type: IconType,
-    distance: IconType,
-    duration: IconType
+    type: string,
+    distance: string,
+    duration: string,
+    schoolOfMagic?: string
   }
   export type InvocationType = {
     name: string,
