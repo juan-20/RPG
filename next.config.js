@@ -3,7 +3,8 @@ const nextConfig = {
   reactStrictMode: true,
   images: {
     domains: ['avribacki.gitlab.io', 'pbs.twimg.com', 'cdn.discordapp.com']
-  }
+  },
+  distDir:`build`
 }
 
 module.exports = nextConfig
