@@ -7,8 +7,6 @@ import { Spells } from './styles'
 
 export default function Speels(props: {spells: SpellsType}  ) {
 
-  // console.log(spells)
-
   return (
     <Spells>
       <header>

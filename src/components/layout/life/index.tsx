@@ -62,10 +62,9 @@ export default function Life({startLife, character}: any ) {
                 });
                 const updatedLife = lifeDamaged
                 setLife(updatedLife)
-                console.log(life)
+             
             } else {
                 let lifeDamaged: number = life - damage;
-                console.log(lifeDamaged);
                 localStorage.setItem('@'+ character+ '_health', lifeDamaged.toString())
 
                 toast.warn("Tomou seu primeiro dano :(", {
@@ -80,7 +79,6 @@ export default function Life({startLife, character}: any ) {
 
                 const updatedLife = lifeDamaged
                 setLife(updatedLife)
-                console.log(life)
             }
         }}>
         Tomar dano

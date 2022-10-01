@@ -18,7 +18,6 @@ import Landing from '../components/layout/Landing'
 import { CharactersType } from '../types/D&D.type'
 
 export default function Home({characters}: InferGetStaticPropsType<typeof getStaticProps>) {
-  console.log(characters)
   return (
     <>
     {characters.length > 0 ?

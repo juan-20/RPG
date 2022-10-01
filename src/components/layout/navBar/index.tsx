@@ -45,8 +45,8 @@ function NavBar({ toggleTheme }: props) {
 
   const { colors, title } = useContext(ThemeContext)
   const router = useRouter();
-  console.log(router.pathname);
   const { name } = router.query;
+  
     
   return (
     <Container>
@@ -55,6 +55,10 @@ function NavBar({ toggleTheme }: props) {
           <Link href="/">
             <h1>🎲</h1>
           </Link>
+        </div>
+
+        <div className="center">
+          <h1>{name}</h1>
         </div>
 
 
