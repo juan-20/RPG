@@ -23,7 +23,7 @@
     "next-env.d.ts",
     "**/*.ts",
     "**/*.tsx"
-, "src/pages/api/Characters/[characterName].js"  ],
+, "src/pages/api/Characters/[characterName].ts"  ],
   "exclude": [
     "node_modules"
   ],
