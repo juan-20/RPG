@@ -5,9 +5,19 @@ export type CharactersType ={
       role: string
       desc: string
       age: string
+      armor: number
+      initiative: number
+      displacement: string
+      mainAtributes: MainAtributes[]
       photo: ImageType
       weapons: WeaponsType[]
       spells?: SpellsType[]
+}
+
+export type MainAtributes = {
+  name: string
+  counter: number
+  passive: number
 }
 
 export type TakarType = {

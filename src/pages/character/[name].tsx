@@ -3,19 +3,46 @@ import { GetStaticPaths, InferGetStaticPropsType } from 'next'
 import { useRouter } from 'next/router';
 import React from 'react'
 import { CharactersType } from '../../types/D&D.type'
+import { Container, HeroInfo, MainAtributes } from './styles';
 
 
 export default function Character({character}: InferGetStaticPropsType<typeof getStaticProps>) {
   const Character: CharactersType = character
   console.log(Character)
   return (
-    <div>
+    <Container>
+      <HeroInfo>
       <Image src={Character.photo.url} alt={Character.photo.desc}  width={180} height={180} />
-      {Character.name}
-      {Character.Id}
-      {Character.age}
-      {Character.role}
+      <div className="text">
+        <div className="">
+        <p>{Character.displacement}</p>
+        <p>Deslocamento</p>
+        </div>
+        
+        <div className="">
+        <p>{Character.armor}</p>
+        <p>Armadura</p>
+        </div>
+
+        <div className="">
+        {Character.initiative > 0 ? <p>+{Character.initiative}</p>  : <p>{Character.initiative}</p>}
+        <p>Iniciativa</p>
+        </div>
       </div>
+      </HeroInfo>
+
+   
+        <MainAtributes>
+          {Character.mainAtributes.map((mainAtribute) => (
+            <div className='atributes'>
+            <h1>{mainAtribute.name}</h1>
+            <h6>{mainAtribute.counter}</h6>
+            <p>Passiva: {mainAtribute.passive}</p>
+            </div>
+          ))}
+        </MainAtributes>
+
+      </Container>
   )
 }
 

@@ -1,7 +1,9 @@
 import styled from 'styled-components';
 
 export const Container = styled.div`
-    background: #d33f49;
+    
+    background: ${props => props.theme.colors.background};
+    color: ${props => props.theme.colors.text};
     
     >nav{
         display: flex;
@@ -9,7 +11,6 @@ export const Container = styled.div`
         justify-content: space-between;
         height: 3rem;
         width: 100%;
-        color: #fff;
         padding: 2rem;
         .world-informations{
             gap: 20px;

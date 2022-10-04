@@ -7,6 +7,43 @@ export let characters: CharactersType[] = [
       age: '61 anos e cabeça de 19',
       role: "Bruxo",
       desc: "Um meio orc vindo da realeza de mor-oka e tem vivodo como um mercenario em busca de respostas após virar um bruxo",
+      armor: 16,
+      displacement: '9m/29ft',
+      initiative: 1,
+      surname: 'Yuchiga',
+      mainAtributes: [
+        {
+          name: 'Força',
+          counter: 2,
+          passive: 14
+        },
+        {
+          name: 'Destreza',
+          counter: 1,
+          passive: 11,
+        },
+        {
+          name: 'Constituição',
+          counter: 2,
+          passive: 15
+        },
+        {
+          name: 'Inteligência',
+          counter: 2,
+          passive: 14,
+        },
+        {
+          name: 'Sabedoria',
+          counter: -2,
+          passive: 7
+        },
+        {
+          name: 'Carisma',
+          counter: 4,
+          passive: 18
+        }
+
+      ],
       photo: {
         id: 1,
         url: 'https://cdn.discordapp.com/attachments/684162409937633291/871563174187520012/Takar_Token.png',
@@ -116,30 +153,5 @@ export let characters: CharactersType[] = [
         duration:  'Intantânea',
         type:  '1 ação',
        },]
-  },
-    {
-      Id: 2,
-      name: 'Nephy',
-      age: '???',
-      role: "Clérigo",
-      desc: "Um messias? Nephy é um clérigo de Tholvir, cresceu no templo cuidando dos doentes e viaja em busca de sua própria verdade.",
-      photo: {
-        id: 2,
-        url: 'https://cdn.discordapp.com/attachments/684162409937633291/871563188456538142/Token_Nephy.png',
-        desc: 'Uma múmiazona'
-      },
-      weapons: [
-          {
-          id: 1,
-          weaponName: "katana",
-          weaponType: "Espada Longa",
-          dice: "1d10 + 10"
-          },
-          {
-          id: 2,
-          weaponType: "Adaga",
-          dice: "1d1"
-          },
-      ]
   },
   ]
