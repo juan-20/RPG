@@ -44,6 +44,49 @@ export let characters: CharactersType[] = [
         }
 
       ],
+      skills: [{
+        name:  'Acrobacia',
+        adder: 1,
+        atribute: 'Destreza',
+        id: 1,
+        proeficiency: false
+      },
+      {
+        name:  'Arcanismo',
+        adder: 5,
+        atribute: 'Inteligência',
+        id: 2,
+        proeficiency: true
+      },
+      {
+        name:  'Atletismo',
+        adder: 5,
+        atribute: 'Força',
+        id: 3,
+        proeficiency: true
+      },
+      {
+        name:  'Atuação',
+        adder: 1,
+        atribute: 'Carisma',
+        id: 3,
+        proeficiency: false
+      },
+      {
+        name:  'Enganação',
+        adder: 1,
+        atribute: 'Carisma,',
+        id: 4,
+        proeficiency: false
+      },
+      {
+        name:  'Furtividade',
+        adder: 1,
+        atribute: 'Destreza',
+        id: 5,
+        proeficiency: false
+      },
+      ],
       photo: {
         id: 1,
         url: 'https://cdn.discordapp.com/attachments/1018246428369354844/1027235269361020969/takar_crop.png',

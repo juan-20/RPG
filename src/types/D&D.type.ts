@@ -9,6 +9,7 @@ export type CharactersType ={
       initiative: number
       displacement: string
       mainAtributes: MainAtributes[]
+      skills: skillsType[]
       photo: ImageType
       weapons: WeaponsType[]
       spells?: SpellsType[]
@@ -18,15 +19,6 @@ export type MainAtributes = {
   name: string
   counter: number
   passive: number
-}
-
-export type TakarType = {
-  name: string,
-  photo: ImageType[]
-  invocation: InvocationType[],
-  magic: SpellsType[],
-  skills: skillsType[]
-
 }
 
 export type WeaponsType={
@@ -65,11 +57,11 @@ export type SpellsType = {
   }
 
   export type skillsType ={
-    name: string,
-    baseValue: number;
-    adder: number
     id: number;
-    
+    name: string,
+    atribute: string;
+    adder: number;
+    proeficiency: boolean
   }
 
   export type ImageType ={

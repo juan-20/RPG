@@ -29,7 +29,7 @@ export const HeroInfo = styled.div`
         }
     }
 `;
-export const MainAtributes = styled.body`
+export const MainAtributes = styled.section`
    background: ${props => props.theme.colors.background};
    height: auto;
    display: grid;
@@ -76,3 +76,8 @@ export const MainAtributes = styled.body`
         }
     }
 `;
+
+export const SkillsAndLife = styled.section`
+
+`;
+

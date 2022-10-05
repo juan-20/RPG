@@ -1,14 +1,14 @@
 import Image from 'next/image'
 import { GetStaticPaths, InferGetStaticPropsType } from 'next'
-import { useRouter } from 'next/router';
 import React from 'react'
 import { CharactersType } from '../../types/D&D.type'
-import { Container, HeroInfo, MainAtributes } from './styles';
+import { Container, HeroInfo, MainAtributes, SkillsAndLife } from './styles';
+import CheckboxComponent from '../../components/interface/Checkbox';
+
 
 
 export default function Character({character}: InferGetStaticPropsType<typeof getStaticProps>) {
   const Character: CharactersType = character
-  console.log(Character)
   return (
     <Container>
       <HeroInfo id='t'>
@@ -37,12 +37,25 @@ export default function Character({character}: InferGetStaticPropsType<typeof ge
         <MainAtributes>
           {Character.mainAtributes.map((mainAtribute) => (
             <div className='atributes'>
-            <h1>{mainAtribute.name}</h1>
-            <h6>{mainAtribute.counter}</h6>
-            <p>Passiva: {mainAtribute.passive}</p>
+              <h1>{mainAtribute.name}</h1>
+              <h6>{mainAtribute.counter}</h6>
+              <p>Passiva: {mainAtribute.passive}</p>
             </div>
           ))}
         </MainAtributes>
+
+        <SkillsAndLife>
+          <div className="firstSkill">
+            {Character.skills.map((skill)=> (
+              <div key={skill.id}>
+                <CheckboxComponent notAllowed={true} activated={skill.proeficiency} key={skill.id} />
+                <p>{skill.adder}</p>
+                <p>{skill.name}</p>
+                <p>{skill.atribute}</p>
+              </div>
+            ))}
+          </div>
+        </SkillsAndLife>
 
       </Container>
   )
