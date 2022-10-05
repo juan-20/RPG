@@ -11,8 +11,10 @@ export default function Character({character}: InferGetStaticPropsType<typeof ge
   console.log(Character)
   return (
     <Container>
-      <HeroInfo>
-      <Image src={Character.photo.url} alt={Character.photo.desc}  width={180} height={180} />
+      <HeroInfo id='t'>
+      <div className="image">
+      <Image id='photo' src={Character.photo.url} alt={Character.photo.desc}  width={90} height={100} />
+        </div>
       <div className="text">
         <div className="">
         <p>{Character.displacement}</p>

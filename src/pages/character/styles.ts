@@ -12,6 +12,10 @@ export const HeroInfo = styled.div`
     display: flex;
     justify-content: left;
     align-items: center;
+    gap: 1rem;
+    .image{
+        padding: 1rem;
+    }
     .text{
         display: flex;
         gap: 1rem;

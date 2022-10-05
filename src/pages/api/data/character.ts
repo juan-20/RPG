@@ -46,7 +46,7 @@ export let characters: CharactersType[] = [
       ],
       photo: {
         id: 1,
-        url: 'https://cdn.discordapp.com/attachments/684162409937633291/871563174187520012/Takar_Token.png',
+        url: 'https://cdn.discordapp.com/attachments/1018246428369354844/1027235269361020969/takar_crop.png',
         desc: 'Meio Orc com uma arma nas costas'
       },
       weapons: [
