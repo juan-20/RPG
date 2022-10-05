@@ -5,7 +5,6 @@ import { ThemeProvider } from 'styled-components'
 import dark from '../../styles/theme/dark'
 import light from '../../styles/theme/light'
 import NavBar from '../components/layout/navBar'
-import { ChakraProvider } from '@chakra-ui/react'
 
 import ProgressBar from "@badrap/bar-of-progress";
 import Router from 'next/router'
@@ -32,11 +31,9 @@ function MyApp({ Component, pageProps }: AppProps) {
 
   return (
     <ThemeProvider theme={theme}>
-      <ChakraProvider>
       <GlobalStyles />
       <NavBar toggleTheme={toggleTheme} />
       <Component {...pageProps} />
-      </ChakraProvider>
     </ThemeProvider>
   )
 }

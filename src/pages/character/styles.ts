@@ -46,7 +46,7 @@ export const MainAtributes = styled.body`
     .atributes{
         width: 110px;
         height: 90px;
-        background: #ffae03;
+        background: ${props => props.theme.colors.primary};
         display: flex;
         flex-direction: column;
         justify-content: center;
@@ -54,18 +54,25 @@ export const MainAtributes = styled.body`
         border-radius: 5px;
         >h1{
             font-weight: bolder;
+            font-size: 1rem;
+            padding-bottom: 0.5rem;
         }
         >h6{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 1rem;
             width: 30px;
             height: 30px;
             border-radius: 0.4rem;
             display: flex;
             justify-content: center;
             font-weight: bold;
-            border: 3px solid #333;
+            border: 3px solid ${props => props.theme.colors.text};;
         }
         >p{
-
+            padding-top: 0.5rem;
+            font-size: 1rem;
         }
     }
 `;
