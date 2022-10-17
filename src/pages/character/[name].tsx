@@ -13,7 +13,7 @@ export default function Character({character}: InferGetStaticPropsType<typeof ge
     <Container>
       <HeroInfo id='t'>
       <div className="image">
-      <Image id='photo' src={Character.photo.url} alt={Character.photo.desc}  width={90} height={100} />
+      <Image id='photo' src={Character.photo.url} alt={Character.photo.desc}  width={100} height={100} />
         </div>
       <div className="text">
         <div className="">
@@ -36,7 +36,7 @@ export default function Character({character}: InferGetStaticPropsType<typeof ge
    
         <MainAtributes>
           {Character.mainAtributes.map((mainAtribute) => (
-            <div className='atributes'>
+            <div key={mainAtribute.name} className='atributes'>
               <h1>{mainAtribute.name}</h1>
               <h6>{mainAtribute.counter}</h6>
               <p>Passiva: {mainAtribute.passive}</p>

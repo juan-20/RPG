@@ -69,27 +69,27 @@ export let characters: CharactersType[] = [
         name:  'Atuação',
         adder: 1,
         atribute: 'Carisma',
-        id: 3,
+        id: 4,
         proeficiency: false
       },
       {
         name:  'Enganação',
         adder: 1,
         atribute: 'Carisma,',
-        id: 4,
+        id: 5,
         proeficiency: false
       },
       {
         name:  'Furtividade',
         adder: 1,
         atribute: 'Destreza',
-        id: 5,
+        id: 6,
         proeficiency: false
       },
       ],
       photo: {
         id: 1,
-        url: 'https://cdn.discordapp.com/attachments/1018246428369354844/1027235269361020969/takar_crop.png',
+        url: 'https://cdn.discordapp.com/attachments/1018246428369354844/1027622626186764308/takar..png',
         desc: 'Meio Orc com uma arma nas costas'
       },
       weapons: [

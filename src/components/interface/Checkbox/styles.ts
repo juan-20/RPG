@@ -7,8 +7,8 @@ export const StyledCheckbox = styled.section`
     width: 25px;
     height: 25px;
     background: #fff;
-    border-radius: 50%;
     cursor: pointer;
+    border-radius: 50%;
     border: 1px solid #000;
     `;
 export const StyledIndicator = styled.section`
@@ -16,6 +16,6 @@ export const StyledIndicator = styled.section`
     align-items: center;
     width: 16px;
     height: 16px;
-    background: #000;
     border-radius: 50%;
+    background: #000;
 `;

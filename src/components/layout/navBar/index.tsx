@@ -1,4 +1,4 @@
-import { useContext, useState } from 'react';
+import { useContext, useEffect, useState } from 'react';
 import { Container } from './styles';
 import Switch from 'react-switch'
 import { ThemeContext } from 'styled-components'
@@ -9,12 +9,22 @@ import React from 'react';
 interface props {
   toggleTheme(): void;
 }
+interface eType {
+  key: string
+}
 
 function NavBar({ toggleTheme }: props) {
-  const firstField = React.useRef()
+  
+  useEffect(() => {
+      document.addEventListener('keydown', detectKey, true)
+  }, [])
 
+  const detectKey = (e: eType) =>  {
+    console.log(e.key);
+  }
+  
+    
   const { colors, title } = useContext(ThemeContext);
-  const [onOpen, SetOnOpen] = useState('')
   const router = useRouter();
   const { name } = router.query;
   
