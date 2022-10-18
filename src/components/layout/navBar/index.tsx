@@ -5,6 +5,7 @@ import { ThemeContext } from 'styled-components'
 import Link from 'next/link';
 import { useRouter } from 'next/router';
 import React from 'react';
+import { Moon, MoonStars, Sun } from 'phosphor-react';
 
 interface props {
   toggleTheme(): void;
@@ -19,12 +20,22 @@ function NavBar({ toggleTheme }: props) {
       document.addEventListener('keydown', detectKey, true)
   }, [])
 
+  let setChecked= false;
+
   const detectKey = (e: eType) =>  {
+    if (e.key === 'Control'){
+      setChecked = true
+      console.log('eita bicho kkklkkkkkkk')
+      return
+    }
+    if (setChecked === true && e.key === 'f'){
+      console.log('eita bicho kk')
+    }
     console.log(e.key);
   }
   
     
-  const { colors, title } = useContext(ThemeContext);
+  const { title } = useContext(ThemeContext);
   const router = useRouter();
   const { name } = router.query;
   
@@ -44,15 +55,8 @@ function NavBar({ toggleTheme }: props) {
 
 
         <div className="characters">
- 
-        <Switch
-            onChange={toggleTheme}
-            checked={title === 'dark'}
-            checkedIcon={true}
-            uncheckedIcon={false}
-            offColor={colors.titleLight}
-            onColor={colors.titleDark}
-            />
+
+            {title === 'light' ? <Sun onClick={toggleTheme} size={32} /> : <Moon onClick={toggleTheme} size={32} />}
 
         </div>
       </nav>
