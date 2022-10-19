@@ -45,13 +45,16 @@ export default function Character({character}: InferGetStaticPropsType<typeof ge
         </MainAtributes>
 
         <SkillsAndLife>
-          <div className="firstSkill">
+          <div className="title">
+            <h1>Pericias</h1>
+          </div>
+          <div className="skills">
             {Character.skills.map((skill)=> (
-              <div key={skill.id}>
+              <div className='skill' key={skill.id}>
                 <CheckboxComponent notAllowed={true} activated={skill.proeficiency} key={skill.id} />
-                <p>{skill.adder}</p>
-                <p>{skill.name}</p>
-                <p>{skill.atribute}</p>
+                <p className='adder'>{skill.adder}</p>
+                <p className='name'>{skill.name}</p>
+                <p className='atribute'>{skill.atribute}</p>
               </div>
             ))}
           </div>

@@ -4,33 +4,15 @@ import { InputStyle } from './style'
 interface InputProps {
     placeholder?: string
     type: 'text' | 'email' 
-    onSubmit: (value: string) => void;
+    onSubmit: (value: string) => void
+    autofocus?: boolean
 }
-
-interface eType {
-  key: string
-}
-
 
 export default function Input(props: InputProps) {
   const [searchInput, setSearchInput] = useState('');
 
-  function search (){
-    // console.log(searchInput)
-    props.onSubmit(searchInput);
-  }
-
-  useEffect(() => {
-    document.addEventListener('keydown', detectKey, true)
-  }, [])
-  
-  const detectKey = (e: eType) =>  {
-    if (e.key === 'Enter'){
-      search()
-    }
-  }
   return (
-    <InputStyle type={props.type}
+    <InputStyle autoFocus={props.autofocus} type={props.type}
       value={searchInput}
       onChange={(e) => {
         setSearchInput(e.target.value);

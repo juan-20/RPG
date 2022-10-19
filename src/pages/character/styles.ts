@@ -10,9 +10,12 @@ export const Container = styled.div`
 `;
 export const HeroInfo = styled.div`
     display: flex;
-    justify-content: left;
+    justify-content: center;
     align-items: center;
     gap: 1rem;
+    @media only screen and (min-width: 1080px) {
+        justify-content: left;
+    }
     .image{
         padding: 1rem;
     }
@@ -78,6 +81,28 @@ export const MainAtributes = styled.section`
 `;
 
 export const SkillsAndLife = styled.section`
+    display: flex;
+    flex-direction: column;
+    background: #d33f49;
+    padding: 1rem;
+    border-radius: 3px;
+    margin-top: 1rem;
+    width: 60%;
+    align-items: center;
+    .skills{
+        display: flex;
+        flex-direction: column;
+        .skill{
+            display: flex;
+            gap: 1rem;
+            .adder{
+                width: 9px;
+            }
+            .name{
+                width: 91px;
+            }
+        }
+    }
 
 `;
 
