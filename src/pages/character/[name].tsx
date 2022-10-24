@@ -4,6 +4,8 @@ import React from 'react'
 import { CharactersType } from '../../types/D&D.type'
 import { Container, HeroInfo, MainAtributes, SkillsAndLife } from './styles';
 import CheckboxComponent from '../../components/interface/Checkbox';
+import Input from '../../components/interface/input/input';
+import Button from '../../components/interface/Button';
 
 
 
@@ -45,10 +47,10 @@ export default function Character({character}: InferGetStaticPropsType<typeof ge
         </MainAtributes>
 
         <SkillsAndLife>
+          <div className="skills">
           <div className="title">
             <h1>Pericias</h1>
           </div>
-          <div className="skills">
             {Character.skills.map((skill)=> (
               <div className='skill' key={skill.id}>
                 <CheckboxComponent notAllowed={true} activated={skill.proeficiency} key={skill.id} />
@@ -57,6 +59,15 @@ export default function Character({character}: InferGetStaticPropsType<typeof ge
                 <p className='atribute'>{skill.atribute}</p>
               </div>
             ))}
+          </div>
+          <div className="life">
+            <h1>Vida</h1>
+            <p>54</p>
+            <Input type='number' onSubmit={() => {}} />
+            <p>7d8 = 54</p>
+            <Button label='Descanso Longo' backgroundColor='red'/>
+            <Button label='Tomar dano' backgroundColor='green'/>
+            <Button label='Recuperar vida' backgroundColor='blue'/>
           </div>
         </SkillsAndLife>
 

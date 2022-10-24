@@ -82,16 +82,20 @@ export const MainAtributes = styled.section`
 
 export const SkillsAndLife = styled.section`
     display: flex;
-    flex-direction: column;
-    background: #d33f49;
-    padding: 1rem;
-    border-radius: 3px;
-    margin-top: 1rem;
-    width: 60%;
-    align-items: center;
+    padding-top: 1rem;
     .skills{
+        border: 1px solid #333;
         display: flex;
         flex-direction: column;
+        background: #d33f49;
+        padding: 1rem;
+        border-radius: 5px;
+        .title{
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 0.5rem;
+        }
         .skill{
             display: flex;
             gap: 1rem;

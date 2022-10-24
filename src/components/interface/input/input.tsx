@@ -3,7 +3,7 @@ import { InputStyle } from './style'
 
 interface InputProps {
     placeholder?: string
-    type: 'text' | 'email' 
+    type: 'text' | 'email' | 'number' 
     onSubmit: (value: string) => void
     autofocus?: boolean
 }

@@ -1,11 +1,19 @@
 import styled from "styled-components";
+import {darken} from 'polished'
 
-export const CustomButton = styled.button`
-    background: #01153e;
+interface ButtonProps{
+    backgroundColor: string
+  }
+  
+
+export const CustomButton = styled.button<ButtonProps>`
+    background: ${props => props.backgroundColor};
+    min-width: 150px;
+    padding: 0.7rem;
     color: #fff;
-    padding: 15px 40px 15px 40px;
+    cursor: pointer;
     border-radius: 4px;
     :hover{
-        background: #033eb5;
+        filter: brightness(150%);
     }
 `;
