@@ -39,7 +39,7 @@ export default function CharacterResume(props: CharacterResumeProps) {
            </div>
           </div>
       </div>
-            <Button label='Ver ficha' redirect={name}/>
+            <Button backgroundColor='blue' label='Ver ficha' redirect={name}/>
     </Container>
   )
 }

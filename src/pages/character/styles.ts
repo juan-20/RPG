@@ -87,7 +87,7 @@ export const SkillsAndLife = styled.section`
         border: 1px solid #333;
         display: flex;
         flex-direction: column;
-        background: #d33f49;
+        background: #2a3942;
         padding: 1rem;
         border-radius: 5px;
         .title{
