@@ -83,6 +83,7 @@ export const MainAtributes = styled.section`
 export const SkillsAndLife = styled.section`
     display: flex;
     padding-top: 1rem;
+    gap: 1rem;
     .skills{
         border: 1px solid #333;
         display: flex;
@@ -98,13 +99,34 @@ export const SkillsAndLife = styled.section`
         }
         .skill{
             display: flex;
-            gap: 1rem;
+            align-items: center;
+            gap: 0.5rem;
+            padding-top: 0.5rem;
             .adder{
-                width: 9px;
+                width: 18px;
             }
             .name{
-                width: 91px;
+                width: 105px;
+                display: flex;
+                word-break: break-all;
+                white-space: nowrap;
+                overflow: hidden;
+                text-overflow: ellipsis;
             }
+        }
+    }
+    .life{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 1rem;
+        >P{
+            font-size: 0.7rem;
+        }
+        .group-button{
+            display: flex;
+            flex-direction: column;
+            gap: 0.4rem;
         }
     }
 

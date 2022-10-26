@@ -86,6 +86,90 @@ export let characters: CharactersType[] = [
         id: 6,
         proeficiency: false
       },
+      {
+        name:  'História',
+        adder: 2,
+        atribute: 'Inteligência',
+        id: 7,
+        proeficiency: false
+      },
+      {
+        name:  'Intimidação',
+        adder: 7,
+        atribute: 'Carisma',
+        id: 8,
+        proeficiency: true
+      },
+      {
+        name:  'Intuição',
+        adder: -2,
+        atribute: 'Sabedoria',
+        id: 9,
+        proeficiency: false
+      },
+      {
+        name:  'Investigação',
+        adder: -2,
+        atribute: 'Sabedoria',
+        id: 10,
+        proeficiency: false
+      },
+      {
+        name:  'Lidar com Animais',
+        adder: -2,
+        atribute: 'Sabedoria',
+        id: 11,
+        proeficiency: false
+      },
+      {
+        name:  'Medicina',
+        adder: -2,
+        atribute: 'Sabedoria',
+        id: 12,
+        proeficiency: false
+      },
+      {
+        name:  'Natureza',
+        adder: 2,
+        atribute: 'Inteligência',
+        id: 13,
+        proeficiency: false
+      },
+      {
+        name:  'Percepção',
+        adder: -2,
+        atribute: 'Sabedoria',
+        id: 14,
+        proeficiency: false
+      },
+      {
+        name:  'Persuasão',
+        adder: 7,
+        atribute: 'Carisma',
+        id: 15,
+        proeficiency: true
+      },
+      {
+        name:  'Presdigitação',
+        adder: 1,
+        atribute: 'Destreza',
+        id: 16,
+        proeficiency: false
+      },
+      {
+        name:  'Religião',
+        adder: 2,
+        atribute: 'Inteligência',
+        id: 17,
+        proeficiency: false
+      },
+      {
+        name:  'Sobrevivência',
+        adder: -2,
+        atribute: 'Sabedoria',
+        id: 18,
+        proeficiency: false
+      },
       ],
       photo: {
         id: 1,

@@ -4,8 +4,8 @@ export const StyledCheckbox = styled.section`
     display: flex;
     justify-content: center;
     align-items: center;
-    width: 25px;
-    height: 25px;
+    width: 20px;
+    height: 20px;
     background: #fff;
     cursor: pointer;
     border-radius: 50%;
@@ -14,6 +14,7 @@ export const StyledCheckbox = styled.section`
 export const StyledIndicator = styled.section`
     display: flex;
     align-items: center;
+    justify-content: center;
     width: 16px;
     height: 16px;
     border-radius: 50%;

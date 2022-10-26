@@ -54,7 +54,8 @@ export default function Character({character}: InferGetStaticPropsType<typeof ge
             {Character.skills.map((skill)=> (
               <div className='skill' key={skill.id}>
                 <CheckboxComponent notAllowed={true} activated={skill.proeficiency} key={skill.id} />
-                <p className='adder'>{skill.adder}</p>
+                {skill.adder >= 1 ? <p className='adder'>+{skill.adder}</p>  : <p className='adder'>{skill.adder}</p>}
+                
                 <p className='name'>{skill.name}</p>
                 <p className='atribute'>{skill.atribute}</p>
               </div>
@@ -62,12 +63,14 @@ export default function Character({character}: InferGetStaticPropsType<typeof ge
           </div>
           <div className="life">
             <h1>Vida</h1>
-            <p>54</p>
-            <Input type='number' onSubmit={() => {}} />
+            <p>Adicionar/Remover vida:</p>
+            <Input type='number' placeholder='0-54' onSubmit={() => {}} />
             <p>7d8 = 54</p>
-            <Button label='Descanso Longo' backgroundColor='red'/>
-            <Button label='Tomar dano' backgroundColor='green'/>
-            <Button label='Recuperar vida' backgroundColor='blue'/>
+            <div className="group-button">
+              <Button label='Descanso Longo' backgroundColor='red'/>
+              <Button label='Tomar dano' backgroundColor='green'/>
+              <Button label='Recuperar vida' backgroundColor='blue'/>
+            </div>
           </div>
         </SkillsAndLife>
 
