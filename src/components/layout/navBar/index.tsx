@@ -1,11 +1,10 @@
 import { useContext, useEffect, useState } from 'react';
 import { Container } from './styles';
-import Switch from 'react-switch'
 import { ThemeContext } from 'styled-components'
 import Link from 'next/link';
 import { useRouter } from 'next/router';
 import React from 'react';
-import { Moon, MoonStars, Sun } from 'phosphor-react';
+import { Moon, Sun } from 'phosphor-react';
 import Input from '../../interface/input/input';
 
 interface props {
