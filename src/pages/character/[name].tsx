@@ -2,7 +2,7 @@ import Image from 'next/image'
 import { GetStaticPaths, InferGetStaticPropsType } from 'next'
 import React from 'react'
 import { CharactersType } from '../../types/D&D.type'
-import { Container, HeroInfo, MainAtributes, SkillsAndLife } from './styles';
+import { Container, HeroInfo, MainAtributes, SkillsAndLife } from '../../../styles/styles';
 import CheckboxComponent from '../../components/interface/Checkbox';
 import Input from '../../components/interface/input/input';
 import Button from '../../components/interface/Button';
