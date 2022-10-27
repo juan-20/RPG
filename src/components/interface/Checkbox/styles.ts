@@ -1,9 +1,6 @@
 import styled from "styled-components";
 
 export const StyledCheckbox = styled.section`
-    display: flex;
-    justify-content: center;
-    align-items: center;
     width: 20px;
     height: 20px;
     background: #fff;
@@ -15,8 +12,8 @@ export const StyledIndicator = styled.section`
     display: flex;
     align-items: center;
     justify-content: center;
-    width: 16px;
-    height: 16px;
+    width: 20px;
+    height: 20px;
     border-radius: 50%;
     background: #000;
 `;

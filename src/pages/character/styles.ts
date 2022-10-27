@@ -16,6 +16,14 @@ export const HeroInfo = styled.div`
     @media only screen and (min-width: 1080px) {
         justify-content: left;
     }
+    @media only screen and (max-width: 450px) {
+        display: flex;
+        flex-direction: column;
+        .text{
+            padding-bottom: 1rem;
+            font-size: 4vw;
+        }
+    }
     .image{
         padding: 1rem;
     }
@@ -47,7 +55,8 @@ export const MainAtributes = styled.section`
    }
 
     .atributes{
-        width: 110px;
+        max-width: 110px;
+        min-width: 10px;
         height: 90px;
         background: ${props => props.theme.colors.primary};
         display: flex;
@@ -77,20 +86,31 @@ export const MainAtributes = styled.section`
             padding-top: 0.5rem;
             font-size: 1rem;
         }
+        @media only screen and (max-width: 450px) {
+            >h1, >h6, >p{
+            font-size: 4vw;
+            }
+        }
     }
 `;
 
 export const SkillsAndLife = styled.section`
-    display: flex;
+    display: grid;
+	grid-template-columns: 1fr 1fr;
+	grid-gap: 1rem;
     padding-top: 1rem;
-    gap: 1rem;
-    .skills{
-        border: 1px solid #333;
+    margin: auto;
+    @media only screen and (max-width: 450px) {
         display: flex;
         flex-direction: column;
-        background: #2a3942;
+    }
+    .skills{
+        display: flex;
+        flex-direction: column;
+        background: ${props => props.theme.colors.primary};;
         padding: 1rem;
         border-radius: 5px;
+
         .title{
             display: flex;
             align-items: center;
@@ -103,10 +123,12 @@ export const SkillsAndLife = styled.section`
             gap: 0.5rem;
             padding-top: 0.5rem;
             .adder{
-                width: 18px;
+                max-width: 18px;
+                min-width: 18px;
             }
             .name{
-                width: 105px;
+                max-width: 105px;
+                min-width: 15px;
                 display: flex;
                 word-break: break-all;
                 white-space: nowrap;
