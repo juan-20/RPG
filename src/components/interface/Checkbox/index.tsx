@@ -1,13 +1,11 @@
+import { CircleWavy, CircleWavyCheck } from 'phosphor-react';
 import React from 'react'
-import { StyledCheckbox, StyledIndicator } from './styles';
-
-
-export const Checkbox = StyledCheckbox;
-export const CheckboxIndicator = StyledIndicator;
+import { Container } from './styles';
 
 export default function CheckboxComponent(props: {activated?: boolean, notAllowed?: boolean}) {
     
     const HandleClick = () => {
+      console.log(props.notAllowed);
         if (props.notAllowed) return
         if (checked){
           setChecked(false)
@@ -16,10 +14,18 @@ export default function CheckboxComponent(props: {activated?: boolean, notAllowe
         }
       }
 
+      let cursorType = ''
+      if(props.notAllowed === true){
+        cursorType = 'not-allowed'
+      }else{
+        cursorType = 'pointer'
+      }
+
   const [checked, setChecked] = React.useState(props.activated);
   return (
-    <Checkbox onClick={HandleClick}>
-      {checked === true && <CheckboxIndicator/>}
-      </Checkbox>
+    <Container isAllowed={cursorType}>
+      {checked === true && <CircleWavyCheck onClick={HandleClick} size={20} />}
+      {checked === false && <CircleWavy onClick={HandleClick} size={20} />}
+    </Container>
   )
 }

@@ -79,7 +79,7 @@ export default function Character({character}: InferGetStaticPropsType<typeof ge
 }
 
 type routes ={
-  params: {
+  params:{
     name: string
   }
 }
