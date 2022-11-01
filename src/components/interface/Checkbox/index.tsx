@@ -24,8 +24,8 @@ export default function CheckboxComponent(props: {activated?: boolean, notAllowe
   const [checked, setChecked] = React.useState(props.activated);
   return (
     <Container isAllowed={cursorType}>
-      {checked === true && <CircleWavyCheck onClick={HandleClick} size={20} />}
-      {checked === false && <CircleWavy onClick={HandleClick} size={20} />}
+      {checked === true && <CircleWavyCheck weight="fill" onClick={HandleClick} size={20} />}
+      {checked === false && <CircleWavy weight="fill" onClick={HandleClick} size={20} />}
     </Container>
   )
 }

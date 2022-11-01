@@ -67,9 +67,9 @@ function NavBar({ toggleTheme }: props) {
         <div className="characters">
 
             {title === 'light' ? 
-            <Sun aria-selected="true" aria-controls="change-theme" onClick={toggleTheme} size={32} /> 
+            <Sun role="button" onClick={toggleTheme} size={32} /> 
             :
-            <Moon aria-selected="true" aria-controls="change-theme" onClick={toggleTheme} size={32} />}
+            <Moon role="button" onClick={toggleTheme} size={32} />}
 
         </div>
       </nav>

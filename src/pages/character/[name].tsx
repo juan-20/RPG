@@ -35,7 +35,7 @@ export default function Character({character}: InferGetStaticPropsType<typeof ge
         </Head>
       <HeroInfo id='t'>
           <div className="image">
-            <Image id='photo' src={Character.photo.url} alt={Character.photo.desc} width={100} height={100} />
+            <Image id='photo' src={Character.photo.url} alt={Character.photo.desc} width={200} height={200} />
           </div>
           <div className="text">
             <div className="">

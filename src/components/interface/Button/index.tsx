@@ -28,8 +28,8 @@ export default function Button(props : ButtonProps) {
 
   return (
     <CustomButton size={widthSize} backgroundColor={bg}>
-        <Script src="https://unpkg.com/phosphor-icons"></Script>
-        {icon ? <i className={icon}></i> : null}
+       
+        {icon ? (  <><Script src="https://unpkg.com/phosphor-icons"></Script><i className={icon}></i></> ) : null}
         {label}
       </CustomButton>
   )
