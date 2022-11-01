@@ -5,23 +5,30 @@ import { CustomButton } from './style'
 
 interface ButtonProps{
   label: string,
-  redirect?: string
-  backgroundColor: 'red'| 'green' | 'blue'
+  backgroundColor: 'red'| 'green' | 'blue' | 'yellow' | 'brown'
+  icon?: string,
+  size: 'lg' | 'base' | 'sm'
 }
 
 export default function Button(props : ButtonProps) {
-  const {label, redirect, backgroundColor} = props
+  const {label, backgroundColor, icon, size} = props
 
   let bg = ''
   if(backgroundColor === 'red') bg = '#d33f49'
   if(backgroundColor === 'blue') bg = '#5762d5'
   if(backgroundColor === 'green') bg = '#388659'
+  if(backgroundColor === 'yellow') bg = '#D19C1D'
+  if(backgroundColor === 'brown') bg = '##322214'
+
+  let widthSize = ''
+  if (size === 'base') widthSize = '150px'
+  if (size === 'lg') widthSize = '300px'
+  if (size === 'sm') widthSize = '50px'
 
   return (
-      <Link href={'/character/' + redirect}>
-      <CustomButton backgroundColor={bg}>
+      <CustomButton size={widthSize} backgroundColor={bg}>
+        {icon ? <i className={icon}></i> : null}
         {label}
       </CustomButton>
-      </Link>
   )
 }

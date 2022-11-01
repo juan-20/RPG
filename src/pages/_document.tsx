@@ -5,6 +5,7 @@ export default class MyDocument extends Document {
         return (
             <Html lang="pt">
                 <Head>
+                    <script src="https://unpkg.com/phosphor-icons"></script>
                     <link rel="shortcut icon" href="../../assets/favicon.png" type="image/x-icon" />
                     <title>Home</title>
                     <link rel="preconnect" href="https://fonts.googleapis.com"/>

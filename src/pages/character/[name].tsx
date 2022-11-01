@@ -1,16 +1,24 @@
 import Image from 'next/image'
 import { GetStaticPaths, InferGetStaticPropsType } from 'next'
-import React from 'react'
+import React, { useState } from 'react'
 import { CharactersType } from '../../types/D&D.type'
 import { Container, HeroInfo, MainAtributes, SkillsAndLife } from '../../../styles/styles';
 import CheckboxComponent from '../../components/interface/Checkbox';
 import Input from '../../components/interface/input/input';
 import Button from '../../components/interface/Button';
+import Invertory from '../../components/layout/PopUp';
+import { X } from 'phosphor-react';
+import Popup from '../../components/layout/PopUp';
 
 
 
 export default function Character({character}: InferGetStaticPropsType<typeof getStaticProps>) {
   const Character: CharactersType = character
+
+  
+  const [gunsPopUp, setGunsPopUp] = useState(false);
+  const [inventoryPopUp, setinventoryPopUp] = useState(false);
+  const [magicPopUp, setMagicPopUp] = useState(false);
   return (
     <Container>
       <HeroInfo id='t'>
@@ -33,6 +41,27 @@ export default function Character({character}: InferGetStaticPropsType<typeof ge
         <p>Iniciativa</p>
         </div>
       </div>
+
+      <div className="button-group">
+        <div onClick={() => {setGunsPopUp(true)}} className="guns">
+        <Button size='sm' backgroundColor='blue' label='Armas' icon='ph-sword' />
+        </div>
+
+        <div onClick={() => {setinventoryPopUp(true)}}  
+             className="inventory">
+          <Button size='sm' backgroundColor='green' label='Inventario' icon='ph-backpack' />
+        </div>
+
+        <div  onClick={() => {setMagicPopUp(true)}}
+              className="magic">
+        <Button size='sm' backgroundColor='yellow' label='Magias' icon='ph-magic-wand' />
+        </div>
+
+          <Popup target='Guns' title='Armas' open={gunsPopUp} onClose={() => setGunsPopUp(false)}/> 
+          <Popup target='Inventory' title='Inventário' open={inventoryPopUp} onClose={() => setinventoryPopUp(false)}/> 
+          <Popup target='Magic' title='Magia' open={magicPopUp} onClose={() => setMagicPopUp(false)}/> 
+      </div>
+
       </HeroInfo>
 
    
@@ -57,7 +86,7 @@ export default function Character({character}: InferGetStaticPropsType<typeof ge
                 {skill.adder >= 1 ? <p className='adder'>+{skill.adder}</p>  : <p className='adder'>{skill.adder}</p>}
                 
                 <p className='name'>{skill.name}</p>
-                <p className='atribute'>{skill.atribute}</p>
+                <p className='atribute'>({skill.atribute})</p>
               </div>
             ))}
           </div>
@@ -67,9 +96,9 @@ export default function Character({character}: InferGetStaticPropsType<typeof ge
             <Input type='number' placeholder='0-54' onSubmit={() => {}} />
             <p>7d8 = 54</p>
             <div className="group-button">
-              <Button label='Descanso Longo' backgroundColor='red'/>
-              <Button label='Tomar dano' backgroundColor='green'/>
-              <Button label='Recuperar vida' backgroundColor='blue'/>
+              <Button size='base' label='Descanso Longo' backgroundColor='red'/>
+              <Button size='base' label='Tomar dano' backgroundColor='green'/>
+              <Button size='base' label='Recuperar vida' backgroundColor='blue'/>
             </div>
           </div>
         </SkillsAndLife>

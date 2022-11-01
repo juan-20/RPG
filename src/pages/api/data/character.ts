@@ -47,126 +47,126 @@ export let characters: CharactersType[] = [
       skills: [{
         name:  'Acrobacia',
         adder: 1,
-        atribute: 'Destreza',
+        atribute: 'DES',
         id: 1,
         proeficiency: false
       },
       {
         name:  'Arcanismo',
         adder: 5,
-        atribute: 'Inteligência',
+        atribute: 'INT',
         id: 2,
         proeficiency: true
       },
       {
         name:  'Atletismo',
         adder: 5,
-        atribute: 'Força',
+        atribute: 'FOR',
         id: 3,
         proeficiency: true
       },
       {
         name:  'Atuação',
         adder: 1,
-        atribute: 'Carisma',
+        atribute: 'CAR',
         id: 4,
         proeficiency: false
       },
       {
         name:  'Enganação',
         adder: 1,
-        atribute: 'Carisma,',
+        atribute: 'CAR',
         id: 5,
         proeficiency: false
       },
       {
         name:  'Furtividade',
         adder: 1,
-        atribute: 'Destreza',
+        atribute: 'DES',
         id: 6,
         proeficiency: false
       },
       {
         name:  'História',
         adder: 2,
-        atribute: 'Inteligência',
+        atribute: 'INT',
         id: 7,
         proeficiency: false
       },
       {
         name:  'Intimidação',
         adder: 7,
-        atribute: 'Carisma',
+        atribute: 'CAR',
         id: 8,
         proeficiency: true
       },
       {
         name:  'Intuição',
         adder: -2,
-        atribute: 'Sabedoria',
+        atribute: 'SAB',
         id: 9,
         proeficiency: false
       },
       {
         name:  'Investigação',
         adder: -2,
-        atribute: 'Sabedoria',
+        atribute: 'SAB',
         id: 10,
         proeficiency: false
       },
       {
         name:  'Lidar com Animais',
         adder: -2,
-        atribute: 'Sabedoria',
+        atribute: 'SAB',
         id: 11,
         proeficiency: false
       },
       {
         name:  'Medicina',
         adder: -2,
-        atribute: 'Sabedoria',
+        atribute: 'SAB',
         id: 12,
         proeficiency: false
       },
       {
         name:  'Natureza',
         adder: 2,
-        atribute: 'Inteligência',
+        atribute: 'INT',
         id: 13,
         proeficiency: false
       },
       {
         name:  'Percepção',
         adder: -2,
-        atribute: 'Sabedoria',
+        atribute: 'SAB',
         id: 14,
         proeficiency: false
       },
       {
         name:  'Persuasão',
         adder: 7,
-        atribute: 'Carisma',
+        atribute: 'CAR',
         id: 15,
         proeficiency: true
       },
       {
         name:  'Presdigitação',
         adder: 1,
-        atribute: 'Destreza',
+        atribute: 'DES',
         id: 16,
         proeficiency: false
       },
       {
         name:  'Religião',
         adder: 2,
-        atribute: 'Inteligência',
+        atribute: 'INT',
         id: 17,
         proeficiency: false
       },
       {
         name:  'Sobrevivência',
         adder: -2,
-        atribute: 'Sabedoria',
+        atribute: 'SAB',
         id: 18,
         proeficiency: false
       },
@@ -220,7 +220,7 @@ export let characters: CharactersType[] = [
        { 
         name: 'Medo',
         id: 3,
-        description: 'Você projeta uma imagem fantasmagórica dos piores medos de uma criatura. Cada criatura num cone de 9 metros, deve ser bem sucedida num teste de resistência de Sabedoria ou largara o que quer que esteja segurando e ficará amedrontada pela duração. Enquanto estiver amedrontada por essa magia, uma criatura deve usar a ação de Disparada e fugir de você pela rota mais curta disponível em cada um dos turnos dela, a não ser que não haja lugar para onde se mover. Se a criatura terminar o turno dela em um local onde ela não tenha linha de visão sua, a criatura pode realizar um teste de resistência de Sabedoria. Se obtiver sucesso, a magia termina naquela criatura.',
+        description: 'Você projeta uma imagem fantasmagórica dos piores medos de uma criatura. Cada criatura num cone de 9 metros, deve ser bem sucedida num teste de resistência de SAB ou largara o que quer que esteja segurando e ficará amedrontada pela duração. Enquanto estiver amedrontada por essa magia, uma criatura deve usar a ação de Disparada e fugir de você pela rota mais curta disponível em cada um dos turnos dela, a não ser que não haja lugar para onde se mover. Se a criatura terminar o turno dela em um local onde ela não tenha linha de visão sua, a criatura pode realizar um teste de resistência de SAB. Se obtiver sucesso, a magia termina naquela criatura.',
         distance:  'Pessoal',
         
         duration:  'até 1 minuto',

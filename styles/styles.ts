@@ -10,6 +10,7 @@ export const Container = styled.div`
 `;
 export const HeroInfo = styled.div`
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
     gap: 1rem;
@@ -20,7 +21,6 @@ export const HeroInfo = styled.div`
         display: flex;
         flex-direction: column;
         .text{
-            padding-bottom: 1rem;
             font-size: 4vw;
         }
     }
@@ -39,6 +39,11 @@ export const HeroInfo = styled.div`
             align-items: center;
         }
     }
+    .button-group{
+        display: flex;
+        padding: 1rem;
+        gap: 1rem;
+    }
 `;
 export const MainAtributes = styled.section`
    background: ${props => props.theme.colors.background};
@@ -55,7 +60,7 @@ export const MainAtributes = styled.section`
    }
 
     .atributes{
-        max-width: 110px;
+        max-width: 138px;
         min-width: 10px;
         height: 90px;
         background: ${props => props.theme.colors.primary};
@@ -67,7 +72,8 @@ export const MainAtributes = styled.section`
         >h1{
             font-weight: bolder;
             font-size: 1rem;
-            padding-bottom: 0.5rem;
+            padding: 0.5rem 1rem 0.5rem 1rem;
+
         }
         >h6{
             display: flex;
@@ -80,7 +86,7 @@ export const MainAtributes = styled.section`
             display: flex;
             justify-content: center;
             font-weight: bold;
-            border: 3px solid ${props => props.theme.colors.text};;
+            border: 3px solid ${props => props.theme.colors.text};
         }
         >p{
             padding-top: 0.5rem;
@@ -122,18 +128,17 @@ export const SkillsAndLife = styled.section`
             align-items: center;
             gap: 0.5rem;
             padding-top: 0.5rem;
+            min-height: 1rem;
+            max-height: 2rem;
             .adder{
                 max-width: 18px;
                 min-width: 18px;
             }
             .name{
-                max-width: 105px;
-                min-width: 15px;
+                width: 120px;
                 display: flex;
-                word-break: break-all;
-                white-space: nowrap;
-                overflow: hidden;
-                text-overflow: ellipsis;
+                word-break: normal;
+
             }
         }
     }
@@ -149,6 +154,18 @@ export const SkillsAndLife = styled.section`
             display: flex;
             flex-direction: column;
             gap: 0.4rem;
+            .popup-close{
+                z-index: 99;
+                color: #fff;
+                position: fixed;
+                width: 100%;
+                height: 100%;
+                top: 50px;
+                left: 0;
+                right: 0;
+                bottom: 0;
+                margin: auto;
+            }
         }
     }
 
