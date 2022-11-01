@@ -18,7 +18,7 @@ function NavBar({ toggleTheme }: props) {
   
   useEffect(() => {
       document.addEventListener('keydown', detectKey, true)
-  }, [])
+  })
 
   let setCommand= false;
   const [input, setInput] = useState(false);
@@ -48,7 +48,7 @@ function NavBar({ toggleTheme }: props) {
     <Container>
       <nav>
         <div className="world-informations">
-          <Link href="/">
+          <Link href="/" passHref>
             <h1>🎲</h1>
           </Link>
         </div>

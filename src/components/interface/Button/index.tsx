@@ -1,5 +1,6 @@
 import Link from 'next/link'
 import { useRouter } from 'next/router'
+import Script from 'next/script'
 import React from 'react'
 import { CustomButton } from './style'
 
@@ -26,7 +27,8 @@ export default function Button(props : ButtonProps) {
   if (size === 'sm') widthSize = '50px'
 
   return (
-      <CustomButton size={widthSize} backgroundColor={bg}>
+    <CustomButton size={widthSize} backgroundColor={bg}>
+        <Script src="https://unpkg.com/phosphor-icons"></Script>
         {icon ? <i className={icon}></i> : null}
         {label}
       </CustomButton>
