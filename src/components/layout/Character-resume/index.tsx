@@ -39,7 +39,9 @@ export default function CharacterResume(props: CharacterResumeProps) {
            </div>
           </div>
       </div>
-            <Button size='base' backgroundColor='blue' label='Ver ficha' redirect={name}/>
+          <Link href={`/character/${name}`}>
+            <Button size='base' backgroundColor='blue' label='Ver ficha'/>
+          </Link>
     </Container>
   )
 }
