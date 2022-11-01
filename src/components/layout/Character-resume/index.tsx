@@ -39,8 +39,10 @@ export default function CharacterResume(props: CharacterResumeProps) {
            </div>
           </div>
       </div>
-          <Link href={`/character/${name}`}>
-            <Button size='base' backgroundColor='blue' label='Ver ficha'/>
+          <Link href={`character/${name}`} passHref>
+            <div className="btn">
+              <Button size='base' backgroundColor='blue' label='Ver ficha'/>
+            </div>
           </Link>
     </Container>
   )
