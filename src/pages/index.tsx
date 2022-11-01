@@ -12,6 +12,7 @@
 //  }
 
 import type { InferGetStaticPropsType } from 'next'
+import Head from 'next/head'
 import CharacterResume from '../components/layout/Character-resume'
 import { Body } from '../components/layout/Character-resume/styles'
 import Landing from '../components/layout/Landing'
@@ -26,6 +27,14 @@ export default function Home() {
     <>
     {characters.length > 0 ?
     <>
+          <Head>
+            <title>RPG</title>
+            <meta name='description' content='A ficha dos seus personagens preferidos' />
+            <meta property='og:title' content='RPG' />
+            <meta property='og:description' content='A ficha dos seus personagens preferidos' />
+            <meta property='og:type' content='website' />
+            <meta property="og:image" content='https://pbs.twimg.com/media/FgeddoVWAAEJDUv?format=png&name=360x360' />
+        </Head>
     <Landing />
     <Body>
           {characters.map((character: CharactersType) => (

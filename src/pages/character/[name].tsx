@@ -9,6 +9,7 @@ import Button from '../../components/interface/Button';
 import Invertory from '../../components/layout/PopUp';
 import { X } from 'phosphor-react';
 import Popup from '../../components/layout/PopUp';
+import Head from 'next/head';
 
 
 
@@ -24,6 +25,14 @@ export default function Character({character}: InferGetStaticPropsType<typeof ge
     <Container>
       {character ? (
       <>
+          <Head>
+            <title>{Character.name}</title>
+            <meta name='description' content={Character.desc} />
+            <meta property='og:title' content={Character.name} />
+            <meta property='og:description' content={Character.desc} />
+            <meta property='og:type' content='website' />
+            <meta property="og:image" content={Character.photo.url} />
+        </Head>
       <HeroInfo id='t'>
           <div className="image">
             <Image id='photo' src={Character.photo.url} alt={Character.photo.desc} width={100} height={100} />
