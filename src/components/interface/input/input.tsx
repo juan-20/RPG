@@ -3,21 +3,30 @@ import { InputStyle } from './style'
 
 interface InputProps {
     placeholder?: string
-    type: 'text' | 'email' | 'number' 
-    onSubmit: (value: string) => void
-    autofocus?: boolean
+    type: 'text' | 'email' | 'number'
+    autofocus?: boolean,
+    size: 'sm' | 'lg'
+    value: string | number
+    handleOnChange: any
 }
+
 
 export default function Input(props: InputProps) {
   const [searchInput, setSearchInput] = useState('');
+  let {size, value, handleOnChange} = props
+
+  let widthSize = ''
+  if (size === 'lg') widthSize = '100px'
+  if (size === 'sm') widthSize = '50px'
 
   return (
-    <InputStyle autoFocus={props.autofocus} type={props.type}
+    <InputStyle 
+      size={widthSize} 
+      type={props.type}
+      placeholder={props.placeholder} 
+      autoFocus={props.autofocus} 
       value={searchInput}
-      onChange={(e) => {
-        setSearchInput(e.target.value);
-        props.onSubmit(e.target.value);
-      } }
-      placeholder={props.placeholder} />
+      onChange={handleOnChange}
+    />
   )
 }

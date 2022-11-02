@@ -19,7 +19,7 @@ export default function Button(props : ButtonProps) {
   if(backgroundColor === 'blue') bg = '#5762d5'
   if(backgroundColor === 'green') bg = '#388659'
   if(backgroundColor === 'yellow') bg = '#D19C1D'
-  if(backgroundColor === 'brown') bg = '##322214'
+  if(backgroundColor === 'brown') bg = '#322214'
 
   let widthSize = ''
   if (size === 'base') widthSize = '150px'
@@ -28,7 +28,6 @@ export default function Button(props : ButtonProps) {
 
   return (
     <CustomButton size={widthSize} backgroundColor={bg}>
-       
         {icon ? (  <><Script src="https://unpkg.com/phosphor-icons"></Script><i className={icon}></i></> ) : null}
         {label}
       </CustomButton>

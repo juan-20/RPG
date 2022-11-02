@@ -29,9 +29,6 @@ export const Container = styled.div`
             >svg{
                 cursor: pointer;
             }
-            :focus{
-                border: 1px solid #333;
-            }
         }
     }
 `;

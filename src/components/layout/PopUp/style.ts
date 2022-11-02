@@ -27,9 +27,11 @@ export const Container = styled.div`
         justify-content: space-between;
         h1{
             font-size: 25px;
+            padding-left: 1rem;
         }
         &-close{
-            border: 1px solid ${props => props.theme.colors.text};;
+            border: 1px solid ${props => props.theme.colors.text};
+            cursor: pointer;
         }
     }
     }

@@ -113,7 +113,7 @@ export const SkillsAndLife = styled.section`
     .skills{
         display: flex;
         flex-direction: column;
-        background: ${props => props.theme.colors.primary};;
+        background: ${props => props.theme.colors.primary};
         padding: 1rem;
         border-radius: 5px;
 
@@ -142,32 +142,7 @@ export const SkillsAndLife = styled.section`
             }
         }
     }
-    .life{
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        gap: 1rem;
-        >P{
-            font-size: 0.7rem;
-        }
-        .group-button{
-            display: flex;
-            flex-direction: column;
-            gap: 0.4rem;
-            .popup-close{
-                z-index: 99;
-                color: #fff;
-                position: fixed;
-                width: 100%;
-                height: 100%;
-                top: 50px;
-                left: 0;
-                right: 0;
-                bottom: 0;
-                margin: auto;
-            }
-        }
-    }
+  
 
 `;
 

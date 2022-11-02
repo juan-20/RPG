@@ -1,6 +1,8 @@
 export type CharactersType ={
       Id: number,
-      name: string
+      name: string,
+      life: number,
+      lifeDice: string,
       surname?: string
       role: string
       desc: string

@@ -10,6 +10,7 @@ import Invertory from '../../components/layout/PopUp';
 import { X } from 'phosphor-react';
 import Popup from '../../components/layout/PopUp';
 import Head from 'next/head';
+import Life from '../../components/layout/Life/life';
 
 
 
@@ -32,8 +33,8 @@ export default function Character({character}: InferGetStaticPropsType<typeof ge
             <meta property='og:description' content={Character.desc} />
             <meta property='og:type' content='website' />
             <meta property="og:image" content={Character.photo.url} />
-        </Head>
-      <HeroInfo id='t'>
+          </Head>
+      <HeroInfo>
           <div className="image">
             <Image id='photo' src={Character.photo.url} alt={Character.photo.desc} width={200} height={200} />
           </div>
@@ -74,7 +75,9 @@ export default function Character({character}: InferGetStaticPropsType<typeof ge
             <Popup target='Magic' title='Magia' open={magicPopUp} onClose={() => setMagicPopUp(false)} />
           </div>
 
-      </HeroInfo><MainAtributes>
+      </HeroInfo>
+      
+      <MainAtributes>
             {Character.mainAtributes.map((mainAtribute) => (
               <div key={mainAtribute.name} className='atributes'>
                 <h1>{mainAtribute.name}</h1>
@@ -82,7 +85,9 @@ export default function Character({character}: InferGetStaticPropsType<typeof ge
                 <p>Passiva: {mainAtribute.passive}</p>
               </div>
             ))}
-      </MainAtributes><SkillsAndLife>
+      </MainAtributes>
+      
+      <SkillsAndLife>
         <div className="skills">
           <div className="title">
             <h1>Pericias</h1>
@@ -97,18 +102,12 @@ export default function Character({character}: InferGetStaticPropsType<typeof ge
             </div>
           ))}
         </div>
-        <div className="life">
-          <h1>Vida</h1>
-          <p>Adicionar/Remover vida:</p>
-          <Input type='number' placeholder='0-54' onSubmit={() => { } } />
-          <p>7d8 = 54</p>
-          <div className="group-button">
-            <Button size='base' label='Descanso Longo' backgroundColor='red' />
-            <Button size='base' label='Tomar dano' backgroundColor='green' />
-            <Button size='base' label='Recuperar vida' backgroundColor='blue' />
-          </div>
-        </div>
-      </SkillsAndLife></>
+
+        <Life totalLife={Character.life} lifeDice={Character.lifeDice} />
+       
+      </SkillsAndLife>
+      
+      </>
        )  : <p>Erro</p>}
     </Container>
   )

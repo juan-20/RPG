@@ -6,6 +6,8 @@ export let characters: CharactersType[] = [
       name: 'Takar',
       age: '61 anos e cabeça de 19',
       role: "Bruxo",
+      life: 54,
+      lifeDice: '7d8',
       desc: "Um meio orc vindo da realeza de mor-oka e tem vivodo como um mercenario em busca de respostas após virar um bruxo",
       armor: 16,
       displacement: '9m/29ft',
