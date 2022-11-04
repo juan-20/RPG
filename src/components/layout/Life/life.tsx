@@ -28,7 +28,12 @@ export default function Life(props: LifeType) {
         <div className="minus">
          <MinusCircle onClick={()=> {setChangedLife(changedLife - 1)}} size={32} weight="fill" />
         </div>
-         <Input value={changedLife} size='sm' type='number' placeholder={`0-${totalLife}`} handleOnChange={() => {    }} />
+        <input 
+        type="text"
+        value={changedLife}
+        onChange={(e) => setChangedLife(e.target.value)}
+        placeholder='0-54'
+        />
         <div className="plus">
          <PlusCircle onClick={()=> {setChangedLife(changedLife + 1)}} size={32} weight="fill" />
         </div>{changedLife}

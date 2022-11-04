@@ -12,6 +12,7 @@ export const Container = styled.div`
         height: 3rem;
         width: 100%;
         padding: 2rem;
+        border-bottom: 1px solid ${props => props.theme.colors.text};;
         .world-informations{
             gap: 20px;
             display: flex;

@@ -103,9 +103,10 @@ export const MainAtributes = styled.section`
 export const SkillsAndLife = styled.section`
     display: grid;
 	grid-template-columns: 1fr 1fr;
+    justify-content: center;
+    align-items: center;
 	grid-gap: 1rem;
     padding-top: 1rem;
-    margin: auto;
     @media only screen and (max-width: 450px) {
         display: flex;
         flex-direction: column;
@@ -113,6 +114,8 @@ export const SkillsAndLife = styled.section`
     .skills{
         display: flex;
         flex-direction: column;
+        justify-content: center;
+        align-items: center;
         background: ${props => props.theme.colors.primary};
         padding: 1rem;
         border-radius: 5px;

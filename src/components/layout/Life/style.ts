@@ -8,6 +8,7 @@ export const Container = styled.div`
         border-radius: 5px;
         background: ${props => props.theme.colors.primary};
         padding: 1rem;
+        width: 80%;
         position: relative;
         h1{
             padding: 0.5rem;
@@ -36,6 +37,15 @@ export const Container = styled.div`
             gap: 0.7rem;
             justify-content: center;
             align-items: center;
+            input{
+                width: 50px;
+                background: #fff;
+                color: #8696a0;
+                border: 1px solid #000;
+                border-radius: 4px;
+                height: 30px;
+                padding: 4px;
+            }
         }
         .group-button{
             display: flex;
