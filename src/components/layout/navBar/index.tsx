@@ -55,9 +55,7 @@ function NavBar({ toggleTheme }: props) {
 
         <div className="center">
           {input ? 
-          <Input autofocus={true} onSubmit={(value: string) => {
-            setSearchInput(value)
-            } } type={'text'} placeholder='Pesquisa' />
+          <input autoFocus type='text' placeholder='Pesquisa' />
           :
           <h1>{name}</h1>
           }
