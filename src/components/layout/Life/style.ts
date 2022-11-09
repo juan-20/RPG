@@ -18,7 +18,7 @@ export const Container = styled.div`
         }
         .life{
             position: absolute;
-            top: 35%;
+            top: 31%;
             left: 50%;
             transform: translate(-50%, -50%);
         }

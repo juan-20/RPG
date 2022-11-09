@@ -11,6 +11,7 @@ import { X } from 'phosphor-react';
 import Popup from '../../components/layout/PopUp';
 import Head from 'next/head';
 import Life from '../../components/layout/Life/life';
+import Atacks from '../../components/layout/Atacks/Atacks';
 
 
 
@@ -105,7 +106,19 @@ export default function Character({character}: InferGetStaticPropsType<typeof ge
 
         <Life totalLife={Character.life} lifeDice={Character.lifeDice} />
        
+        {Character.spells.map((attack) => (
+        <Atacks 
+        title={attack.name} 
+        duration={attack.duration} 
+        key={attack.id} 
+        distance={attack.distance}
+        type={attack.type}
+        description={attack.description}
+        schoolOfMagic={attack?.schoolOfMagic}
+        />
+        ))}
       </SkillsAndLife>
+
       
       </>
        )  : <p>Erro</p>}

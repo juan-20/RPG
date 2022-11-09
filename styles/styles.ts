@@ -112,6 +112,7 @@ export const SkillsAndLife = styled.section`
         flex-direction: column;
     }
     .skills{
+        width: 100%;
         display: flex;
         flex-direction: column;
         justify-content: center;
@@ -144,6 +145,14 @@ export const SkillsAndLife = styled.section`
 
             }
         }
+    }
+
+    .life{
+        width: 100%;
+    }
+    
+    .magic{
+        width: 100%;
     }
   
 

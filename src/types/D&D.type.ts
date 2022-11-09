@@ -14,7 +14,7 @@ export type CharactersType ={
       skills: skillsType[]
       photo: ImageType
       weapons: WeaponsType[]
-      spells?: SpellsType[]
+      spells: SpellsType[]
 }
 
 export type MainAtributes = {

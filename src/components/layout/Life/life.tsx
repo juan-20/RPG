@@ -1,7 +1,6 @@
 import { Heart, MinusCircle, PlusCircle } from 'phosphor-react'
 import React, { useState } from 'react'
 import Button from '../../interface/Button'
-import Input from '../../interface/input/input'
 import { Container } from './style'
 
 type LifeType ={
