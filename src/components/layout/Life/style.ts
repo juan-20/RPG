@@ -38,13 +38,14 @@ export const Container = styled.div`
             justify-content: center;
             align-items: center;
             input{
-                width: 50px;
+                width: 40px;
                 background: #fff;
                 color: #8696a0;
                 border: 1px solid #000;
                 border-radius: 4px;
                 height: 30px;
                 padding: 4px;
+                text-align: center;
             }
         }
         .group-button{

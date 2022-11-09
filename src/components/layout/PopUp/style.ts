@@ -14,10 +14,12 @@ export const Container = styled.div`
     &-inner {
         background: ${props => props.theme.colors.primary};
         color: ${props => props.theme.colors.text};
+        border: 1px solid ${props => props.theme.colors.text};
         border-radius: 5px;
+        width: 90%;
         position: absolute;
-        left: 25%;
-        right: 25%;
+        left: 5%;
+        right: 5%;
         top: 25%;
         bottom: 25%;
         margin: auto;

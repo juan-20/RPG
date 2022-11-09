@@ -119,7 +119,6 @@ export const SkillsAndLife = styled.section`
         background: ${props => props.theme.colors.primary};
         padding: 1rem;
         border-radius: 5px;
-
         .title{
             display: flex;
             align-items: center;
@@ -134,8 +133,9 @@ export const SkillsAndLife = styled.section`
             min-height: 1rem;
             max-height: 2rem;
             .adder{
-                max-width: 18px;
-                min-width: 18px;
+                width: 18px;
+                width: 18px;
+                text-align: center;
             }
             .name{
                 width: 120px;

@@ -36,10 +36,11 @@ export default function Life(props: LifeType) {
         />
         <div className="plus">
          <PlusCircle onClick={()=> {setChangedLife(changedLife + 1)}} size={32} weight="fill" />
-        </div>{changedLife}
+        </div>
     </div>
     <div className="group-button">
       <Button size='base' label='Alterar vida' backgroundColor='brown' />
+      <p>{changedLife}</p>
     </div>
     </div>
   </Container>
