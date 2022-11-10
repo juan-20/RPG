@@ -23,7 +23,7 @@
     "next-env.d.ts",
     "**/*.ts",
     "**/*.tsx"
-, "src/pages/api/Characters/[characterName].ts"  ],
+, "src/pages/api/Characters/[characterName].ts", "src/pages/api/Cantrip/[characterId]"  ],
   "exclude": [
     "node_modules"
   ],

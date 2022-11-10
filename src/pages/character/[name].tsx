@@ -1,18 +1,16 @@
+import { AttacksContainer, Container, HeroInfo, MainAtributes, SkillsAndLife } from './styles';
 import Image from 'next/image'
+import { useState } from 'react'
 import { GetStaticPaths, InferGetStaticPropsType } from 'next'
-import React, { useState } from 'react'
-import { CharactersType } from '../../types/D&D.type'
-import { Container, HeroInfo, MainAtributes, SkillsAndLife } from '../../../styles/styles';
+
 import CheckboxComponent from '../../components/interface/Checkbox';
-import Input from '../../components/interface/input/input';
 import Button from '../../components/interface/Button';
-import Invertory from '../../components/layout/PopUp';
-import { X } from 'phosphor-react';
 import Popup from '../../components/layout/PopUp';
 import Head from 'next/head';
 import Life from '../../components/layout/Life/life';
-import Atacks from '../../components/layout/Atacks/Atacks';
+import Attacks from '../../components/layout/Attacks/Attacks';
 
+import { CharactersType } from '../../types/D&D.type'
 
 
 export default function Character({character}: InferGetStaticPropsType<typeof getStaticProps>) {
@@ -106,18 +104,28 @@ export default function Character({character}: InferGetStaticPropsType<typeof ge
 
         <Life totalLife={Character.life} lifeDice={Character.lifeDice} />
        
-        {Character.spells.map((attack) => (
-        <Atacks 
-        title={attack.name} 
-        duration={attack.duration} 
-        key={attack.id} 
-        distance={attack.distance}
-        type={attack.type}
-        description={attack.description}
-        schoolOfMagic={attack?.schoolOfMagic}
-        />
-        ))}
       </SkillsAndLife>
+
+      <AttacksContainer>
+      {Character.spells.map((attack) => (
+        <Attacks 
+          key={attack.id}
+          name={attack.name}
+          duration={attack.duration}
+          distance={attack.distance}
+          description={attack.description}
+          schoolOfMagic={attack?.schoolOfMagic}
+          cast={attack.cast} 
+          rollAtack={attack.rollAtack}
+          roolDamage={attack.rollAtack}
+          testToBeMade={attack.testToBeMade}
+          typeOfAttack={attack?.typeOfAttack}
+          ritual={attack.ritual}        
+          superiorLevels={attack.superiorLevels}
+          level={attack.level}
+          />
+        ))}
+      </AttacksContainer>
 
       
       </>

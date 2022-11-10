@@ -4,17 +4,21 @@ export const Container = styled.div`
     background: ${props => props.theme.colors.primary};
     padding: 1rem;
     border-radius: 5px;
-    
+    max-height: 250px;
+    min-height: 200px;
+    :hover{
+        .fire{
+                color: #d33f49;
+            }
+            .sword{
+                color: #5762d5;
+            }
+    }
     .magic{
         padding: 1rem;
         &-header{
             display: flex;
             justify-content: space-between;
-            .fire{
-                :hover{    
-                    color: #d33f49;
-                }
-            }
         }
         &-content{
             display: flex;
@@ -24,6 +28,7 @@ export const Container = styled.div`
         &-button{
             display: flex;
             justify-content: flex-end;
+            height: 100%;
         }
  
     }

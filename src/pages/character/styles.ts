@@ -150,11 +150,22 @@ export const SkillsAndLife = styled.section`
     .life{
         width: 100%;
     }
-    
-    .magic{
-        width: 100%;
-    }
-  
 
 `;
 
+export const AttacksContainer = styled.section`
+      display: grid;
+	grid-template-columns: 1fr 1fr 1fr;
+    justify-content: center;
+    align-items: center;
+	grid-gap: 1rem;
+    padding-top: 1rem;
+    @media only screen and (max-width: 450px) {
+        display: flex;
+        flex-direction: column;
+    }
+    .magic{
+        width: 100%;
+        /* height: 250px; */
+    }
+`;
