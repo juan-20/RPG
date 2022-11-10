@@ -1,4 +1,4 @@
-import { AttacksContainer, Container, HeroInfo, MainAtributes, SkillsAndLife } from './styles';
+import { AttacksContainer, Container, HeroInfo, MainAtributes, SkillsAndLife } from '../../../styles/styles';
 import Image from 'next/image'
 import { useState } from 'react'
 import { GetStaticPaths, InferGetStaticPropsType } from 'next'
