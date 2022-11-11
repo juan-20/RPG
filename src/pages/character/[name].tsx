@@ -16,7 +16,6 @@ import { CharactersType } from '../../types/D&D.type'
 export default function Character({character}: InferGetStaticPropsType<typeof getStaticProps>) {
   const Character: CharactersType = character
 
-  
   const [gunsPopUp, setGunsPopUp] = useState(false);
   const [inventoryPopUp, setinventoryPopUp] = useState(false);
   const [magicPopUp, setMagicPopUp] = useState(false);
@@ -35,7 +34,7 @@ export default function Character({character}: InferGetStaticPropsType<typeof ge
           </Head>
       <HeroInfo>
           <div className="image">
-            <Image id='photo' src={Character.photo.url} alt={Character.photo.desc} width={200} height={200} />
+            <Image quality={100} id='photo' src={Character.photo.url} alt={Character.photo.desc} width={200} height={200} />
           </div>
           <div className="text">
             <div className="">

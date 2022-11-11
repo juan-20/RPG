@@ -6,14 +6,14 @@ export const Container = styled.div`
     border-radius: 5px;
     max-height: 250px;
     min-height: 200px;
-    :hover{
+
         .fire{
-                color: #d33f49;
+            color:  ${props => props.theme.colors.secondary};
+        }
+        .sword{
+                color:  ${props => props.theme.colors.titleDark};
+                /* color: #5762d5; */
             }
-            .sword{
-                color: #5762d5;
-            }
-    }
     .magic{
         padding: 1rem;
         &-header{

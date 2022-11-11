@@ -18,9 +18,10 @@ export const Container = styled.div`
         }
         .life{
             position: absolute;
-            top: 31%;
+            top: 35%;
             left: 50%;
             transform: translate(-50%, -50%);
+            color: #fff;
         }
         p{
             font-size: 0.7rem;

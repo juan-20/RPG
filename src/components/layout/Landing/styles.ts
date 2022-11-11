@@ -11,7 +11,6 @@ export const LandingPageComponent = styled.div`
  background: #d33f49;
  height: 210px;
  color: #F8E5EE;
- font-size: 32px;
  font-family: 'Montserrat';
 }
 

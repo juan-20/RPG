@@ -9,7 +9,7 @@ export default {
         text: '#e7e7e7',
         textSecondary: '#E0E1E9',
 
-        titleDark: "#0F1A20",
+        titleDark: "#5762d5",
         titleLight: "#ffae03",
     },
 }

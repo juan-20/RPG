@@ -107,7 +107,7 @@ export const SkillsAndLife = styled.section`
     align-items: center;
 	grid-gap: 1rem;
     padding-top: 1rem;
-    @media only screen and (max-width: 450px) {
+    @media only screen and (max-width: 510px) {
         display: flex;
         flex-direction: column;
     }
@@ -131,8 +131,9 @@ export const SkillsAndLife = styled.section`
             align-items: center;
             gap: 0.5rem;
             padding-top: 0.5rem;
-            min-height: 1rem;
-            max-height: 2rem;
+            /* min-height: 1rem; */
+            /* max-height: 2rem; */
+            width: 230px;
             .adder{
                 width: 18px;
                 width: 18px;
@@ -143,6 +144,16 @@ export const SkillsAndLife = styled.section`
                 display: flex;
                 word-break: normal;
 
+            }
+        }
+    }
+
+    .Toastify__toast{
+        background: ${props => props.theme.colors.primary};
+        color: ${props => props.theme.colors.text};
+        >button{
+            svg{
+                fill: ${props => props.theme.colors.text};
             }
         }
     }
@@ -160,6 +171,9 @@ export const AttacksContainer = styled.section`
     align-items: center;
 	grid-gap: 1rem;
     padding-top: 1rem;
+    @media only screen and (max-width: 670px) {
+        grid-template-columns: 1fr 1fr;
+    }
     @media only screen and (max-width: 450px) {
         display: flex;
         flex-direction: column;

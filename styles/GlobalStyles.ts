@@ -12,8 +12,8 @@ export default createGlobalStyle`
     :focus{
       border: 2px solid #000;
     }
+    
   }
-  
   html, #root, body{
     height: 100vh;
   }
