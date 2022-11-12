@@ -1,7 +1,23 @@
 import React from 'react'
+import { SpellsType } from '../../../../types/D&D.type'
 
-export default function Magic() {
+// type attacksType = Omit<SpellsType, 'id'>
+
+type attacksType ={
+  description?: string
+}
+
+export default function Magic(props: attacksType) {
+  const { description } = props
+
   return (
-    <div>Magic</div>
+    <div className="">
+      {description ?(
+        <>
+        <h1>Descrição</h1>
+        <p>{description}</p>
+        </>
+      ): null}
+    </div>
   )
 }

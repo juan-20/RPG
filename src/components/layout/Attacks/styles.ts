@@ -4,8 +4,7 @@ export const Container = styled.div`
     background: ${props => props.theme.colors.primary};
     padding: 1rem;
     border-radius: 5px;
-    max-height: 250px;
-    min-height: 200px;
+    height: 250px;
 
         .fire{
             color:  ${props => props.theme.colors.secondary};
@@ -17,6 +16,7 @@ export const Container = styled.div`
     .magic{
         padding: 1rem;
         &-header{
+            height: 60px;
             display: flex;
             justify-content: space-between;
         }
@@ -24,11 +24,18 @@ export const Container = styled.div`
             display: flex;
             align-items: center;
             gap: 0.5rem;
-          }
+        }
         &-button{
             display: flex;
-            justify-content: flex-end;
-            height: 100%;
+            align-items: center;
+            justify-content: space-between;
+            padding: 1rem;
+            &-prepered{
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                gap: 0.3rem;
+            }
         }
  
     }

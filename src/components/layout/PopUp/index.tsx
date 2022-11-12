@@ -10,6 +10,8 @@ type PopUpProps= {
   open: boolean,
   title: string,
   target: 'Inventory' | 'Guns' | 'Magic'
+
+  description?: string
 }
 
 export default function Popup(props: PopUpProps ) {
@@ -27,7 +29,7 @@ export default function Popup(props: PopUpProps ) {
             <X className='popup-header-close' onClick={onClose} size={30} />
           </div>
           <main>
-            {target === 'Magic' ? <Magic/> : null}
+            {target === 'Magic' ? <Magic description={props.description}/> : null}
             {target === 'Inventory' ? <Inventory/> : null}
             {target === 'Guns' ? <Guns/> : null}
           </main>

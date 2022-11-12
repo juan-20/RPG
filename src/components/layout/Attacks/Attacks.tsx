@@ -1,14 +1,18 @@
 import { type } from 'os'
 import { Fire, Sword } from 'phosphor-react'
-import React from 'react'
+import React, { useState } from 'react'
 import { SpellsType } from '../../../types/D&D.type'
 import Button from '../../interface/Button'
+import CheckboxComponent from '../../interface/Checkbox'
+import Popup from '../PopUp'
 import { Container } from './styles'
 
 type attacksType = Omit<SpellsType, 'id'>
 
 export default function Attacks(props: attacksType) {
-  const { name, duration, distance, cast, description, typeOfAttack } = props
+  const { name, duration, distance, cast, description, typeOfAttack, prepared } = props
+
+  const [attackPopUp, setAttackPopUp] = useState(false);
   return (
     <Container className='magic'>
 
@@ -39,7 +43,23 @@ export default function Attacks(props: attacksType) {
 
         </div>
         <div className="magic-button">
-        <Button backgroundColor='blue' label='Ver mais' icon='ph-book-open-fill' size='sm' />
+          <div className="magic-button-prepered">
+            {typeOfAttack === 'Spell' ?
+            <>
+            <p>Preparado:</p>
+            <CheckboxComponent activated={prepared} />
+            </>
+            :
+            <p></p>
+            }
+          </div>
+          <div onClick={() => { setAttackPopUp(true)}} className="btn">
+            <Button backgroundColor='blue' label='Ver mais' icon='ph-book-open-fill' size='sm' />
+            <Popup target='Magic' title={name} open={attackPopUp} 
+            onClose={() => setAttackPopUp(false)} 
+            description={description}
+            />
+          </div>
         </div>
     </Container>
   )

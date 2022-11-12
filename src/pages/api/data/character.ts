@@ -205,8 +205,9 @@ export let characters: CharactersType[] = [
         description: "Um raio de energia crepitante atinge uma criatura dentro do alcance. Faça um ataque mágico à distância contra o alvo. Em um acerto, o alvo sofre 1d10 de dano de força.",
         superiorLevels: 'O feitiço cria mais de um feixe quando você alcança níveis mais altos: dois feixes no 5º nível, três feixes no 11º nível e quatro feixes no 17º nível. Você pode direcionar os feixes para o mesmo alvo ou para alvos diferentes. Faça uma jogada de ataque separada para cada raio.',
         roolDamage: '1d10',
+        prepared: false
       },
-        {
+      {
         id: 2,
         name: "Aopa",
         distance: "30 metros",
@@ -219,8 +220,9 @@ export let characters: CharactersType[] = [
         description: "Um raio de energia crepitante atinge uma criatura dentro do alcance. Faça um ataque mágico à distância contra o alvo. Em um acerto, o alvo sofre 1d10 de dano de força.",
         superiorLevels: 'O feitiço cria mais de um feixe quando você alcança níveis mais altos: dois feixes no 5º nível, três feixes no 11º nível e quatro feixes no 17º nível. Você pode direcionar os feixes para o mesmo alvo ou para alvos diferentes. Faça uma jogada de ataque separada para cada raio.',
         roolDamage: '1d10',
+        prepared: true
       },
-        {
+      {
         id: 3,
         name: "Lâmina sedenta",
         description: 'Você pode atacar com sua arma de pacto duas vezes, ao invés de uma, sempre que você usar a ação Atacar no seu turno.',
@@ -229,8 +231,9 @@ export let characters: CharactersType[] = [
         level: 5,
         typeOfAttack: 'Attack',
         ritual: false,
-        schoolOfMagic: 'Pacto da Lâmina'
-
+        schoolOfMagic: 'Pacto da Lâmina',
+        prepared: false
+        
       },
  
       

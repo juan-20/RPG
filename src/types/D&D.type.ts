@@ -57,7 +57,8 @@ export type SpellsType = {
     typeOfAttack: 'Spell' | 'Attack' 
     ritual: boolean,
     superiorLevels?: string
-    level: number
+    level: number,
+    prepared?: boolean
   }
   export type InvocationType = {
     name: string,

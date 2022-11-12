@@ -122,6 +122,7 @@ export default function Character({character}: InferGetStaticPropsType<typeof ge
           ritual={attack.ritual}        
           superiorLevels={attack.superiorLevels}
           level={attack.level}
+          prepared={attack.prepared}
           />
         ))}
       </AttacksContainer>
