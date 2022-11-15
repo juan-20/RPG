@@ -235,6 +235,19 @@ export let characters: CharactersType[] = [
         prepared: false
         
       },
+      {
+        id: 3,
+        name: "Teste",
+        description: 'Você pode atacar com sua arma de pacto duas vezes, ao invés de uma, sempre que você usar a ação Atacar no seu turno.',
+        cast: "1 ação",
+        distance: 'Pessoal',
+        level: 0,
+        typeOfAttack: 'Attack',
+        ritual: false,
+        schoolOfMagic: 'Pacto da Lâmina',
+        prepared: false
+        
+      },
  
       
       ]

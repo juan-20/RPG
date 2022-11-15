@@ -8,14 +8,14 @@ export default function handler(
   req: NextApiRequest,
   res: NextApiResponse<any>
   ) {
-    let { cantrip, characterId } : any = req.query
-    let magiclevel = parseInt(cantrip)
+    let { magic, characterId } : any = req.query
+    let magiclevel = parseInt(magic)
     let characterIdSearch = parseInt(characterId)
     if (req.method === 'GET') {
-        
+          // http://localhost:3000/api/GetSpellsByLevel/1/0
         const findCharacter = characters.find(character => character.Id === characterIdSearch)
-        const cantripResponse = findCharacter?.spells.find(cantip => cantip.level === magiclevel )
+        const magicResponse = findCharacter?.spells.find(magics => magics.level === magiclevel )
 
-        return res.status(200).json(cantripResponse)
+        return res.status(200).json(magicResponse)
     }
   }
