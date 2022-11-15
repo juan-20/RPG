@@ -1,42 +1,39 @@
 import styled from "styled-components";
 
 export const Container = styled.div`
-    background: ${props => props.theme.colors.primary};
-    padding: 1rem;
-    border-radius: 5px;
-    height: 250px;
-
-        .fire{
-            color:  ${props => props.theme.colors.secondary};
-        }
-        .sword{
-                color:  ${props => props.theme.colors.titleDark};
-                /* color: #5762d5; */
-            }
-    .magic{
-        padding: 1rem;
-        &-header{
-            height: 60px;
-            display: flex;
-            justify-content: space-between;
-        }
-        &-content{
-            display: flex;
-            align-items: center;
+    /* padding: 1rem; */
+    .choose{
+        display: flex;
+        gap: 1rem;
+        &-slider{
             gap: 0.5rem;
-        }
-        &-button{
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            padding: 1rem;
-            &-prepered{
+           display: flex;
+           flex-direction: row;
+           overflow-x: auto;
+           height: 40px;
+           width: 17rem;
+           white-space: nowrap;
+           -ms-overflow-style: none;
+            scrollbar-width: none;
+            scroll-behavior: smooth;
+            -ms-overflow-style: none;  /* IE and Edge */
+            scrollbar-width: none;  /* Firefox */
+            
+            @media only screen and (min-width: 374px) {
+                width: 20rem;
+            }
+            @media only screen and (min-width: 424px) {
+                width: 25rem;
+            }
+            @media only screen and (min-width: 767px) {
+                width: 100%;
+            }
+            ::-webkit-scrollbar {
+                display: none;
+            }
+            &-levels{
                 display: flex;
-                justify-content: center;
-                align-items: center;
-                gap: 0.3rem;
             }
         }
- 
     }
-`;
+`; 

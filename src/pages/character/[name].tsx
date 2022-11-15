@@ -8,9 +8,9 @@ import Button from '../../components/interface/Button';
 import Popup from '../../components/layout/PopUp';
 import Head from 'next/head';
 import Life from '../../components/layout/Life/life';
-import Attacks from '../../components/layout/Attacks/Attacks';
 
 import { CharactersType } from '../../types/D&D.type'
+import Attacks from '../../components/layout/Attacks/Attacks';
 
 
 export default function Character({character}: InferGetStaticPropsType<typeof getStaticProps>) {
@@ -106,25 +106,11 @@ export default function Character({character}: InferGetStaticPropsType<typeof ge
       </SkillsAndLife>
 
       <AttacksContainer>
-      {Character.spells.map((attack) => (
+        
         <Attacks 
-          key={attack.id}
-          name={attack.name}
-          duration={attack.duration}
-          distance={attack.distance}
-          description={attack.description}
-          schoolOfMagic={attack?.schoolOfMagic}
-          cast={attack.cast} 
-          rollAtack={attack.rollAtack}
-          roolDamage={attack.rollAtack}
-          testToBeMade={attack.testToBeMade}
-          typeOfAttack={attack?.typeOfAttack}
-          ritual={attack.ritual}        
-          superiorLevels={attack.superiorLevels}
-          level={attack.level}
-          prepared={attack.prepared}
+          id={Character.Id}
           />
-        ))}
+       
       </AttacksContainer>
 
       
@@ -142,7 +128,7 @@ type routes ={
 
 export const getStaticProps = async (name: routes) => {
   let url = process.env.ENVIROMENT
-  const res = await fetch(`${url}/api/Characters/${name.params.name}`)
+  const res = await fetch(`${url}/api/getCharactersByName/${name.params.name}`)
    const character: CharactersType = await res.json()
    return{
      props:{

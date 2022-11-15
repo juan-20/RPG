@@ -1,66 +1,67 @@
-import { type } from 'os'
-import { Fire, Sword } from 'phosphor-react'
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { SpellsType } from '../../../types/D&D.type'
-import Button from '../../interface/Button'
-import CheckboxComponent from '../../interface/Checkbox'
-import Popup from '../PopUp'
-import { Container } from './styles'
+import ToggleDemo from '../../interface/ToggleComponent/ToggleComponent';
+import ToggleGroupDemo from '../../interface/ToggleComponent/ToggleComponent';
+import AttacksCard from './AttacksCard/AttacksCard'
+import { Container } from './styles';
 
-type attacksType = Omit<SpellsType, 'id'>
+type DataProps =   number[];
 
-export default function Attacks(props: attacksType) {
-  const { name, duration, distance, cast, description, typeOfAttack, prepared } = props
+type AttacksType = {
+    id: number
+}
 
-  const [attackPopUp, setAttackPopUp] = useState(false);
+export default function Attacks(props: AttacksType) {
+    // const { name, duration, distance, cast, description, typeOfAttack, prepared, schoolOfMagic, rollAtack, testToBeMade, ritual, level, superiorLevels, id } = props
+    const { id } = props
+
+    const [data, setData] = useState<DataProps | null>(null)
+    const [isLoading, setLoading] = useState(false)
+  
+    useEffect(() => {
+      setLoading(true)
+      let url = 'http://localhost:3000'
+      fetch(`${url}/api/getSpellsLevel/${id}`)
+      .then((res) => res.json())
+        .then((data) => {
+          setData(data)
+          setLoading(false)
+        })
+    })
+    
+    console.log(data)
   return (
-    <Container className='magic'>
-
-        <div className="magic-header">
-        <h1>{name}</h1>
-        {typeOfAttack === 'Spell' ? <Fire className='fire' size={32} weight="fill" />
-         : <Sword className='sword' size={32} weight="fill" />}
-        
-        </div>
-
-        <div className="magic">
-        <div className="magic-content">
-        <span>Tipo:</span>
-        <p>{cast}</p>
-        </div>
-        <div className="magic-content">
-        <span>Distância:</span>
-        <p>{distance}</p>
-        </div>
-        <div className="magic-content">
-        <span>Acertar:</span>
-        <p>d20 + 8</p>
-        </div>
-        <div className="magic-content">
-        <span>Rolagem:</span>
-        <p>d10 + 9</p>
-        </div>
-
-        </div>
-        <div className="magic-button">
-          <div className="magic-button-prepered">
-            {typeOfAttack === 'Spell' ?
-            <>
-            <p>Preparado:</p>
-            <CheckboxComponent activated={prepared} />
-            </>
-            :
-            <p></p>
-            }
-          </div>
-          <div onClick={() => { setAttackPopUp(true)}} className="btn">
-            <Button backgroundColor='blue' label='Ver mais' icon='ph-book-open-fill' size='sm' />
-            <Popup target='Magic' title={name} open={attackPopUp} 
-            onClose={() => setAttackPopUp(false)} 
-            description={description}
-            />
+    <Container>
+        <div className="choose">
+          <div className="choose-slider">
+          <ToggleDemo icon='ph-coat-hanger' type='Word' text={'Tudo'} key={'Todos'}/>
+          <ToggleDemo icon='ph-fire' type='Word' text={'Magias'} key={'Magias'}/>
+          <ToggleDemo icon='ph-sword' type='Word' text={'Armas'} key={'Armas'}/>
+            {data?.map((num, index) => (
+                <div className='choose-slider-levels'>
+                  <ToggleDemo type='Level' text={num} key={num}/>
+                </div>
+            ))}
           </div>
         </div>
+
+        {/* <AttacksCard 
+         key={id}
+         name={name}
+         duration={duration}
+         distance={distance}
+         description={description}
+         schoolOfMagic={schoolOfMagic}
+         cast={cast} 
+         rollAtack={rollAtack}
+         roolDamage={rollAtack}
+         testToBeMade={testToBeMade}
+         typeOfAttack={typeOfAttack}
+         ritual={ritual}        
+         superiorLevels={superiorLevels}
+         level={level}
+         prepared={prepared}
+        /> */}
     </Container>
   )
 }
