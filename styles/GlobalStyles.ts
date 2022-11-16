@@ -12,7 +12,16 @@ export default createGlobalStyle`
     :focus{
       border: 2px solid #000;
     }
-    
+
+    .Toastify__toast{
+        background: ${props => props.theme.colors.primary};
+        color: ${props => props.theme.colors.text};
+        >button{
+            svg{
+                fill: ${props => props.theme.colors.text};
+            }
+        }
+    }    
   }
   html, #root, body{
     height: 100vh;

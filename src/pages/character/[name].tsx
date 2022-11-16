@@ -101,7 +101,12 @@ export default function Character({character}: InferGetStaticPropsType<typeof ge
           ))}
         </div>
 
+        <div className="life">
         <Life totalLife={Character.life} lifeDice={Character.lifeDice} />
+        <div className="test">
+        <p>teste</p>
+        </div>
+        </div>
        
       </SkillsAndLife>
 

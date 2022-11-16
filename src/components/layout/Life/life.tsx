@@ -50,6 +50,7 @@ export default function Life(props: LifeType) {
 
   return (
       <>
+      <Container>
       <ToastContainer
       position="bottom-right"
       autoClose={2000}
@@ -62,11 +63,10 @@ export default function Life(props: LifeType) {
       pauseOnHover={false}
       className='toaster-bg'
       />
-      <Container className="life">
         <h1>Vida</h1>
 
         <Heart className='heart' size={40} color="#d33f49" weight="fill" />
-        <p className='life'>{life}</p>
+        <p className='lifeNumber'>{life}</p>
 
         <div className="changeLife">
           <p>Adicionar/Remover vida:</p>

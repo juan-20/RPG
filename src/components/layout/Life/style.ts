@@ -16,9 +16,9 @@ export const Container = styled.div`
         .heart{
             animation: pulse 2s linear infinite;
         }
-        .life{
+        .lifeNumber{
             position: absolute;
-            top: 35%;
+            top: 38%;
             left: 50%;
             transform: translate(-50%, -50%);
             color: #fff;
