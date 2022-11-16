@@ -17,6 +17,10 @@ export default function Attacks(props: AttacksType) {
 
     const [data, setData] = useState<DataProps | null>(null)
     const [isLoading, setLoading] = useState(false)
+
+    const [all, setAll] = useState(true)
+    const [magic, setMagic] = useState(false)
+    const [gun, setGun] = useState(false)
   
     useEffect(() => {
       setLoading(true)
@@ -27,18 +31,24 @@ export default function Attacks(props: AttacksType) {
           setData(data)
           setLoading(false)
         })
-    })
+    }, [])
     
     console.log(data)
   return (
     <Container>
         <div className="choose">
           <div className="choose-slider">
-          <ToggleDemo icon='ph-coat-hanger' type='Word' text={'Tudo'} key={'Todos'}/>
+            <div onClick={() => { setAll(true) }} className="">
+              <ToggleDemo icon='ph-coat-hanger' type='Word' text={'Tudo'} key={'Todos'}/>
+            </div>
+            <div onClick={() => { setAll(true) }} className="">
           <ToggleDemo icon='ph-fire' type='Word' text={'Magias'} key={'Magias'}/>
+          </div>
+            <div onClick={() => { setAll(true) }} className="">
           <ToggleDemo icon='ph-sword' type='Word' text={'Armas'} key={'Armas'}/>
+          </div>
             {data?.map((num, index) => (
-                <div className='choose-slider-levels'>
+                <div key={num} className='choose-slider-levels'>
                   <ToggleDemo type='Level' text={num} key={num}/>
                 </div>
             ))}

@@ -103,9 +103,9 @@ export default function Character({character}: InferGetStaticPropsType<typeof ge
 
         <div className="life">
         <Life totalLife={Character.life} lifeDice={Character.lifeDice} />
-        <div className="test">
+        {/* <div className="test">
         <p>teste</p>
-        </div>
+        </div> */}
         </div>
        
       </SkillsAndLife>

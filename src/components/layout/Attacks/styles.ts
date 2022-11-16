@@ -6,8 +6,9 @@ export const Container = styled.div`
         display: flex;
         gap: 1rem;
         &-slider{
+            display: flex;
+            align-items: center;
             gap: 0.5rem;
-           display: flex;
            flex-direction: row;
            overflow-x: auto;
            height: 40px;

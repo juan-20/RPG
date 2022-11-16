@@ -155,8 +155,8 @@ export const SkillsAndLife = styled.section`
         align-items: center;
         flex-direction: column;
         width: 100%;
+        gap: 1rem;
         .test{
-            padding-top: 1rem;
             width: 500px;
             height: 300px;
             background: pink;
