@@ -21,10 +21,10 @@ export default function Attacks(props: AttacksType) {
     const [all, setAll] = useState(true)
     const [magic, setMagic] = useState(false)
     const [gun, setGun] = useState(false)
-  
+    
+    let url = 'http://localhost:3000'
     useEffect(() => {
       setLoading(true)
-      let url = 'http://localhost:3000'
       fetch(`${url}/api/getSpellsLevel/${id}`)
       .then((res) => res.json())
         .then((data) => {
@@ -32,29 +32,33 @@ export default function Attacks(props: AttacksType) {
           setLoading(false)
         })
     }, [])
-    
-    console.log(data)
+    console.log(process.env.ENVIROMENT);
+
+    function setNewType(){
+
+    }
+
   return (
     <Container>
         <div className="choose">
           <div className="choose-slider">
-            <div onClick={() => { setAll(true) }} className="">
-              <ToggleDemo icon='ph-coat-hanger' type='Word' text={'Tudo'} key={'Todos'}/>
+            <div onClick={() => {  }} className="all">
+              <ToggleDemo icon='ph-selection-all' type='Word' text={'Selecionar todos'} key={'Todos'}/>
             </div>
-            <div onClick={() => { setAll(true) }} className="">
+            <div onClick={() => {  }} className="magic">
           <ToggleDemo icon='ph-fire' type='Word' text={'Magias'} key={'Magias'}/>
           </div>
-            <div onClick={() => { setAll(true) }} className="">
+            <div onClick={() => {  }} className="guns">
           <ToggleDemo icon='ph-sword' type='Word' text={'Armas'} key={'Armas'}/>
           </div>
             {data?.map((num, index) => (
-                <div key={num} className='choose-slider-levels'>
+          <div className='choose-slider-levels'>
                   <ToggleDemo type='Level' text={num} key={num}/>
-                </div>
-            ))}
+          </div>
+                  ))}
           </div>
         </div>
-
+          
         {/* <AttacksCard 
          key={id}
          name={name}

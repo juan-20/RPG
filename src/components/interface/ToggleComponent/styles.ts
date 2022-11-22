@@ -10,39 +10,53 @@ export const Container = styled.button<ToggleProps>`
         justify-content: center;
         background: none;
         all: unset;
-        height: 100%;
+        /* height: 100%; */
         color: ${props => props.theme.colors.text};
-        :focus{
-            outline: 1px auto ${props => props.theme.colors.titleLight};;
-            .toggle-level{
-            >svg{
-                fill: ${props => props.theme.colors.text}; 
-                >path{
-                    stroke: ${props => props.theme.colors.titleLight};
-                }
-                
-            }
-        }
-        }
+        
         :hover{
             cursor: pointer;
-            .toggle-level{
+        }
+        
+        :focus{
+            transition: 0.00s linear !important;
+            border: none;
+            
+            .toggle{
+                &-level{
+                    border-radius: 50%;
+                    outline: 1px solid ${props => props.theme.colors.titleLight};
                     >svg{
-                        fill: ${props => props.theme.colors.text}; 
+                    color: ${props => props.theme.colors.titleLight};
+                    fill: ${props => props.theme.colors.titleLight};
                         >path{
                             stroke: ${props => props.theme.colors.titleLight};
                         }
-                        
+                        .number{
+                            fill: ${props => props.theme.colors.titleLight} !important;
+                            font-weight: bolder;
+                        }
                     }
                 }
+                &-icon{
+                    outline: 1px solid ${props => props.theme.colors.titleLight};
+                outline-offset: 1px;
+                >i{
+                    color: ${props => props.theme.colors.titleLight};
                 }
+                    >p{
+                        color: ${props => props.theme.colors.titleLight};
+
+                    }
+            }
+            }        
+        }
+
         .toggle{
             &-level{
                 display: flex;
                 align-items: center;
                 justify-content: center;
                 >svg{
-                    border-radius: 50%;
                     color: ${props => props.theme.colors.text};
                     fill: ${props => props.theme.colors.text};
                     >path{
@@ -62,18 +76,13 @@ export const Container = styled.button<ToggleProps>`
                 display: flex;
                 align-items: center;
                 gap: 0.5rem;
-                outline: 1px solid ${props => props.theme.colors.text};
+                /* outline: 1px solid ${props => props.theme.colors.titleLight}; */
                 padding: 0.5rem;
-                /* border-radius: 5px; */
+                border-radius: 5px;
                 :hover{
-                    color: ${props => props.theme.colors.titleLight};
+                    /* color: ${props => props.theme.colors.titleLight}; */
                 }
-                :focus{
-                    >p{
-                        color: ${props => props.theme.colors.titleLight};
-
-                    }
-                }
+     
         }
         }
     
