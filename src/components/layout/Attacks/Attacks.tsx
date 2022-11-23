@@ -45,23 +45,42 @@ export default function Attacks(props: AttacksType) {
                 setSpells(data)
               })
             setLoading(false)
-        
-        }
+          }
+          
+          if (activeType === 360){
+            console.log('abre magia');
+            setLoading(true)            
+                 const response = await fetch(`${process.env.BASE_URL}/api/getTypeOfAttack/${id}/Spell`)
+                 .then((res) => res.json())
+                 .then((data) => {
+                   console.log(data);
+                   setSpells(data)
+                 })
+               setLoading(false)
+          }
 
-
-      if (activeType === 180) console.log('abre todos');
-      if (activeType === 171) console.log('abre armas');
+              if (activeType === 171){
+                console.log('abre armas');
+                setLoading(true)            
+                     const response = await fetch(`${process.env.BASE_URL}/api/getTypeOfAttack/${id}/Attack`)
+                     .then((res) => res.json())
+                     .then((data) => {
+                       console.log(data);
+                       setSpells(data)
+                     })
+                   setLoading(false)
+      } 
 
       if (activeType <= 20){
         console.log('abre tudo');
-        //  setLoading(true)            
+         setLoading(true)            
               const response = await fetch(`${process.env.BASE_URL}/api/GetSpellsByLevel/${id}/${activeType}`)
               .then((res) => res.json())
               .then((data) => {
                 console.log(data);
                 setSpells(data)
               })
-            // setLoading(false)
+            setLoading(false)
       }
       console.log(activeType)
 
@@ -87,9 +106,9 @@ export default function Attacks(props: AttacksType) {
                   ))}
           </div>
         </div>
-        {isLoading ? <p>Carregando...</p> :
         <div className="attacks-container">
-          
+        {isLoading ? <p>Carregando...</p> :
+          <>
         {spells ? (spells.map((attack: SpellsType) => (
             <AttacksCard 
              key={attack.id}
@@ -111,12 +130,18 @@ export default function Attacks(props: AttacksType) {
           ))
           )
         : (
-        <p>Carregando...</p>
+          <>
+            <p></p>
+            <div className="attacks-container-response">
+              <p>Escolha uma opção acima</p>
+            </div>
+          </>
         )
         }
+        </>
           
+      }
         </div>
-         }
     </Container>
   )
 }

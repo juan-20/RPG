@@ -19,6 +19,7 @@ export const Container = styled.div`
             padding: 3rem;
            flex-direction: row;
            overflow-x: auto;
+           overflow-y: hidden;
            height: 40px;
            width: 100vw;
            white-space: nowrap;
@@ -50,6 +51,11 @@ export const Container = styled.div`
     padding-top: 1rem;
     width: 100%;
     gap: 1rem;
+    &-response{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
     @media only screen and (min-width: 511px) {
         display: flex;
         justify-content: center;
