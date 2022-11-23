@@ -4,6 +4,7 @@ export const Container = styled.div`
     /* padding: 1rem; */
     width: 100%;
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
     .choose{
@@ -40,5 +41,39 @@ export const Container = styled.div`
                 border: none;
             }
         }
+    }
+    
+    .attacks-container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-top: 1rem;
+    width: 100%;
+    gap: 1rem;
+    @media only screen and (min-width: 511px) {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    .magic{
+        width: 100%;
+        /* height: 250px; */
+    }
+    @media only screen and (max-width: 550px) {
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        width: 100%;
+    }
+    @media only screen and (min-width: 551px) {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        grid-gap: 1rem;
+    }
+    @media only screen and (min-width: 1440px) {
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+        grid-gap: 1rem;
+    }
     }
 `; 

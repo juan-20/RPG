@@ -1,3 +1,4 @@
+import axios from 'axios';
 import React, { useEffect, useState } from 'react'
 import { SpellsType } from '../../../types/D&D.type'
 import ToggleDemo from '../../interface/ToggleComponent/ToggleComponent';
@@ -17,24 +18,52 @@ export default function Attacks(props: AttacksType) {
 
     const [data, setData] = useState<DataProps | null>(null)
     const [isLoading, setLoading] = useState(false)
+    const [spells, setSpells]:any = useState('')
 
-    const [all, setAll] = useState(true)
-    const [magic, setMagic] = useState(false)
-    const [gun, setGun] = useState(false)
-    
-    let url = 'http://localhost:3000'
     useEffect(() => {
       setLoading(true)
-      fetch(`${url}/api/getSpellsLevel/${id}`)
+      fetch(`${process.env.BASE_URL}/api/getSpellsLevel/${id}`)
       .then((res) => res.json())
         .then((data) => {
+          console.log(data)
           setData(data)
           setLoading(false)
         })
     }, [])
-    console.log(process.env.ENVIROMENT);
+    
+    async function setNewType(activeType: number){
+       // @ts-ignore: Unreachable type code error
+       event.preventDefault();
+      setSpells('')
+      if (activeType === 180){
+         console.log('abre tudo');
+         setLoading(true)            
+              const response = await fetch(`${process.env.BASE_URL}/api/GetSpeelsByCharacterId/${id}`)
+              .then((res) => res.json())
+              .then((data) => {
+                console.log(data);
+                setSpells(data)
+              })
+            setLoading(false)
+        
+        }
 
-    function setNewType(){
+
+      if (activeType === 180) console.log('abre todos');
+      if (activeType === 171) console.log('abre armas');
+
+      if (activeType <= 20){
+        console.log('abre tudo');
+        //  setLoading(true)            
+              const response = await fetch(`${process.env.BASE_URL}/api/GetSpellsByLevel/${id}/${activeType}`)
+              .then((res) => res.json())
+              .then((data) => {
+                console.log(data);
+                setSpells(data)
+              })
+            // setLoading(false)
+      }
+      console.log(activeType)
 
     }
 
@@ -42,40 +71,52 @@ export default function Attacks(props: AttacksType) {
     <Container>
         <div className="choose">
           <div className="choose-slider">
-            <div onClick={() => {  }} className="all">
+            <div onClick={() => { setNewType(180) }} className="all">
               <ToggleDemo icon='ph-selection-all' type='Word' text={'Selecionar todos'} key={'Todos'}/>
             </div>
-            <div onClick={() => {  }} className="magic">
+            <div onClick={() => {setNewType(360)}} className="magic">
           <ToggleDemo icon='ph-fire' type='Word' text={'Magias'} key={'Magias'}/>
           </div>
-            <div onClick={() => {  }} className="guns">
+            <div onClick={() => {setNewType(171)}} className="guns">
           <ToggleDemo icon='ph-sword' type='Word' text={'Armas'} key={'Armas'}/>
           </div>
             {data?.map((num, index) => (
-          <div className='choose-slider-levels'>
-                  <ToggleDemo type='Level' text={num} key={num}/>
+          <div key={index} onClick={() => { setNewType(num)}} className='choose-slider-levels'>
+                  <ToggleDemo  type='Level' text={num} key={num}/>
           </div>
                   ))}
           </div>
         </div>
+        {isLoading ? <p>Carregando...</p> :
+        <div className="attacks-container">
           
-        {/* <AttacksCard 
-         key={id}
-         name={name}
-         duration={duration}
-         distance={distance}
-         description={description}
-         schoolOfMagic={schoolOfMagic}
-         cast={cast} 
-         rollAtack={rollAtack}
-         roolDamage={rollAtack}
-         testToBeMade={testToBeMade}
-         typeOfAttack={typeOfAttack}
-         ritual={ritual}        
-         superiorLevels={superiorLevels}
-         level={level}
-         prepared={prepared}
-        /> */}
+        {spells ? (spells.map((attack: SpellsType) => (
+            <AttacksCard 
+             key={attack.id}
+             name={attack.name}
+             duration={attack.duration}
+             distance={attack.distance}
+             description={attack.description}
+             schoolOfMagic={attack.schoolOfMagic}
+             cast={attack.cast} 
+             rollAtack={attack.rollAtack}
+             roolDamage={attack.rollAtack}
+             testToBeMade={attack.testToBeMade}
+             typeOfAttack={attack.typeOfAttack}
+             ritual={attack.ritual}        
+             superiorLevels={attack.superiorLevels}
+             level={attack.level}
+             prepared={attack.prepared}
+            /> 
+          ))
+          )
+        : (
+        <p>Carregando...</p>
+        )
+        }
+          
+        </div>
+         }
     </Container>
   )
 }

@@ -236,6 +236,19 @@ export let characters: CharactersType[] = [
         
       },
       {
+        id: 3,
+        name: "Lâmina sedenta 2",
+        description: 'Você pode atacar com sua arma de pacto duas vezes, ao invés de uma, sempre que você usar a ação Atacar no seu turno.',
+        cast: "1 ação",
+        distance: 'Pessoal',
+        level: 5,
+        typeOfAttack: 'Attack',
+        ritual: false,
+        schoolOfMagic: 'Pacto da Lâmina',
+        prepared: false
+        
+      },
+      {
         id: 4,
         name: "Teste",
         description: 'Você pode atacar com sua arma de pacto duas vezes, ao invés de uma, sempre que você usar a ação Atacar no seu turno.',
@@ -254,8 +267,125 @@ export let characters: CharactersType[] = [
         description: 'Você pode atacar com sua arma de pacto duas vezes, ao invés de uma, sempre que você usar a ação Atacar no seu turno.',
         cast: "1 ação",
         distance: 'Pessoal',
-        level: 9,
+        level: 8,
         typeOfAttack: 'Attack',
+        ritual: false,
+        schoolOfMagic: 'Pacto da Lâmina',
+        prepared: false
+        
+      },
+      {
+        id: 5,
+        name: "Mais um segundo teste",
+        description: 'Você pode atacar com sua arma de pacto duas vezes, ao invés de uma, sempre que você usar a ação Atacar no seu turno.',
+        cast: "1 ação",
+        distance: 'Pessoal',
+        level: 8,
+        typeOfAttack: 'Spell',
+        ritual: false,
+        schoolOfMagic: 'Pacto da Lâmina',
+        prepared: false
+        
+      },
+      {
+        id: 5,
+        name: "Mais um segundo teste",
+        description: 'Você pode atacar com sua arma de pacto duas vezes, ao invés de uma, sempre que você usar a ação Atacar no seu turno.',
+        cast: "1 ação",
+        distance: 'Pessoal',
+        level: 2,
+        typeOfAttack: 'Spell',
+        ritual: false,
+        schoolOfMagic: 'Pacto da Lâmina',
+        prepared: false
+        
+      },
+      {
+        id: 5,
+        name: "Mais um segundo teste",
+        description: 'Você pode atacar com sua arma de pacto duas vezes, ao invés de uma, sempre que você usar a ação Atacar no seu turno.',
+        cast: "1 ação",
+        distance: 'Pessoal',
+        level: 3,
+        typeOfAttack: 'Spell',
+        ritual: false,
+        schoolOfMagic: 'Pacto da Lâmina',
+        prepared: false
+        
+      },
+      {
+        id: 5,
+        name: "Mais um segundo teste",
+        description: 'Você pode atacar com sua arma de pacto duas vezes, ao invés de uma, sempre que você usar a ação Atacar no seu turno.',
+        cast: "1 ação",
+        distance: 'Pessoal',
+        level: 4,
+        typeOfAttack: 'Spell',
+        ritual: false,
+        schoolOfMagic: 'Pacto da Lâmina',
+        prepared: false
+        
+      },
+      {
+        id: 5,
+        name: "Mais um segundo teste",
+        description: 'Você pode atacar com sua arma de pacto duas vezes, ao invés de uma, sempre que você usar a ação Atacar no seu turno.',
+        cast: "1 ação",
+        distance: 'Pessoal',
+        level: 7,
+        typeOfAttack: 'Spell',
+        ritual: false,
+        schoolOfMagic: 'Pacto da Lâmina',
+        prepared: false
+        
+      },
+      {
+        id: 5,
+        name: "Mais um segundo teste",
+        description: 'Você pode atacar com sua arma de pacto duas vezes, ao invés de uma, sempre que você usar a ação Atacar no seu turno.',
+        cast: "1 ação",
+        distance: 'Pessoal',
+        level: 7,
+        typeOfAttack: 'Spell',
+        ritual: false,
+        schoolOfMagic: 'Pacto da Lâmina',
+        prepared: false
+        
+      },
+      {
+        id: 5,
+        name: "Mais um segundo teste",
+        description: 'Você pode atacar com sua arma de pacto duas vezes, ao invés de uma, sempre que você usar a ação Atacar no seu turno.',
+        cast: "1 ação",
+        distance: 'Pessoal',
+        level: 9,
+        typeOfAttack: 'Spell',
+        ritual: false,
+        schoolOfMagic: 'Pacto da Lâmina',
+        prepared: false
+        
+      },
+      {
+        id: 5,
+        name: "Mais um segundo teste",
+        description: 'Você pode atacar com sua arma de pacto duas vezes, ao invés de uma, sempre que você usar a ação Atacar no seu turno.',
+        cast: "1 ação",
+        distance: 'Pessoal',
+        level: 10,
+        typeOfAttack: 'Spell',
+        ritual: false,
+        schoolOfMagic: 'Pacto da Lâmina',
+        prepared: false
+        
+      },
+      {
+        id: 5,
+        name: "Mais um segundo teste",
+        description: 'Você pode atacar com sua arma de pacto duas vezes, ao invés de uma, sempre que você usar a ação Atacar no seu turno.',
+        cast: "1 ação",
+        distance: 'Pessoal',
+        level: 11,
+        typeOfAttack: 'Spell',
         ritual: false,
         schoolOfMagic: 'Pacto da Lâmina',
         prepared: false

@@ -11,11 +11,18 @@ export default function handler(
     let { magic, characterId } : any = req.query
     let magiclevel = parseInt(magic)
     let characterIdSearch = parseInt(characterId)
+    let data
+    let arr: any =[]
     if (req.method === 'GET') {
           // http://localhost:3000/api/GetSpellsByLevel/1/0
         const findCharacter = characters.find(character => character.Id === characterIdSearch)
-        const magicResponse = findCharacter?.spells.find(magics => magics.level === magiclevel )
-
-        return res.status(200).json(magicResponse)
+        findCharacter?.spells.map((characterAttack) => {
+          let validator = characterAttack.level === magiclevel
+          if(validator === false) return
+          arr.push(characterAttack)
+          data= [...new Set(arr)]
+        })
+   
+        return res.status(200).json(data)
     }
   }

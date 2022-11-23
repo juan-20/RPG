@@ -108,10 +108,6 @@ export const SkillsAndLife = styled.section`
 	grid-gap: 1rem;
     padding-top: 1rem;
 
-    @media only screen and (min-width: 760px) {
-        display: grid;
-	    grid-template-columns: 1fr 1fr;     
-    }
     .skills{
         width: 100%;
         display: flex;
@@ -166,20 +162,5 @@ export const SkillsAndLife = styled.section`
 `;
 
 export const AttacksContainer = styled.section`
-    display: grid;
-	grid-template-columns: 1fr 1fr 1fr;
-    justify-content: center;
-    align-items: center;
-	grid-gap: 1rem;
-    padding-top: 1rem;
-    width: 100%;
-    @media only screen and (min-width: 511px) {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-    }
-    .magic{
-        width: 100%;
-        /* height: 250px; */
-    }
+   
 `;

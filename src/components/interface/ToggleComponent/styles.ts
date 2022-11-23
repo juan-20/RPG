@@ -38,8 +38,8 @@ export const Container = styled.button<ToggleProps>`
                     }
                 }
                 &-icon{
-                    outline: 1px solid ${props => props.theme.colors.titleLight};
-                outline-offset: 1px;
+                    outline: 2px solid ${props => props.theme.colors.titleLight};
+                    outline-offset: -1px;
                 >i{
                     color: ${props => props.theme.colors.titleLight};
                 }
@@ -76,7 +76,7 @@ export const Container = styled.button<ToggleProps>`
                 display: flex;
                 align-items: center;
                 gap: 0.5rem;
-                /* outline: 1px solid ${props => props.theme.colors.titleLight}; */
+                border: 1px solid ${props => props.theme.colors.text};
                 padding: 0.5rem;
                 border-radius: 5px;
                 :hover{
