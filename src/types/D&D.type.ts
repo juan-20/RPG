@@ -13,8 +13,15 @@ export type CharactersType ={
       mainAtributes: MainAtributes[]
       skills: skillsType[]
       photo: ImageType
-      weapons: WeaponsType[]
+      // weapons: WeaponsType[]
       spells: SpellsType[]
+      inventory?: ItemsType[]
+}
+
+export type ItemsType ={
+  id: number,
+  name: string,
+  description: string
 }
 
 export type MainAtributes = {
@@ -24,10 +31,10 @@ export type MainAtributes = {
 }
 
 export type WeaponsType={
-  weaponType: string,
+  weaponType?: string,
   id: number,
   weaponName?: string,
-  dice: string
+  dice?: string
   cursed?: boolean,
 }
 
@@ -46,19 +53,25 @@ export type LifeType = {
 export type SpellsType = {
     id: number,
     name: string,
-    duration?: 'Instantânea'| '1 minuto' | '1 rodada' | '10 minutos' | '1 hora' | '24 horas' | '8 horas' ,
     distance: '1,5 quilômetro' | 'Pessoal' | '150 metros' | '30 metros' | '18 metros' | '45 metros' |'3 metros' | '45 metros' | 'Toque' | '36 metros' | '9 metros' ,
     description: string,
-    schoolOfMagic: string,
-    cast: '1 ação' | '1 reação' | '1 hora' | '1 minuto' | '1 ação bônus',
+    duration?: 'Instantânea'| '1 minuto' | '1 rodada' | '10 minutos' | '1 hora' | '24 horas' | '8 horas' ,
+    schoolOfMagic?: string,
+    cast?: '1 ação' | '1 reação' | '1 hora' | '1 minuto' | '1 ação bônus',
     rollAtack?: string,
     roolDamage?: string
     testToBeMade?: string,
     typeOfAttack: 'Spell' | 'Attack' 
     ritual: boolean,
     superiorLevels?: string
-    level: number,
+    level?: number,
     prepared?: boolean
+
+    // arma
+    weaponType?: string,
+    dice?: string
+    damageDice?: string
+    cursed?: boolean,
   }
   export type InvocationType = {
     name: string,

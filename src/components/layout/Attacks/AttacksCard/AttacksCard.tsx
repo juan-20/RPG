@@ -57,7 +57,8 @@ export default function AttacksCard(props: attacksType) {
           </div>
           <div onClick={() => { setAttackPopUp(true)}} className="btn">
             <Button backgroundColor='blue' label='Ver mais' icon='ph-book-open-fill' size='sm' />
-            <Popup target='Magic' title={name} open={attackPopUp} 
+            <Popup 
+            target='Magic' title={name} open={attackPopUp} 
             onClose={() => setAttackPopUp(false)} 
             description={description}
             />

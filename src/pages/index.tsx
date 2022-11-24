@@ -1,28 +1,13 @@
-// export const getStaticProps = async () => {
-//   let url = process.env.REACT_APP_ENVIROMENT
-//    const res = await fetch(url + '/api/Characters')
-//    const characters: CharactersType[] = await res.json()
-//    return{
-//      props:{
-//       characters,
-//       fallback: false
-//      }
-//    }
-   
-//  }
-
-import type { InferGetStaticPropsType } from 'next'
+import { GetStaticPaths, InferGetStaticPropsType } from 'next'
 import Head from 'next/head'
 import CharacterResume from '../components/layout/Character-resume'
 import { Body } from '../components/layout/Character-resume/styles'
 import Landing from '../components/layout/Landing'
 import { CharactersType } from '../types/D&D.type'
-import { characters } from './api/data/character'
+// import { characters } from './api/data/character'
 
-// {characters}: InferGetStaticPropsType<typeof getStaticProps>
-
-export default function Home() {
-  
+export default function Home({character}: InferGetStaticPropsType<typeof getStaticProps>) {
+  const characters = character
   return (
     <>
     {characters.length > 0 ?
@@ -51,3 +36,16 @@ export default function Home() {
   )
 }
 
+
+
+export const getStaticProps = async () => {
+  const res = await fetch(`${process.env.REACT_APP_ENVIROMENT}/api/getAllCharacters`)
+   const character: CharactersType[] = await res.json()
+   return{
+     props:{
+      character,
+      fallback: false
+     }
+   }
+   
+ }

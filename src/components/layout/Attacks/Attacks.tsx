@@ -99,6 +99,7 @@ export default function Attacks(props: AttacksType) {
             <div onClick={() => {setNewType(171)}} className="guns">
           <ToggleDemo icon='ph-sword' type='Word' text={'Armas'} key={'Armas'}/>
           </div>
+          Níveis:
             {data?.map((num, index) => (
           <div key={index} onClick={() => { setNewType(num)}} className='choose-slider-levels'>
                   <ToggleDemo  type='Level' text={num} key={num}/>
