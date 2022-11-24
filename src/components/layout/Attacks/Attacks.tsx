@@ -21,6 +21,7 @@ export default function Attacks(props: AttacksType) {
 
     useEffect(() => {
       setLoading(true)
+      console.log(isLoading)
       fetch(`${process.env.REACT_APP_ENVIROMENT}/api/getSpellsLevel/${id}`)
       .then((res) => res.json())
         .then((data) => {
