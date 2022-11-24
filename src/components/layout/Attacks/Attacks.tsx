@@ -13,7 +13,6 @@ type AttacksType = {
 }
 
 export default function Attacks(props: AttacksType) {
-    // const { name, duration, distance, cast, description, typeOfAttack, prepared, schoolOfMagic, rollAtack, testToBeMade, ritual, level, superiorLevels, id } = props
     const { id } = props
 
     const [data, setData] = useState<DataProps | null>(null)
@@ -25,7 +24,6 @@ export default function Attacks(props: AttacksType) {
       fetch(`/api/getSpellsLevel/${id}`)
       .then((res) => res.json())
         .then((data) => {
-          console.log(data)
           setData(data)
           setLoading(false)
         })
