@@ -3,7 +3,6 @@ import { ref, onValue } from 'firebase/database';
 import { NextApiRequest, NextApiResponse } from 'next/types';
 import { db } from '../../../services/firebase';
 import { CharactersType } from '../../../types/D&D.type';
-// import { characters } from '../data/character';
 
 let characters: CharactersType[] = []
 const query = ref(db, "/");
