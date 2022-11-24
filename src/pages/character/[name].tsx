@@ -1,6 +1,6 @@
 import { AttacksContainer, Container, HeroInfo, MainAtributes, SkillsAndLife } from '../../../styles/styles';
 import Image from 'next/image'
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import { GetStaticPaths, InferGetStaticPropsType } from 'next'
 
 import CheckboxComponent from '../../components/interface/Checkbox';
@@ -11,6 +11,8 @@ import Life from '../../components/layout/Life/life';
 
 import { CharactersType } from '../../types/D&D.type'
 import Attacks from '../../components/layout/Attacks/Attacks';
+import { onValue, ref } from 'firebase/database';
+import { db } from '../../services/firebase';
 
 
 export default function Character({character}: InferGetStaticPropsType<typeof getStaticProps>) {
@@ -19,6 +21,23 @@ export default function Character({character}: InferGetStaticPropsType<typeof ge
   const [gunsPopUp, setGunsPopUp] = useState(false);
   const [inventoryPopUp, setinventoryPopUp] = useState(false);
   const [magicPopUp, setMagicPopUp] = useState(false);
+
+
+  const [projects, setProjects] = useState([]);
+
+  useEffect(() => {
+    const query = ref(db, "/");
+    return onValue(query, (snapshot) => {
+      const data = snapshot.val();
+      console.log(data);
+
+      if (snapshot.exists()) {
+        Object.values(data).map((project) => {
+          console.log(project);;
+        });
+      }
+    });
+  }, []);
 
   return (
     <Container>
@@ -132,7 +151,7 @@ type routes ={
 }
 
 export const getStaticProps = async (name: routes) => {
-  let url = process.env.ENVIROMENT
+  let url = process.env.REACT_APP_ENVIROMENT
   const res = await fetch(`${url}/api/getCharactersByName/${name.params.name}`)
    const character: CharactersType = await res.json()
    return{

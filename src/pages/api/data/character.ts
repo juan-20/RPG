@@ -1,5 +1,28 @@
 import { CharactersType } from "../../../types/D&D.type";
 
+// import { onValue, ref } from "firebase/database";
+// import { useEffect } from "react";
+// import { db } from "../../../services/firebase";
+// import { CharactersType } from "../../../types/D&D.type";
+
+
+// let res: CharactersType[] = []
+// useEffect(() => {
+//   const query = ref(db, "/");
+//   return onValue(query, (snapshot) => {
+//     const data = snapshot.val();
+//     console.log(data);
+//     res = data
+    
+//     if (snapshot.exists()) {
+//       Object.values(data).map((project) => {
+//         console.log(project);;
+//       });
+//     }
+//   });
+// }, []);
+// export let characters: CharactersType[] = res
+
 export let characters: CharactersType[] = [
     {
       Id: 1,

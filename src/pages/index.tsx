@@ -1,5 +1,5 @@
 // export const getStaticProps = async () => {
-//   let url = process.env.ENVIROMENT
+//   let url = process.env.REACT_APP_ENVIROMENT
 //    const res = await fetch(url + '/api/Characters')
 //    const characters: CharactersType[] = await res.json()
 //    return{

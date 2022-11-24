@@ -109,7 +109,7 @@ export const SkillsAndLife = styled.section`
     padding-top: 1rem;
 
     .skills{
-        width: 100%;
+        /* width: 100%; */
         display: flex;
         flex-direction: column;
         justify-content: center;
@@ -150,13 +150,18 @@ export const SkillsAndLife = styled.section`
         justify-content: center;
         align-items: center;
         flex-direction: column;
-        width: 100%;
+        /* width: 100%; */
         gap: 1rem;
         .test{
             width: 500px;
             height: 300px;
             background: pink;
         }
+    }
+    @media only screen and (min-width: 1440px) {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        grid-gap: 1rem;
     }
 
 `;
