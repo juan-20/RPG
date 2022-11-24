@@ -21,10 +21,11 @@ export default function Attacks(props: AttacksType) {
 
     useEffect(() => {
       setLoading(true)
-      fetch(`/api/getSpellsLevel/${id}`)
+      fetch(`${process.env.REACT_APP_ENVIROMENT}/api/getSpellsLevel/${id}`)
       .then((res) => res.json())
         .then((data) => {
           setData(data)
+          console.log(data);
           setLoading(false)
         })
     }, [])
@@ -36,7 +37,7 @@ export default function Attacks(props: AttacksType) {
       if (activeType === 180){
          console.log('abre tudo');
          setLoading(true)            
-              const response = await fetch(`/api/GetSpeelsByCharacterId/${id}`)
+              const response = await fetch(`${process.env.REACT_APP_ENVIROMENT}/api/GetSpeelsByCharacterId/${id}`)
               .then((res) => res.json())
               .then((data) => {
                 console.log(data);
@@ -48,7 +49,7 @@ export default function Attacks(props: AttacksType) {
           if (activeType === 360){
             console.log('abre magia');
             setLoading(true)            
-                 const response = await fetch(`/api/getTypeOfAttack/${id}/Spell`)
+                 const response = await fetch(`${process.env.REACT_APP_ENVIROMENT}/api/getTypeOfAttack/${id}/Spell`)
                  .then((res) => res.json())
                  .then((data) => {
                    console.log(data);
@@ -60,7 +61,7 @@ export default function Attacks(props: AttacksType) {
               if (activeType === 171){
                 console.log('abre armas');
                 setLoading(true)            
-                     const response = await fetch(`/api/getTypeOfAttack/${id}/Attack`)
+                     const response = await fetch(`${process.env.REACT_APP_ENVIROMENT}/api/getTypeOfAttack/${id}/Attack`)
                      .then((res) => res.json())
                      .then((data) => {
                        console.log(data);
