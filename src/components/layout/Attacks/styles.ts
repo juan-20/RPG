@@ -15,7 +15,6 @@ export const Container = styled.div`
         overflow: hidden;
         &-slider{
             display: flex;
-            justify-content: center;
             align-items: center;
             gap: 0.5rem;
             padding: 3rem;

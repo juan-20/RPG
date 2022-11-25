@@ -28,17 +28,14 @@ export default function AttacksCard(props: attacksType) {
   onValue(query, (snapshot) => {
     const data = snapshot.val();
     res = data
-    console.log(res);
    })
 
   const test =  ref(db, `/characters/0/spells/${id}`);
   onValue(query, (snapshot) => {
     const data = snapshot.val();
-    console.log(data);
    })
 
    if (res.prepared === true) {
-    console.log('ta true e vou deixar falso')
     set(query , {
       prepared: false,
     })
@@ -47,7 +44,6 @@ export default function AttacksCard(props: attacksType) {
     return
   }
   if (res.prepared === false) {
-    console.log('ta false e agora ta preparado')
     set(query , {
       prepared: true,
     })
@@ -63,7 +59,7 @@ export default function AttacksCard(props: attacksType) {
       <Container className='magic'>
 
         <div className="magic-header">
-        <h1>{name}, {id}</h1>
+        <h1>{name}</h1>
         {typeOfAttack === 'Spell' ? <Fire className='fire' size={32} weight="fill" />
          : <Sword className='sword' size={32} weight="fill" />}
         
@@ -71,20 +67,18 @@ export default function AttacksCard(props: attacksType) {
 
         <div className="magic">
         <div className="magic-content">
-        <span>Tipo:</span>
-        <p>{cast}</p>
-        </div>
-        <div className="magic-content">
-        <span>Distância:</span>
-        <p>{distance}</p>
-        </div>
-        <div className="magic-content">
         {level ? 
         <>
           <span>Nível:</span>
           <p>{level}</p>
         </>
         : null}
+        </div>
+        <div className="magic-content">
+        <span>Distância:</span>
+        <p>{distance}</p>
+        </div>
+        <div className="magic-content">
         </div>
         <div className="magic-content">
         <span>Rolagem:</span>

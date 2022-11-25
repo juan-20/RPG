@@ -51,7 +51,7 @@ export default function Life(props: LifeType) {
 
    
 
-    toast.success(`Você tomou ${changedLife} e agora tem ${life} de vida !`, {
+    toast.success(`Você tem ${life} de vida !`, {
       position: "bottom-right",
       autoClose: 2000,
       hideProgressBar: true,
