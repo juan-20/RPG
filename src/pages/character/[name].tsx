@@ -163,7 +163,7 @@ type routes ={
 }
 
 export const getStaticProps = async (name: routes) => {
-  const res = await fetch(`${process.env.REACT_APP_ENVIROMENT}/api/getCharactersByName/${name.params.name}`)
+  const res = await fetch(`${process.env.REACT_APP_SSR}/api/getCharactersByName/${name.params.name}`)
    const character: CharactersType = await res.json()
    return{
      props:{

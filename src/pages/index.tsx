@@ -50,7 +50,7 @@ export default function Home({character}: InferGetStaticPropsType<typeof getStat
 
 export const getStaticProps = async () => {
   
-  const res = await fetch(`${process.env.REACT_APP_ENVIROMENT}/api/getAllCharacters`)
+  const res = await fetch(`${process.env.REACT_APP_SSR}/api/getAllCharacters`)
    const character: CharactersType[] = await res.json()
    return{
      props:{

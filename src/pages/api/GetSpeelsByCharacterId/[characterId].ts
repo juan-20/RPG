@@ -25,5 +25,7 @@ export default function handler(
         const test = characters.find(character => character.Id === ID)
 
         return res.status(200).json(test?.spells)
+      }else{
+      return res.status(500).json(characters)
     }
   }

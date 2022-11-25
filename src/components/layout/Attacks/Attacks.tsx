@@ -19,6 +19,7 @@ export default function Attacks(props: AttacksType) {
     const [isLoading, setLoading] = useState(false)
     const [spells, setSpells]:any = useState('')
 
+
     useEffect(() => {
       setLoading(true)
       fetch(`${process.env.REACT_APP_BASE_URL}/api/getSpellsLevel/${id}`)

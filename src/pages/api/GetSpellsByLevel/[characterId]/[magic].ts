@@ -36,5 +36,7 @@ export default function handler(
         })
    
         return res.status(200).json(data)
+    }else{
+      return res.status(500).json(characters)
     }
   }
