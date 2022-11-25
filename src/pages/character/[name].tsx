@@ -13,6 +13,9 @@ import { CharactersType } from '../../types/D&D.type'
 import Attacks from '../../components/layout/Attacks/Attacks';
 import { onValue, ref } from 'firebase/database';
 import { db } from '../../services/firebase';
+import TooltipComponent from '../../components/interface/Tooltip/Tooltip';
+import Tooltip from '../../components/interface/Tooltip/Tooltip';
+import { Flask } from 'phosphor-react';
 
 
 export default function Character({character}: InferGetStaticPropsType<typeof getStaticProps>) {
@@ -54,6 +57,14 @@ export default function Character({character}: InferGetStaticPropsType<typeof ge
       <HeroInfo>
           <div className="image">
             <Image quality={100} id='photo' src={Character.photo.url} alt={Character.photo.desc} width={200} height={200} />
+              <div className="image-level">
+              {/* <Tooltip /> */}
+              <span>
+              <Flask size={16} weight='fill' />
+                Nivel
+              </span>
+                <p>8</p>
+              </div>
           </div>
           <div className="text">
             <div className="">
@@ -72,7 +83,7 @@ export default function Character({character}: InferGetStaticPropsType<typeof ge
             </div>
           </div>
 
-          <div className="button-group">
+          {/* <div className="button-group">
             <div onClick={() => { setGunsPopUp(true); } } className="guns">
               <Button size='sm' backgroundColor='blue' label='Armas' icon='ph-sword' />
             </div>
@@ -90,7 +101,7 @@ export default function Character({character}: InferGetStaticPropsType<typeof ge
             <Popup target='Guns' title='Armas' open={gunsPopUp} onClose={() => setGunsPopUp(false)} />
             <Popup target='Inventory' title='Inventário' open={inventoryPopUp} onClose={() => setinventoryPopUp(false)} />
             <Popup target='Magic' title='Magia' open={magicPopUp} onClose={() => setMagicPopUp(false)} />
-          </div>
+          </div> */}
 
       </HeroInfo>
       
@@ -119,12 +130,18 @@ export default function Character({character}: InferGetStaticPropsType<typeof ge
             </div>
           ))}
         </div>
-
+        <div className="second">
         <div className="life">
         <Life totalLife={Character.life} lifeDice={Character.lifeDice} />
         {/* <div className="test">
         <p>teste</p>
         </div> */}
+        </div>
+
+        {/* <div className="test">
+          <p>oi</p>
+        </div> */}
+
         </div>
        
       </SkillsAndLife>

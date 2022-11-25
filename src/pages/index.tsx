@@ -8,9 +8,9 @@ import { CharactersType } from '../types/D&D.type'
 
 export default function Home({character}: InferGetStaticPropsType<typeof getStaticProps>) {
   const characters = character
+  console.log(character)
   return (
     <>
-    {characters.length > 0 ?
     <>
           <Head>
             <title>RPG</title>
@@ -21,14 +21,22 @@ export default function Home({character}: InferGetStaticPropsType<typeof getStat
             <meta property="og:image" content='https://pbs.twimg.com/media/FgeddoVWAAEJDUv?format=png&name=360x360' />
         </Head>
     <Landing />
+    {characters.length > 0 ?
     <Body>
           {characters.map((character: CharactersType) => (
-            <CharacterResume key={character.Id} name={character.name} surname={character.surname} description={character.desc} age={character.age} image={character.photo.url}
-              role={character.role} />
+            <CharacterResume 
+              key={character.Id} 
+              name={character.name} 
+              surname={character.surname} 
+              description={character.desc} 
+              age={character.age} 
+              image={character.photo.url}
+              role={character.role} 
+            />
           ))}
         </Body>
-    </>
-    : 'eita kkk'  }
+    : 'Banco de dados desconectado'  }
+    </> 
 
     </>
 
@@ -41,6 +49,7 @@ export default function Home({character}: InferGetStaticPropsType<typeof getStat
 export const getStaticProps = async () => {
   const res = await fetch(`${process.env.REACT_APP_ENVIROMENT}/api/getAllCharacters`)
    const character: CharactersType[] = await res.json()
+   console.log(character)
    return{
      props:{
       character,

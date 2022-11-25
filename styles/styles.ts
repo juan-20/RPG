@@ -6,6 +6,7 @@ export const Container = styled.div`
     padding: 1rem;
     display: flex;
     flex-direction: column;
+    overflow-x: hidden;
 
 `;
 export const HeroInfo = styled.div`
@@ -26,6 +27,36 @@ export const HeroInfo = styled.div`
     }
     .image{
         padding: 1rem;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        &-level{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border: 1px solid ${props => props.theme.colors.text};
+            color: ${props => props.theme.colors.text};
+            width: 2rem;
+            height: 2rem;
+            border-radius: 50%;
+            position: absolute;
+            top: 30%;
+            span{
+                display: none;
+            }
+            :hover{
+                border-radius: 4px;
+                width: 6rem;
+                content: 'nivel 8';
+                cursor: pointer;
+                gap: 0.2rem;
+                span{
+                    display: flex;
+                    gap: 0.2rem;
+                }
+            }
+        }
     }
     .text{
         display: flex;
@@ -53,6 +84,7 @@ export const MainAtributes = styled.section`
    align-content: center;
    justify-content: center;
    gap: 1rem;
+   padding-top: 1rem;
 
    @media only screen and (min-width: 1000px) {
     display: flex ;
@@ -60,7 +92,7 @@ export const MainAtributes = styled.section`
    }
 
     .atributes{
-        max-width: 138px;
+        max-width: 140px;
         min-width: 10px;
         height: 90px;
         background: ${props => props.theme.colors.primary};
@@ -89,7 +121,7 @@ export const MainAtributes = styled.section`
             border: 3px solid ${props => props.theme.colors.text};
         }
         >p{
-            padding-top: 0.5rem;
+            padding: 0.5rem;
             font-size: 1rem;
         }
         @media only screen and (max-width: 450px) {
@@ -108,8 +140,15 @@ export const SkillsAndLife = styled.section`
 	grid-gap: 1rem;
     padding-top: 1rem;
 
+    @media only screen and (min-width: 650px) {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        grid-gap: 1rem;
+    }
+
+
     .skills{
-        /* width: 100%; */
+        min-width: 300px;
         display: flex;
         flex-direction: column;
         justify-content: center;
@@ -145,23 +184,21 @@ export const SkillsAndLife = styled.section`
         }
     }
 
-    .life{
+    .second{
+        height: 100%;
         display: flex;
-        justify-content: center;
-        align-items: center;
         flex-direction: column;
-        /* width: 100%; */
+        flex-wrap: wrap;
+        align-content: flex-end;
+        align-items: center;
+        justify-content: center;
         gap: 1rem;
-        .test{
-            width: 500px;
-            height: 300px;
-            background: pink;
-        }
     }
-    @media only screen and (min-width: 1440px) {
-        display: grid;
-        grid-template-columns: 1fr 1fr;
-        grid-gap: 1rem;
+    .test{
+        width: 300px;
+        height: 300px;
+        background: pink;
+        padding-top: 7rem;
     }
 
 `;

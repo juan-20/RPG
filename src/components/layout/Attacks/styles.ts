@@ -15,6 +15,8 @@ export const Container = styled.div`
         overflow: hidden;
         &-slider{
             display: flex;
+            justify-content: center;
+            align-items: center;
             gap: 0.5rem;
             padding: 3rem;
            flex-direction: row;
@@ -28,6 +30,7 @@ export const Container = styled.div`
             scroll-behavior: smooth;
             -ms-overflow-style: none;  /* IE and Edge */
             scrollbar-width: none;  /* Firefox */
+            text-align: center;
             
             @media only screen and (min-width: 767px) {
                 align-items: center;

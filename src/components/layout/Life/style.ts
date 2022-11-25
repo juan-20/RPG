@@ -8,8 +8,9 @@ export const Container = styled.div`
         border-radius: 5px;
         background: ${props => props.theme.colors.primary};
         padding: 1rem;
-        width: 80%;
         position: relative;
+        max-width: 300px;
+        min-width: 300px;
         h1{
             padding: 0.5rem;
         }
@@ -31,7 +32,7 @@ export const Container = styled.div`
         }
         .changeLife{
             padding: 1rem;
-            border: 1px solid ${props => props.theme.colors.text};;
+            /* border: 1px solid ${props => props.theme.colors.text};; */
             border-radius: 5px;
         .inputSection{
             display: flex;
