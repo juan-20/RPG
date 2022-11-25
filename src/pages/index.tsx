@@ -8,6 +8,8 @@ import { CharactersType } from '../types/D&D.type'
 
 export default function Home({character}: InferGetStaticPropsType<typeof getStaticProps>) {
   const characters = character
+  console.log(characters)
+  console.log(`${process.env.REACT_APP_BASE_URL}/api/getAllCharacters`)
   return (
     <>
     <>
