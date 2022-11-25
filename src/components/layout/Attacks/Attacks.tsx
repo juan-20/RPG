@@ -21,7 +21,7 @@ export default function Attacks(props: AttacksType) {
 
     useEffect(() => {
       setLoading(true)
-      fetch(`/api/getSpellsLevel/${id}`)
+      fetch(`${process.env.REACT_APP_BASE_URL}/api/getSpellsLevel/${id}`)
       .then((res) => res.json())
         .then((data) => {
           setData(data)
@@ -36,7 +36,7 @@ export default function Attacks(props: AttacksType) {
       if (activeType === 180){
          console.log('abre tudo');
          setLoading(true)            
-              const response = await fetch(`/api/GetSpeelsByCharacterId/${id}`)
+              const response = await fetch(`${process.env.REACT_APP_BASE_URL}/api/GetSpeelsByCharacterId/${id}`)
               .then((res) => res.json())
               .then((data) => {
                 setSpells(data)
@@ -47,7 +47,7 @@ export default function Attacks(props: AttacksType) {
           if (activeType === 360){
             console.log('abre magia');
             setLoading(true)            
-                 const response = await fetch(`/api/getTypeOfAttack/${id}/Spell`)
+                 const response = await fetch(`${process.env.REACT_APP_BASE_URL}/api/getTypeOfAttack/${id}/Spell`)
                  .then((res) => res.json())
                  .then((data) => {
                    setSpells(data)
@@ -58,7 +58,7 @@ export default function Attacks(props: AttacksType) {
               if (activeType === 171){
                 console.log('abre armas');
                 setLoading(true)            
-                     const response = await fetch(`/api/getTypeOfAttack/${id}/Attack`)
+                     const response = await fetch(`${process.env.REACT_APP_BASE_URL}/api/getTypeOfAttack/${id}/Attack`)
                      .then((res) => res.json())
                      .then((data) => {
                        setSpells(data)
@@ -69,7 +69,7 @@ export default function Attacks(props: AttacksType) {
       if (activeType <= 20){
         console.log('abre tudo');
          setLoading(true)            
-              const response = await fetch(`/api/GetSpellsByLevel/${id}/${activeType}`)
+              const response = await fetch(`${process.env.REACT_APP_BASE_URL}/api/GetSpellsByLevel/${id}/${activeType}`)
               .then((res) => res.json())
               .then((data) => {
                 setSpells(data)
