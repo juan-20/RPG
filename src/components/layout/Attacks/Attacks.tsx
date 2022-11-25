@@ -106,6 +106,7 @@ export default function Attacks(props: AttacksType) {
         {spells ? (spells.map((attack: SpellsType) => (
             <AttacksCard 
              key={attack.id}
+             id={attack.id}
              name={attack.name}
              duration={attack.duration}
              distance={attack.distance}

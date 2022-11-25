@@ -180,7 +180,7 @@
       },
       "spells": [
         {
-        "id": 1,
+        "id": 0,
         "name": "Eldritch Blast",
         "distance": "30 metros",
         "duration": "Instantânea",
@@ -191,10 +191,12 @@
         "level": 0,
         "description": "Um raio de energia crepitante atinge uma criatura dentro do alcance. Faça um ataque mágico à distância contra o alvo. Em um acerto, o alvo sofre 1d10 de dano de força.",
         "superiorLevels": "O feitiço cria mais de um feixe quando você alcança níveis mais altos: dois feixes no 5º nível, três feixes no 11º nível e quatro feixes no 17º nível. Você pode direcionar os feixes para o mesmo alvo ou para alvos diferentes. Faça uma jogada de ataque separada para cada raio.",
-        "prepared": false
+        "prepared": {
+          "prepared": false
+        }
       },
       {
-        "id": 2,
+        "id": 1,
         "name": "Mãos mágicas",
         "description": "Uma mão espectral flutuante aparece num ponto, à sua escolha, dentro do alcance. A mão permanece pela duração ou até você dissipa-la com uma ação. A mão some se estiver a mais de 9 metros de você ou se você conjurar essa magia novamente. Você pode usar sua ação para controlar a mão. Você pode usar a mão para manipular um objeto, abrir uma porta ou recipiente destrancado, guardar ou pegar um item de um recipiente aberto ou derramar o conteúdo de um frasco. Você pode mover a mão até 9 metros a cada vez que a usa. A mão não pode atacar, ativar itens mágicos ou carregar mais de 5 quilos",
         "cast": "1 ação",
@@ -203,10 +205,12 @@
         "typeOfAttack": "Spell",
         "ritual": false,
         "schoolOfMagic": "Conjuração",
-        "prepared": false
+        "prepared": {
+          "prepared": false
+        }
       },
       {
-        "id": 3,
+        "id": 2,
         "name": "Bruxaria",
         "description": "Você coloca uma maldição em uma criatura que você possa ver, dentro do alcance. Até a magia acabar, você causa 1d6 de dano necrótico extra no alvo sempre que atingi-lo com um ataque. Além disso, escolha uma habilidade quando você conjurar a magia. O alvo tem desvantagem em testes de habilidade feitos com a habilidade escolhida. Se o alvo cair a 0 pontos de vida antes da magia acabar, você pode usar uma ação bônus, em um turno subsequente, para amaldiçoar outra criatura.",
         "superiorLevels": " Quando você usar um espaço de magia de 5° nível ou superior, você poderá manter sua concentração na magia por até 24 horas.",
@@ -216,7 +220,9 @@
         "typeOfAttack": "Spell",
         "ritual": false,
         "schoolOfMagic": "Encantamento",
-        "prepared": false
+        "prepared": {
+          "prepared": false
+        }
       },
       {
         "id": 3,
@@ -229,7 +235,9 @@
         "typeOfAttack": "Spell",
         "ritual": false,
         "schoolOfMagic": "Encantamento",
-        "prepared": false
+        "prepared": {
+          "prepared": false
+        }
       },
       {
         "id": 4,
@@ -241,7 +249,9 @@
         "typeOfAttack": "Spell",
         "ritual": false,
         "schoolOfMagic": "Ilusão",
-        "prepared": false
+        "prepared": {
+          "prepared": false
+        }
       },
       {
         "id": 5,
@@ -255,7 +265,9 @@
         "typeOfAttack": "Spell",
         "ritual": false,
         "schoolOfMagic": "Necromancia",
-        "prepared": false
+        "prepared": {
+          "prepared": false
+        }
       },
       {
         "id": 6,
@@ -269,10 +281,12 @@
         "typeOfAttack": "Spell",
         "ritual": false,
         "schoolOfMagic": "Transmutação",
-        "prepared": false
+        "prepared": {
+          "prepared": false
+        }
       },
       {
-        "id": 6,
+        "id": 7,
         "name": "Porta Dimensional",
         "duration": "Instantânea",
         "description": "Você se teletransporte da sua posição atual para qualquer local dentro do alcance. Você aparece exatamente no local desejado. Pode ser um lugar que você possa ver, um que você possa visualizar ou um que você possa descrever indicando a distância e direção, como “60 metros diretamente pra baixo” ou “90 metros, subindo para noroeste num ângulo de 45 graus”. Você pode levar objetos com você, contanto que o peso deles não exceda o que você pode carregar. Você também pode levar uma criatura voluntária do seu tamanho ou menor, que esteja carregando equipamento até o limite da capacidade de carga dela. A criatura deve estar a 1,5 metro de você quando você conjurar a magia.Se você aparecer em um lugar que já esteja ocupado por um objeto ou uma criatura, você e qualquer criatura viajando com você, sofrem 4d6 de dano de energia cada um e a magia falha em teletransportar vocês.",
@@ -282,10 +296,12 @@
         "typeOfAttack": "Spell",
         "ritual": false,
         "schoolOfMagic": "Conjuração",
-        "prepared": false
+        "prepared": {
+          "prepared": false
+        }
       },
       {
-        "id": 7,
+        "id": 8,
         "name": "Invisibilidade",
         "duration": "1 hora",
         "description": "Você se teletransporte da sua posição atual para qualquer local dentro do alcance. Você aparece exatamente no local desejado. Pode ser um lugar que você possa ver, um que você possa visualizar ou um que você possa descrever indicando a distância e direção, como “60 metros diretamente pra baixo” ou “90 metros, subindo para noroeste num ângulo de 45 graus”. Você pode levar objetos com você, contanto que o peso deles não exceda o que você pode carregar. Você também pode levar uma criatura voluntária do seu tamanho ou menor, que esteja carregando equipamento até o limite da capacidade de carga dela. A criatura deve estar a 1,5 metro de você quando você conjurar a magia.Se você aparecer em um lugar que já esteja ocupado por um objeto ou uma criatura, você e qualquer criatura viajando com você, sofrem 4d6 de dano de energia cada um e a magia falha em teletransportar vocês.",
@@ -295,10 +311,12 @@
         "typeOfAttack": "Spell",
         "ritual": false,
         "schoolOfMagic": "Ilusão",
-        "prepared": false
+        "prepared": {
+          "prepared": false
+        }
       },
       {
-        "id": 8,
+        "id": 9,
         "name": "Malogro",
         "duration": "Instantânea",
         "description": "Energia necromântica inunda uma criatura, à sua escolha, que você possa ver dentro do alcance, drenando sua umidade e vitalidade. O alvo deve realizar um teste de resistência de Concentração. O alvo sofre 8d8 de dano necrótico se falhar no teste, ou metade desse dano se obtiver sucesso. Essa magia não surte efeito em mortos- vivos ou constructos. Se você afetar uma criatura planta ou planta mágica, ela faz seu teste de resistência com desvantagem e a magia causa o máximo de dano a ela. Se você afetar uma planta não-mágica que não seja uma criatura, como uma árvore ou arbusto, ele não faz um teste de resistência; ela simplesmente seca e morre.",
@@ -309,13 +327,15 @@
         "typeOfAttack": "Spell",
         "ritual": false,
         "schoolOfMagic": "Necromancia",
-        "prepared": false
+        "prepared": {
+          "prepared": false
+        }
       }
       ]
 
     },
     {
-      "Id": 2,
+      "Id": 10,
       "name": "Nephy",
       "age": "Alguns anos",
       "role": "Clerigo",
@@ -504,7 +524,9 @@
         "typeOfAttack": "Spell",
         "level": 0,
         "description": "Você toca uma criatura viva que esteja com 0 pontos de vida. A criatura é estabilizada. Essa magia não afeta mortos-vivos ou constructos.",
-        "prepared": false
+        "prepared": {
+          "prepared": false
+        }
       }
       ]
 

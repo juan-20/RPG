@@ -23,6 +23,10 @@ export type LifeProp ={
   life: number
 }
 
+export type PreparedProp ={
+  prepared: boolean
+}
+
 export type ItemsType ={
   id: number,
   name: string,
@@ -70,7 +74,7 @@ export type SpellsType = {
     ritual: boolean,
     superiorLevels?: string
     level?: number,
-    prepared?: boolean
+    prepared?: PreparedProp
 
     // arma
     weaponType?: string,

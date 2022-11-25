@@ -6,12 +6,21 @@ export const Container = styled.div`
     border-radius: 5px;
     height: 250px;
 
+    .fill{
+        >path{
+        fill: ${props => props.theme.colors.text};
+        }
+    }
+    .unfill{
+        >path{
+        fill: ${props => props.theme.colors.primary};
+        }
+    }
         .fire{
             color:  ${props => props.theme.colors.secondary};
         }
         .sword{
                 color:  ${props => props.theme.colors.titleDark};
-                /* color: #5762d5; */
             }
     .magic{
         padding: 1rem;
@@ -31,6 +40,7 @@ export const Container = styled.div`
             justify-content: space-between;
             padding: 1rem;
             &-prepered{
+                cursor: pointer;
                 display: flex;
                 justify-content: center;
                 align-items: center;
