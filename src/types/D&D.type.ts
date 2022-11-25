@@ -1,7 +1,7 @@
 export type CharactersType ={
       Id: number,
       name: string,
-      life: number,
+      life: LifeProp,
       lifeDice: string,
       surname?: string
       role: string
@@ -16,6 +16,11 @@ export type CharactersType ={
       // weapons: WeaponsType[]
       spells: SpellsType[]
       inventory?: ItemsType[]
+}
+
+
+export type LifeProp ={
+  life: number
 }
 
 export type ItemsType ={

@@ -5,7 +5,7 @@ import { db } from '../../../services/firebase';
 import { CharactersType } from '../../../types/D&D.type';
 
 let characters: CharactersType[] = []
-const query = ref(db, "/");
+const query = ref(db, "/characters");
 onValue(query, (snapshot) => {
   const data = snapshot.val();
   console.log(data);

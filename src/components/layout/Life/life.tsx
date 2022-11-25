@@ -4,6 +4,8 @@ import { toast, ToastContainer } from 'react-toastify'
 import Button from '../../interface/Button'
 import { Container } from './style'
 import 'react-toastify/dist/ReactToastify.css';
+import { db } from '../../../services/firebase'
+import { onValue, ref, set } from 'firebase/database'
 
 type LifeType ={
     totalLife: number,
@@ -23,16 +25,31 @@ export default function Life(props: LifeType) {
   const [life, setLife] = useState<any>(totalLife)
 
   function changeLife(){
+      // @ts-ignore: Unreachable type code error
+      event.preventDefault();
 
     if (changedLife === 0) return
-
+    
+    const query =  ref(db, "/characters/0/life");
     if (changedLife < 0) {
       let newLife = parseInt(life) + parseInt(changedLife)
       setLife(newLife)
+      set(query , {
+        life: newLife,
+      })
+
     }else{
       let newLife =  parseInt(changedLife) + parseInt(life)
       setLife(newLife)
+      set(query , {
+        life: newLife,
+      })
     }
+    
+
+
+
+   
 
     toast.success(`Você tomou ${changedLife} e agora tem ${life} de vida !`, {
       position: "bottom-right",
@@ -44,8 +61,6 @@ export default function Life(props: LifeType) {
       progress: undefined,
       theme: "dark",
       });
-
-    console.log(life);
   }
 
   return (

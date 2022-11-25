@@ -8,7 +8,6 @@ import { CharactersType } from '../types/D&D.type'
 
 export default function Home({character}: InferGetStaticPropsType<typeof getStaticProps>) {
   const characters = character
-  console.log(character)
   return (
     <>
     <>
@@ -47,9 +46,8 @@ export default function Home({character}: InferGetStaticPropsType<typeof getStat
 
 
 export const getStaticProps = async () => {
-  const res = await fetch(`${process.env.REACT_APP_ENVIROMENT}/api/getAllCharacters`)
+  const res = await fetch(`${process.env.REACT_APP_BASE_URL}/api/getAllCharacters`)
    const character: CharactersType[] = await res.json()
-   console.log(character)
    return{
      props:{
       character,

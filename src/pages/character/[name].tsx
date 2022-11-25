@@ -29,14 +29,12 @@ export default function Character({character}: InferGetStaticPropsType<typeof ge
   const [projects, setProjects] = useState([]);
 
   useEffect(() => {
-    const query = ref(db, "/");
+    const query = ref(db, "/characters");
     return onValue(query, (snapshot) => {
       const data = snapshot.val();
-      console.log(data);
 
       if (snapshot.exists()) {
         Object.values(data).map((project) => {
-          console.log(project);;
         });
       }
     });
@@ -58,7 +56,7 @@ export default function Character({character}: InferGetStaticPropsType<typeof ge
           <div className="image">
             <Image quality={100} id='photo' src={Character.photo.url} alt={Character.photo.desc} width={200} height={200} />
               <div className="image-level">
-              {/* <Tooltip /> */}
+  
               <span>
               <Flask size={16} weight='fill' />
                 Nivel
@@ -132,15 +130,12 @@ export default function Character({character}: InferGetStaticPropsType<typeof ge
         </div>
         <div className="second">
         <div className="life">
-        <Life totalLife={Character.life} lifeDice={Character.lifeDice} />
-        {/* <div className="test">
-        <p>teste</p>
-        </div> */}
+        <Life totalLife={Character.life.life} lifeDice={Character.lifeDice} />
         </div>
 
-        {/* <div className="test">
+        <div className="test">
           <p>oi</p>
-        </div> */}
+        </div>
 
         </div>
        

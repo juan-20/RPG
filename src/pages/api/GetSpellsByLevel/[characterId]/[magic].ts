@@ -6,7 +6,7 @@ import { CharactersType } from '../../../../types/D&D.type';
 // import { characters } from '../../data/character';
 
 let characters: CharactersType[] = []
-const query = ref(db, "/");
+const query = ref(db, "/characters");
 onValue(query, (snapshot) => {
   const data = snapshot.val();
   console.log(data);

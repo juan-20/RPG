@@ -5,7 +5,6 @@ import { Container } from './styles';
 export default function CheckboxComponent(props: {activated?: boolean, notAllowed?: boolean}) {
     
     const HandleClick = () => {
-      console.log(props.notAllowed);
         if (props.notAllowed) return
         if (checked){
           setChecked(false)

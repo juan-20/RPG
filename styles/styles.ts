@@ -42,6 +42,7 @@ export const HeroInfo = styled.div`
             border-radius: 50%;
             position: absolute;
             top: 30%;
+            transition: 0.08s linear !important;
             span{
                 display: none;
             }
