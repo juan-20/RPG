@@ -1,6 +1,8 @@
 import { useState } from 'react'
 import type { AppProps } from 'next/app'
 import GlobalStyles from '../../styles/GlobalStyles'
+import { SessionProvider } from 'next-auth/react'
+
 import { ThemeProvider } from 'styled-components'
 import dark from '../../styles/theme/dark'
 import light from '../../styles/theme/light'
@@ -20,7 +22,7 @@ Router.events.on('routeChangeError', progress.finish)
 
 
 
-function MyApp({ Component, pageProps }: AppProps) {
+function MyApp({ Component, pageProps }: AppProps, {session}: any) {
 
   const [theme, setTheme] = useState(dark);
 
@@ -31,9 +33,11 @@ function MyApp({ Component, pageProps }: AppProps) {
 
   return (
     <ThemeProvider theme={theme}>
+      <SessionProvider session={session}>
       <GlobalStyles />
       <NavBar toggleTheme={toggleTheme} />
       <Component {...pageProps} />
+      </SessionProvider>
     </ThemeProvider>
   )
 }

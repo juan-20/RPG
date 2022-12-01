@@ -3,6 +3,7 @@ export type CharactersType ={
       name: string,
       life: LifeProp,
       lifeDice: string,
+      createdBy: string
       surname?: string
       role: string
       desc: string
@@ -10,6 +11,7 @@ export type CharactersType ={
       armor: number
       initiative: number
       displacement: string
+      level?: number
       mainAtributes: MainAtributes[]
       skills: skillsType[]
       photo: ImageType

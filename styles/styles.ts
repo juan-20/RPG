@@ -149,7 +149,7 @@ export const SkillsAndLife = styled.section`
 
 
     .skills{
-        min-width: 300px;
+        /* min-width: 300px; */
         display: flex;
         flex-direction: column;
         justify-content: center;
@@ -189,7 +189,7 @@ export const SkillsAndLife = styled.section`
         height: 100%;
         display: flex;
         flex-direction: column;
-        flex-wrap: wrap;
+        /* flex-wrap: wrap; */
         align-content: flex-end;
         align-items: center;
         justify-content: center;

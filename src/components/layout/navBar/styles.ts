@@ -30,6 +30,9 @@ export const Container = styled.div`
             >svg{
                 cursor: pointer;
             }
+            >img{
+                border-radius: 50%;
+            }
         }
     }
 `;

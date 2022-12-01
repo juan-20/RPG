@@ -4,8 +4,9 @@ import { ThemeContext } from 'styled-components'
 import Link from 'next/link';
 import { useRouter } from 'next/router';
 import React from 'react';
-import { Moon, Sun } from 'phosphor-react';
+import { Moon, Sun, User, UserCircle } from 'phosphor-react';
 import Input from '../../interface/input/input';
+import { useSession } from 'next-auth/react';
 
 interface props {
   toggleTheme(): void;
@@ -15,7 +16,7 @@ interface eType {
 }
 
 function NavBar({ toggleTheme }: props) {
-  
+  const {data: session, status} = useSession()
   useEffect(() => {
       document.addEventListener('keydown', detectKey, true)
   })
@@ -68,6 +69,20 @@ function NavBar({ toggleTheme }: props) {
             <Sun role="button" onClick={toggleTheme} size={32} /> 
             :
             <Moon role="button" onClick={toggleTheme} size={32} />}
+
+            {session ? 
+            <>
+               <img 
+               className='avatar'
+               width={32} height={32}
+               src={session.user?.image!} 
+               alt={session.user?.name!+ 'Foto'} /> 
+            </>
+            : 
+            <Link href='/account'>
+            <UserCircle size={32} />
+            </Link>
+            }
 
         </div>
       </nav>
