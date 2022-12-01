@@ -8,7 +8,7 @@ import { Container } from '../../styles/account.style';
 import Button from '../components/interface/Button';
 import { CharactersType } from '../types/D&D.type';
 
-export default function signup({character}: InferGetStaticPropsType<typeof getStaticProps>) {
+export default function Account({character}: InferGetStaticPropsType<typeof getStaticProps>) {
   const {data: session, status} = useSession({required: true})
 
   let data: any

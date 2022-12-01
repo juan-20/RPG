@@ -16,7 +16,7 @@ interface eType {
 }
 
 function NavBar({ toggleTheme }: props) {
-  const {data: session, status} = useSession()
+  const {data: session} = useSession()
   useEffect(() => {
       document.addEventListener('keydown', detectKey, true)
   })
