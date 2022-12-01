@@ -142,7 +142,6 @@ export default function Character({character, levels}: InferGetStaticPropsType<t
       </SkillsAndLife>
 
       <AttacksContainer>
-        
         <Attacks 
           id={Character.Id}
           level={levels}

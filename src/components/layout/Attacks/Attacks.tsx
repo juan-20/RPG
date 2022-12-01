@@ -76,6 +76,8 @@ export default function Attacks(props: AttacksType ) {
 
   return (
     <Container>
+        <h1>Ataques:</h1>
+        <p>(arraste para o lado)</p>
         <div className="choose">
           <div className="choose-slider">
             <div onClick={() => { setNewType(180) }} className="all">
