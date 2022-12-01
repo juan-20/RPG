@@ -1,6 +1,7 @@
 import axios from 'axios';
+import { GetStaticPaths, InferGetStaticPropsType } from 'next';
 import React, { useEffect, useState } from 'react'
-import { SpellsType } from '../../../types/D&D.type'
+import { CharactersType, SpellsType } from '../../../types/D&D.type'
 import ToggleDemo from '../../interface/ToggleComponent/ToggleComponent';
 import ToggleGroupDemo from '../../interface/ToggleComponent/ToggleComponent';
 import AttacksCard from './AttacksCard/AttacksCard'
@@ -9,27 +10,20 @@ import { Container } from './styles';
 type DataProps =   number[];
 
 type AttacksType = {
-    id: number
+    id: number,
+    level: any
+
 }
 
-export default function Attacks(props: AttacksType) {
-    const { id } = props
+export default function Attacks(props: AttacksType ) {
+    const { id, level } = props
 
-    const [data, setData] = useState<DataProps | null>(null)
+    console.log(props);
+
+    const [data, setData] = useState<DataProps | null>(level)
     const [isLoading, setLoading] = useState(false)
     const [spells, setSpells]:any = useState('')
 
-
-    useEffect(() => {
-      setLoading(true)
-      fetch(`${process.env.REACT_APP_BASE_URL}/api/getSpellsLevel/${id}`)
-      .then((res) => res.json())
-        .then((data) => {
-          setData(data)
-          setLoading(false)
-        })
-    }, [])
-    
     async function setNewType(activeType: number){
        // @ts-ignore: Unreachable type code error
        event.preventDefault();

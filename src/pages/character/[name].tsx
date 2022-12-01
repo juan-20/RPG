@@ -18,7 +18,7 @@ import Tooltip from '../../components/interface/Tooltip/Tooltip';
 import { Flask } from 'phosphor-react';
 
 
-export default function Character({character}: InferGetStaticPropsType<typeof getStaticProps>) {
+export default function Character({character, levels}: InferGetStaticPropsType<typeof getStaticProps>) {
   const Character: CharactersType = character
 
   const [gunsPopUp, setGunsPopUp] = useState(false);
@@ -145,6 +145,7 @@ export default function Character({character}: InferGetStaticPropsType<typeof ge
         
         <Attacks 
           id={Character.Id}
+          level={levels}
           />
        
       </AttacksContainer>
@@ -165,9 +166,12 @@ type routes ={
 export const getStaticProps = async (name: routes) => {
   const res = await fetch(`${process.env.REACT_APP_SSR}/api/getCharactersByName/${name.params.name}`)
    const character: CharactersType = await res.json()
+   const levelsres = await fetch(`${process.env.REACT_APP_SSR}/api/getSpellsLevel/${character.Id}`)
+   const levels = await levelsres.json()
    return{
      props:{
       character,
+      levels,
       fallback: false
      }
    }
