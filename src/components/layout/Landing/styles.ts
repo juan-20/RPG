@@ -2,25 +2,24 @@ import styled  from "styled-components";
 
 export const LandingPageComponent = styled.div`
     display: flex;
+    background: ${props => props.theme.colors.primary};
     flex-direction: column;
     .hero-text{
         display: flex;
         justify-content: center;
         align-items: center;
         text-align: center;
- background: #d33f49;
- height: 210px;
- color: #F8E5EE;
- font-family: 'Montserrat';
-}
+        height: 210px;
+        color: ${props => props.theme.colors.text};
+        font-family: 'Montserrat';
+    }
 
 .hero-image{
-    background-color: #d33f49;
     height: 400px;
     display: flex;
     justify-content: center;
     .shadow{
-        background: #FFAE03;
+        background: ${props => props.theme.colors.titleLight};
         height: 350px;
         /* mobile: */
         border-radius: 30% 70% 36% 64% / 65% 30% 70% 35% ;
@@ -34,8 +33,4 @@ export const LandingPageComponent = styled.div`
         align-items: center;
     }
 }
-`;
-export const CharactersResume = styled.div`
-    height: 100vh;
-    background: #5762D5;
 `;

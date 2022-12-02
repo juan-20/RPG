@@ -140,16 +140,17 @@ export const SkillsAndLife = styled.section`
     align-items: center;
 	grid-gap: 1rem;
     padding-top: 1rem;
-
+    
     @media only screen and (min-width: 650px) {
         display: grid;
         grid-template-columns: 1fr 1fr;
+        justify-items: center;
         grid-gap: 1rem;
     }
 
 
     .skills{
-        /* min-width: 300px; */
+        width: 300px;
         display: flex;
         flex-direction: column;
         justify-content: center;

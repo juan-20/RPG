@@ -12,7 +12,7 @@ export const Container = styled.div`
         height: 3rem;
         width: 100%;
         padding: 2rem;
-        border-bottom: 1px solid ${props => props.theme.colors.text};;
+        border-bottom: 1px solid ${props => props.theme.colors.text};
         .world-informations{
             gap: 20px;
             display: flex;
@@ -32,6 +32,9 @@ export const Container = styled.div`
             }
             >img{
                 border-radius: 50%;
+            }
+            >a{
+                color: ${props => props.theme.colors.text};
             }
         }
     }

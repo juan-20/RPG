@@ -24,7 +24,6 @@ export default function CharacterResume(props: CharacterResumeProps) {
   } = props
   return (    
     <Container>
-      <p className='desc'>{description}</p>
       <div className="character-hero">
           <div className="img">
           <Image src={image}  width={180} height={180} />
@@ -39,6 +38,8 @@ export default function CharacterResume(props: CharacterResumeProps) {
            </div>
           </div>
       </div>
+      
+      <p className='desc'>{description}</p>
           <Link href={`character/${name}`} passHref>
             <div className="btn">
               <Button size='base' backgroundColor='blue' label='Ver ficha'/>

@@ -55,14 +55,15 @@ export default function Character({character, levels}: InferGetStaticPropsType<t
       <HeroInfo>
           <div className="image">
             <Image quality={100} id='photo' src={Character.photo.url} alt={Character.photo.desc} width={200} height={200} />
-              <div className="image-level">
+            {/* TODO: Criar botao com o nível */}
+              {/* <div className="image-level">
   
               <span>
               <Flask size={16} weight='fill' />
                 Nivel
               </span>
                 <p>8</p>
-              </div>
+              </div> */}
           </div>
           <div className="text">
             <div className="">

@@ -1,12 +1,12 @@
 import React from 'react'
-import { CharactersResume, LandingPageComponent } from './styles'
+import { LandingPageComponent } from './styles'
 
 export default function Landing() {
   return (
     <LandingPageComponent>
 
       <div className="hero-text">
-      <h1>A sua ficha de RPG não medieval</h1>
+      <h1>Bem vindo!</h1>
       </div>
 
       <div className="hero-image">

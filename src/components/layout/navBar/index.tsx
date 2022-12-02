@@ -7,6 +7,7 @@ import React from 'react';
 import { Moon, Sun, User, UserCircle } from 'phosphor-react';
 import Input from '../../interface/input/input';
 import { useSession } from 'next-auth/react';
+import Button from '../../interface/Button';
 
 interface props {
   toggleTheme(): void;
@@ -71,16 +72,16 @@ function NavBar({ toggleTheme }: props) {
             <Moon role="button" onClick={toggleTheme} size={32} />}
 
             {session ? 
-            <>
+               <Link href='/account'>
                <img 
                className='avatar'
                width={32} height={32}
                src={session.user?.image!} 
                alt={session.user?.name!+ 'Foto'} /> 
-            </>
+            </Link>
             : 
-            <Link href='/account'>
-            <UserCircle size={32} />
+            <Link className='link' href='/account'>
+              Login
             </Link>
             }
 
