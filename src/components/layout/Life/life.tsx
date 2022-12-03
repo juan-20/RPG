@@ -29,7 +29,7 @@ export default function Life(props: LifeType) {
       event.preventDefault();
 
     if (changedLife === 0) return
-    
+    // TODO: Colocar o Id 
     const query =  ref(db, "/characters/0/life");
     if (changedLife < 0) {
       let newLife = parseInt(life) + parseInt(changedLife)
