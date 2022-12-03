@@ -173,8 +173,9 @@ p {
   text-decoration: none;
   outline: none;
   user-select: none;
+  cursor: pointer;
 }
-.Callout:focus {
+.CalloutBanner:focus {
   box-shadow: 0 0 0 2px #5762d5;
 }
 

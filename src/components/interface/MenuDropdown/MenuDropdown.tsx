@@ -32,13 +32,15 @@ const MenuDropdown = ({ toggleTheme }: props) => {
           <NavigationMenu.Content className="NavigationMenuContent">
             <ul className="List one">
               <li >
-                <NavigationMenu.Link asChild>
+                <NavigationMenu.Link>
                   <Link className="CalloutBanner" href="/character/create">
+                    <div className="CalloutBanner">
                     <GiMagicGate color='#fff' />
                     <div className="CalloutHeading">Crie seu personagem</div>
                     <p className="CalloutText">
                       Informações sincronizadas em qualquer dispositivo.
                     </p>
+                    </div>
                   </Link>
                 </NavigationMenu.Link>
               </li>
