@@ -9,7 +9,6 @@ let characters: CharactersType[] = []
 const query = ref(db, "/characters");
 onValue(query, (snapshot) => {
   const data = snapshot.val();
-  console.log(data);
   characters = data
 
  })

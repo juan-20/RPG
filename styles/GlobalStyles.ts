@@ -8,7 +8,7 @@ export default createGlobalStyle`
     margin: 0px;
     margin: 0px;
     box-sizing: border-box;
-    transition: 0.08s linear;
+    /* transition: 0.08s linear; */
     :focus{
       border: 2px solid #000;
     }

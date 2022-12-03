@@ -10,7 +10,7 @@ export const Container = styled.div`
         align-items: center;
         justify-content: space-between;
         height: 3rem;
-        width: 100%;
+        box-sizing: border-box;
         padding: 2rem;
         border-bottom: 1px solid ${props => props.theme.colors.text};
         .world-informations{
@@ -21,6 +21,9 @@ export const Container = styled.div`
             >h1{
                 cursor: pointer;
             }
+            :focus{
+            box-shadow: 0 0 0 2px #5762d5;
+             }
         }
         .characters{
             gap: 20px;

@@ -12,6 +12,8 @@ declare module 'styled-components' {
             text: string,
             textSecondary: string,
 
+            boxShadow: string,
+
             titleDark: string,
             titleLight: string,
         },

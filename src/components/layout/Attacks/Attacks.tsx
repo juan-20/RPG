@@ -18,8 +18,6 @@ type AttacksType = {
 export default function Attacks(props: AttacksType ) {
     const { id, level } = props
 
-    console.log(props);
-
     const [data, setData] = useState<DataProps | null>(level)
     const [isLoading, setLoading] = useState(false)
     const [spells, setSpells]:any = useState('')

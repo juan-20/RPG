@@ -13,13 +13,15 @@ import { CharactersType } from '../../types/D&D.type'
 import Attacks from '../../components/layout/Attacks/Attacks';
 import { onValue, ref } from 'firebase/database';
 import { db } from '../../services/firebase';
-import TooltipComponent from '../../components/interface/Tooltip/Tooltip';
-import Tooltip from '../../components/interface/Tooltip/Tooltip';
+import TooltipComponent from '../../components/interface/MenuDropdown/MenuDropdown';
+import Tooltip from '../../components/interface/MenuDropdown/MenuDropdown';
 import { Flask } from 'phosphor-react';
 
 
 export default function Character({character, levels}: InferGetStaticPropsType<typeof getStaticProps>) {
   const Character: CharactersType = character
+
+  console.log(Character);
 
   const [gunsPopUp, setGunsPopUp] = useState(false);
   const [inventoryPopUp, setinventoryPopUp] = useState(false);
@@ -54,16 +56,10 @@ export default function Character({character, levels}: InferGetStaticPropsType<t
           </Head>
       <HeroInfo>
           <div className="image">
+            <h1>{Character.name}</h1>
             <Image quality={100} id='photo' src={Character.photo.url} alt={Character.photo.desc} width={200} height={200} />
             {/* TODO: Criar botao com o nível */}
-              {/* <div className="image-level">
-  
-              <span>
-              <Flask size={16} weight='fill' />
-                Nivel
-              </span>
-                <p>8</p>
-              </div> */}
+              
           </div>
           <div className="text">
             <div className="">
@@ -131,7 +127,11 @@ export default function Character({character, levels}: InferGetStaticPropsType<t
         </div>
         <div className="second">
         <div className="life">
-        <Life totalLife={Character.life.life} lifeDice={Character.lifeDice} />
+        <Life 
+          totalLife={Character.life.life} 
+          lifeDice={Character.lifeDice}
+          characterId={Character.Id}
+         />
         </div>
 
         <div className="test">

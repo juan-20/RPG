@@ -11,8 +11,6 @@ import { CharactersType } from '../types/D&D.type'
 export default function Home({character}: InferGetStaticPropsType<typeof getStaticProps>) {
   const characters = character
   const {data: session} = useSession()
-  
-  console.log(process.env.ENVIROMENT_STATIC);
   return (
     <>
     <>

@@ -10,6 +10,7 @@ import { onValue, ref, set } from 'firebase/database'
 type LifeType ={
     totalLife: number,
     lifeDice: string,
+    characterId: number
 }
 
 type InputProp ={
@@ -19,7 +20,7 @@ type InputProp ={
 }
 
 export default function Life(props: LifeType) {
-  const {totalLife, lifeDice} = props
+  const {totalLife, lifeDice, characterId} = props
 
   const [changedLife, setChangedLife] = useState<any>(0)
   const [life, setLife] = useState<any>(totalLife)
@@ -29,8 +30,8 @@ export default function Life(props: LifeType) {
       event.preventDefault();
 
     if (changedLife === 0) return
-    // TODO: Colocar o Id 
-    const query =  ref(db, "/characters/0/life");
+    const query =  ref(db, `/characters/${characterId}/life`);
+    console.log(characterId)
     if (changedLife < 0) {
       let newLife = parseInt(life) + parseInt(changedLife)
       setLife(newLife)
@@ -46,11 +47,6 @@ export default function Life(props: LifeType) {
       })
     }
     
-
-
-
-   
-
     toast.success(`Você tem ${life} de vida !`, {
       position: "bottom-right",
       autoClose: 2000,

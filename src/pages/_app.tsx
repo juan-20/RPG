@@ -28,7 +28,6 @@ function MyApp({ Component, pageProps }: AppProps, {session}: any) {
 
   const toggleTheme = () => {
     setTheme(theme.title === "dark" ? light : dark)
-    console.log(theme.title)
   }
 
   return (
