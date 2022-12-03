@@ -19,7 +19,7 @@ export const Container = styled.div`
         }
         .lifeNumber{
             position: absolute;
-            top: 38%;
+            top: 35%;
             left: 50%;
             transform: translate(-50%, -50%);
             color: #fff;

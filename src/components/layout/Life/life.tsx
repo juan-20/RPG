@@ -99,6 +99,7 @@ export default function Life(props: LifeType) {
               <Button size='base' label='Alterar vida' backgroundColor='brown' />
             </div>
           </div>
+          <p>Sua vida total: {totalLife}-{lifeDice}</p>
         </div>
       </Container></>
   )
