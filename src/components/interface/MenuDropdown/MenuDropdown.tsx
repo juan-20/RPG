@@ -5,6 +5,7 @@ import { Container } from './MenuDropdown.styles';
 import { signOut, useSession } from 'next-auth/react';
 import { GiMagicGate } from 'react-icons/gi'
 import { ThemeContext } from 'styled-components';
+import Link from 'next/link';
 
 interface props {
   toggleTheme(): void;
@@ -32,13 +33,13 @@ const MenuDropdown = ({ toggleTheme }: props) => {
             <ul className="List one">
               <li >
                 <NavigationMenu.Link asChild>
-                  <a className="CalloutBanner" href="/character/create">
+                  <Link className="CalloutBanner" href="/character/create">
                     <GiMagicGate color='#fff' />
                     <div className="CalloutHeading">Crie seu personagem</div>
                     <p className="CalloutText">
                       Informações sincronizadas em qualquer dispositivo.
                     </p>
-                  </a>
+                  </Link>
                 </NavigationMenu.Link>
               </li>
               <li>
