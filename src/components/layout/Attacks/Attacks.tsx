@@ -116,6 +116,10 @@ export default function Attacks(props: AttacksType ) {
              superiorLevels={attack.superiorLevels}
              level={attack.level}
              prepared={attack.prepared}
+             dice={attack.dice}
+             cursed={attack.cursed}
+             damageDice={attack.damageDice}
+             weaponType={attack.weaponType}
             /> 
           ))
           )

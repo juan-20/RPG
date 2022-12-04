@@ -12,7 +12,8 @@ import { Container } from './styles'
 type attacksType = SpellsType
 
 export default function AttacksCard(props: attacksType) {
-  const { name, duration, id, distance, cast, description, typeOfAttack, prepared, level } = props
+  const { name, duration, id, distance, cast, description, typeOfAttack, prepared, level, dice, damageDice, } = props
+  console.log(props)
 
   const [attackPopUp, setAttackPopUp] = useState(false);
 
@@ -80,10 +81,19 @@ export default function AttacksCard(props: attacksType) {
         </div>
         <div className="magic-content">
         </div>
+        {dice ? 
         <div className="magic-content">
         <span>Rolagem:</span>
-        <p>d10 + 9</p>
+        <p>{dice}</p>
         </div>
+        :null}
+        {damageDice ? 
+        <div className="magic-content">
+        <span>Dano:</span>
+        <p>{damageDice}</p>
+        </div>
+        : null       
+        }
 
         </div>
         <div className="magic-button">

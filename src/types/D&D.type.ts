@@ -66,14 +66,14 @@ export type SpellsType = {
     name: string,
     distance: '1,5 quilômetro' | 'Pessoal' | '150 metros' | '30 metros' | '18 metros' | '45 metros' |'3 metros' | '45 metros' | 'Toque' | '36 metros' | '9 metros' ,
     description: string,
+    typeOfAttack: 'Spell' | 'Attack' 
     duration?: 'Instantânea'| '1 minuto' | '1 rodada' | '10 minutos' | '1 hora' | '24 horas' | '8 horas' ,
     schoolOfMagic?: string,
     cast?: '1 ação' | '1 reação' | '1 hora' | '1 minuto' | '1 ação bônus',
     rollAtack?: string,
     roolDamage?: string
     testToBeMade?: string,
-    typeOfAttack: 'Spell' | 'Attack' 
-    ritual: boolean,
+    ritual?: boolean,
     superiorLevels?: string
     level?: number,
     prepared?: PreparedProp
