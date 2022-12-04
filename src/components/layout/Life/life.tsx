@@ -20,43 +20,49 @@ type InputProp ={
 }
 
 export default function Life(props: LifeType) {
-  const {totalLife, lifeDice, characterId} = props
+  let {totalLife, lifeDice, characterId} = props
 
   const [changedLife, setChangedLife] = useState<any>(0)
+  const q: any =  ref(db, `/characters/${characterId}/life`);
+  onValue(q, (snapshot) => {
+    const data = snapshot.val();
+    totalLife = data.life
+    
+  })
   const [life, setLife] = useState<any>(totalLife)
-
+  
   function changeLife(){
       // @ts-ignore: Unreachable type code error
       event.preventDefault();
-
+      let newLife
     if (changedLife === 0) return
     const query =  ref(db, `/characters/${characterId}/life`);
-    console.log(characterId)
     if (changedLife < 0) {
-      let newLife = parseInt(life) + parseInt(changedLife)
+      newLife = parseInt(life) + parseInt(changedLife)
       setLife(newLife)
       set(query , {
         life: newLife,
       })
 
     }else{
-      let newLife =  parseInt(changedLife) + parseInt(life)
+      newLife =  parseInt(changedLife) + parseInt(life)
       setLife(newLife)
       set(query , {
         life: newLife,
       })
-    }
-    
-    toast.success(`Você tem ${life} de vida !`, {
-      position: "bottom-right",
-      autoClose: 2000,
-      hideProgressBar: true,
-      closeOnClick: true,
-      pauseOnHover: false,
-      draggable: true,
-      progress: undefined,
-      theme: "dark",
+      toast.success(`Você tem ${newLife} de vida !`, {
+        position: "bottom-right",
+        autoClose: 2000,
+        hideProgressBar: true,
+        closeOnClick: true,
+        pauseOnHover: false,
+        draggable: true,
+        progress: undefined,
+        theme: "dark",
       });
+    }
+    console.log(newLife);
+    
   }
 
   return (

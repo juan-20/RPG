@@ -13,7 +13,6 @@ type attacksType = SpellsType
 
 export default function AttacksCard(props: attacksType) {
   const { name, duration, id, distance, cast, description, typeOfAttack, prepared, level, dice, damageDice, } = props
-  console.log(props)
 
   const [attackPopUp, setAttackPopUp] = useState(false);
 
