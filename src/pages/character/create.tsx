@@ -1,7 +1,7 @@
 import { ErrorMessage, Field, Form, Formik } from 'formik'
 import React from 'react'
 import { Container } from '../../../styles/create.style';
-import schema from './schema';
+import schema from '../../types/schema';
 
 export default function createCharacter() {
 
