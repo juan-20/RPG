@@ -8,7 +8,6 @@ import { db } from '../../../services/firebase'
 import { onValue, ref, set } from 'firebase/database'
 
 type LifeType ={
-    totalLife: number,
     lifeDice: string,
     characterId: number
 }
@@ -20,8 +19,8 @@ type InputProp ={
 }
 
 export default function Life(props: LifeType) {
-  let {totalLife, lifeDice, characterId} = props
-
+  let {lifeDice, characterId} = props
+  let totalLife
   const [changedLife, setChangedLife] = useState<any>(0)
   const q: any =  ref(db, `/characters/${characterId}/life`);
   onValue(q, (snapshot) => {
