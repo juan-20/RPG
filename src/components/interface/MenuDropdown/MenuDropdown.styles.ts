@@ -11,18 +11,13 @@ p {
   position: relative;
   display: flex;
   justify-content: flex-end;
-  width: 250px;
+  width: 100%;
   z-index: 1;
 }
 
 .NavigationMenuList {
-  display: flex;
-  justify-content: center;
-  background-color: ${props => props.theme.colors.primary};
   padding: 4px;
-  border-radius: 6px;
   list-style: none;
-  box-shadow: 0 2px 10px ${props => props.theme.colors.boxShadow};
   margin: 0;
 }
 .NavigationMenuListUnLogged{
@@ -75,6 +70,7 @@ p {
 
 .avatar{
   border-radius: 50%;
+  box-shadow: 0 2px 10px ${props => props.theme.colors.boxShadow};
 }
 
 .NavigationMenuLink {
@@ -215,9 +211,7 @@ p {
   position: absolute;
   display: flex;
   justify-content: center;
-  width: 100%;
   top: 100%;
-  left: 0;
   perspective: 2000px;
 }
 

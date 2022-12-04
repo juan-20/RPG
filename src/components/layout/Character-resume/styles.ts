@@ -32,6 +32,7 @@ export const Body = styled.main`
             border-radius: 8px;
             h3{
                     padding-bottom: 1rem;
+                    font-size: 1.5rem;
                 }
             border: 3px solid ${props => props.theme.colors.text};
         }

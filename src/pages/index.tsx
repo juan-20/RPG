@@ -35,7 +35,7 @@ export default function Home({character}: InferGetStaticPropsType<typeof getStat
           <Button
           backgroundColor='brown'
           label='Entrar'
-          size='lg'
+          size='base'
           />
         </div>
       </div>

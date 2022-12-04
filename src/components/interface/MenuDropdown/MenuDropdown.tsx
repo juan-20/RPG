@@ -87,15 +87,13 @@ const MenuDropdown = ({ toggleTheme }: props) => {
   }else{
     return(
       <Container>
-      <NavigationMenu.Root className="NavigationMenuRoot">
-        <NavigationMenu.List className="NavigationMenuListUnLogged">
-          <NavigationMenu.Item>
-            <NavigationMenu.Link href='/account' className="NavigationMenuUnLogged">
+        <Link href='/account'>
+        <div className="NavigationMenuListUnLogged">
+            <div className="NavigationMenuUnLogged">
               <p>Log in</p>
-            </NavigationMenu.Link>
-           </NavigationMenu.Item>
-        </NavigationMenu.List>
-      </NavigationMenu.Root>
+        </div>
+        </div>
+        </Link>
       </Container>
     )
   };
