@@ -1,5 +1,5 @@
 import { Heart, MinusCircle, PlusCircle } from 'phosphor-react'
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { toast, ToastContainer } from 'react-toastify'
 import Button from '../../interface/Button'
 import { Container } from './style'
@@ -16,19 +16,25 @@ type InputProp ={
   target: {
     value: number
   }
-}
+} 
+
+
 
 export default function Life(props: LifeType) {
   let {lifeDice, characterId} = props
-  let totalLife
+  
   const [changedLife, setChangedLife] = useState<any>(0)
-  const q: any =  ref(db, `/characters/${characterId}/life`);
-  onValue(q, (snapshot) => {
-    const data = snapshot.val();
-    totalLife = data.life
-    
-  })
-  const [life, setLife] = useState<any>(totalLife)
+  const [life, setLife] = useState<any>(0)
+  const [isLoading, setLoading] = useState(false)
+
+  useEffect(() => {  
+    const q: any =  ref(db, `/characters/${characterId}/life`);
+    onValue(q, (snapshot) => {
+      const data = snapshot.val();
+      setLife(data.life)
+      
+    })
+  }, [])
   
   function changeLife(){
       // @ts-ignore: Unreachable type code error
@@ -104,7 +110,7 @@ export default function Life(props: LifeType) {
               <Button size='base' label='Alterar vida' backgroundColor='brown' />
             </div>
           </div>
-          <p>Sua vida total: {totalLife}-{lifeDice}</p>
+          <p>Sua vida total: {}-{lifeDice}</p>
         </div>
       </Container></>
   )
