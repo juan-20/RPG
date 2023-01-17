@@ -6,7 +6,7 @@ import { Container } from '../../../styles/create.style';
 import schema from '../../types/schema';
 
 export default function createCharacter() {
-  const {data: session  } = useSession({required: true})
+  // const {data: session  } = useSession({required: true})
 
   function onSubmit(values: any) {
     console.log('SUBMIT', values);
