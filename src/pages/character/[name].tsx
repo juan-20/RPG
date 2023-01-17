@@ -145,6 +145,7 @@ export default function Character({character, levels}: InferGetStaticPropsType<t
         <Attacks 
           id={Character.Id}
           level={levels}
+          allAttaks={Character.spells}
           />
        
       </AttacksContainer>

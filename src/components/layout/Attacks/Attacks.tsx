@@ -11,12 +11,13 @@ type DataProps =   number[];
 
 type AttacksType = {
     id: number,
-    level: any
+    level: any,
+    allAttaks: SpellsType[]
 
 }
 
 export default function Attacks(props: AttacksType ) {
-    const { id, level } = props
+    const { id, level, allAttaks } = props
 
     const [data, setData] = useState<DataProps | null>(level)
     const [isLoading, setLoading] = useState(false)
@@ -125,13 +126,32 @@ export default function Attacks(props: AttacksType ) {
           )
         : (
           <>
-            <p></p>
-            <div className="attacks-container-response">
-              <p>Escolha uma opção acima</p>
-            </div>
+              {allAttaks.map((attack: SpellsType) =>(
+                <AttacksCard 
+                key={attack.id}
+                id={attack.id}
+                name={attack.name}
+                duration={attack.duration}
+                distance={attack.distance}
+                description={attack.description}
+                schoolOfMagic={attack.schoolOfMagic}
+                cast={attack.cast} 
+                rollAtack={attack.rollAtack}
+                roolDamage={attack.rollAtack}
+                testToBeMade={attack.testToBeMade}
+                typeOfAttack={attack.typeOfAttack}
+                ritual={attack.ritual}        
+                superiorLevels={attack.superiorLevels}
+                level={attack.level}
+                prepared={attack.prepared}
+                dice={attack.dice}
+                cursed={attack.cursed}
+                damageDice={attack.damageDice}
+                weaponType={attack.weaponType}
+               /> 
+              ))}  
           </>
-        )
-        }
+        )}
         </>
           
       }
