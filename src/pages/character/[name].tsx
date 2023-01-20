@@ -59,7 +59,6 @@ export default function Character({character, levels}: InferGetStaticPropsType<t
             <h1>{Character.name}</h1>
             <Image quality={100} id='photo' src={Character.photo.url} alt={Character.photo.desc} width={200} height={200} />
             {/* TODO: Criar botao com o nível */}
-              
           </div>
           <div className="text">
             <div className="">
@@ -109,6 +108,13 @@ export default function Character({character, levels}: InferGetStaticPropsType<t
               </div>
             ))}
       </MainAtributes>
+            {/* {Character.safeguard.map((mainAtribute) => (
+              <div key={mainAtribute.name} className='atributes'>
+                <h1>{mainAtribute.name}</h1>
+                <h6>{mainAtribute.adder}</h6>
+                <p>{mainAtribute.proeficiency ? <p>Proeficiente</p> : null}</p>
+              </div>
+            ))} */}
       
       <SkillsAndLife>
         <div className="skills">
@@ -134,7 +140,7 @@ export default function Character({character, levels}: InferGetStaticPropsType<t
         </div>
 
         <div className="test">
-          <p>oi</p>
+          <p>testeeee</p>
         </div>
 
         </div>

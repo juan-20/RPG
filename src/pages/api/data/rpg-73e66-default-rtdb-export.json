@@ -347,6 +347,43 @@
           "typeOfAttack": "Spell"
         }
       ],
+      "safeguard": [{
+        "id": 1,
+        "name": "Força",
+        "adder": 2,
+        "proeficiency": false
+      },
+      {
+        "id": 2,
+        "name": "Destreza",
+        "adder": 1,
+        "proeficiency": false
+      },
+      {
+        "id": 3,
+        "name": "Constituição",
+        "adder": 2,
+        "proeficiency": false
+      },
+      {
+        "id": 4,
+        "name": "Sabedoria",
+        "adder": 1,
+        "proeficiency": true
+      },
+      {
+        "id": 5,
+        "name": "Carisma",
+        "adder": 7,
+        "proeficiency": true
+      },
+      {
+        "id": 2,
+        "name": "Destreza",
+        "adder": 1,
+        "proeficiency": false
+      }
+    ],
       "surname": "Yuchiga"
     },
     {

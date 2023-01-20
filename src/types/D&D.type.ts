@@ -2,6 +2,8 @@ export type CharactersType ={
       Id: number,
       name: string,
       life: LifeProp,
+      totalLife: number,
+      safeguard: safeGuardProps[]
       lifeDice: string,
       createdBy: string
       surname?: string
@@ -102,5 +104,12 @@ export type SpellsType = {
     url: string,
     desc?: string,
     id: number
+  }
+
+  export type safeGuardProps={
+    id: number;
+    name: string,
+    adder: number;
+    proeficiency: boolean
   }
   

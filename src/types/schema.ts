@@ -9,6 +9,6 @@ export default Yup.object().shape({
   iniciative: Yup.number().min(1, 'Valor deve ser maior').required('Campo obrigatório').max(20, 'Valor deve ser menor'),
   life: Yup.number().min(1, 'Valor deve ser maior').required('Campo obrigatório').max(2000000000, 'Valor deve ser menor'),
   lifeDice: Yup.string().min(3, 'Valor deve ser maior').required('Campo obrigatório').max(9, 'Valor deve ser menor'),
-  strengthAdder: Yup.number().min(-20, 'Valor deve ser maior').required('Campo obrigatório').max(20, 'Valor deve ser menor'),
+  counter: Yup.number().min(-20, 'Valor deve ser maior').required('Campo obrigatório').max(20, 'Valor deve ser menor'),
   strengthBase: Yup.number().min(-20, 'Valor deve ser maior').required('Campo obrigatório').max(20, 'Valor deve ser menor'),
 });

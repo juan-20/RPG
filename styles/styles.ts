@@ -201,7 +201,6 @@ export const SkillsAndLife = styled.section`
         height: 300px;
         background: pink;
         padding-top: 7rem;
-        display: none;
     }
 
 `;

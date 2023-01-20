@@ -6,11 +6,14 @@ import { Container } from '../../../styles/create.style';
 import schema from '../../types/schema';
 
 export default function createCharacter() {
-  // const {data: session  } = useSession({required: true})
+  const { data  } = useSession({required: true})
+
+  const userEmail = data?.user?.email
 
   function onSubmit(values: any) {
     console.log('SUBMIT', values);
   }
+
   return (
     <Container>
        <Head>
@@ -21,15 +24,14 @@ export default function createCharacter() {
         validateOnMount
         validationSchema={schema}
         initialValues={{
-          name: '',
-          email: '',
+          email: userEmail,
+          mainAtributes: [ {name: 'Força'}, {name: 'Destreza'}, {name: 'Constituição'}, {name: 'Inteligência'}, {name: 'Sabedoria'},{name: 'Carisma'}],
         }}
         render={({ values, errors, touched, isValid }) => (
          
           <>
           <div className="title">
           <h1>Complete seu cadastro</h1>
-          <p>blablablablablablablablablablablablablablablablablablablablablablablabla</p>
           </div>
 
           <Form className='form'>
@@ -39,7 +41,7 @@ export default function createCharacter() {
             <div className='form-content'>
               <label>Imagem</label>
               <div className="form-content-required">
-                <Field name="name" type="file" accept="image/*" />
+                <Field name="image" type="file" accept="image/*" />
                 <p> <ErrorMessage className='error' name="name" render={() => ( <p>Nome deve ser válido</p>)} /> </p>
               </div>
             </div>
@@ -68,8 +70,8 @@ export default function createCharacter() {
             </div>
             <div className='form-content'>
               <label>Deslocamento</label>
-              <Field name="dis" type="string" />
-              <p> <ErrorMessage className='error' name="dis" /> </p>
+              <Field name="displacement" type="string" />
+              <p> <ErrorMessage className='error' name="displacement" /> </p>
             </div>
             <div className='form-content'>
               <label>Iniciativa</label>
@@ -87,17 +89,137 @@ export default function createCharacter() {
               <p> <ErrorMessage className='error' name="lifeDice" /> </p>
             </div>
 
-            <h1>Atributos</h1>
+            <h2>Atributos</h2>
             <div className="accordion">
-              <div className='strnght'>
-                <label>Força:</label>
-                <Field placeholder="" name="strengthAdder" type="string" />
-                <p> <ErrorMessage className='error' name="strengthAdder" /> </p>
-                <Field placeholder="" name="strengthBase" type="string" />
+
+              <div className='strenght'>
+                <div className="text">
+                  <label>Força</label>
+                  <div className="text-description">
+                    <span>Base:</span>
+                    <span>Adicionador:</span>
+                  </div>
+                </div>
+                <div className="input">
+                  <div className="input-group">
+                <Field placeholder="Ex.: 12" name="mainAtributes.0.counter" type="string" />
+                <p><ErrorMessage className='error' name="mainAtributes.0.counter" /></p>
+                </div>
+                  <div className="input-group">
+                <Field placeholder="Ex.: +5" name="mainAtributes.0.passive" type="string" />
                 <p> <ErrorMessage className='error' name="strengthBase" /> </p>
+                </div>
+                </div>
               </div>
+            
+
+              <div className='strenght'>
+                <div className="text">
+                  <label>Destreza</label>
+                  <div className="text-description">
+                    <span>Base:</span>
+                    <span>Adicionador:</span>
+                  </div>
+                </div>
+                <div className="input">
+                  <div className="input-group">
+                <Field placeholder="Ex.: 12" name="mainAtributes.1.counter" type="string" />
+                <p><ErrorMessage className='error' name="mainAtributes.1.counter" /></p>
+                </div>
+                  <div className="input-group">
+                <Field placeholder="Ex.: +5" name="mainAtributes.1.passive" type="string" />
+                <p> <ErrorMessage className='error' name="strengthBase" /> </p>
+                </div>
+                </div>
+              </div>
+
+              <div className='strenght'>
+                <div className="text">
+                  <label>Constituição</label>
+                  <div className="text-description">
+                    <span>Base:</span>
+                    <span>Adicionador:</span>
+                  </div>
+                </div>
+                <div className="input">
+                  <div className="input-group">
+                <Field placeholder="Ex.: 12" name="mainAtributes.2.counter" type="string" />
+                <p><ErrorMessage className='error' name="mainAtributes.2.counter" /></p>
+                </div>
+                  <div className="input-group">
+                <Field placeholder="Ex.: +5" name="mainAtributes.2.passive" type="string" />
+                <p> <ErrorMessage className='error' name="strengthBase" /> </p>
+                </div>
+                </div>
+              </div>
+
+              <div className='strenght'>
+                <div className="text">
+                  <label>Inteligência</label>
+                  <div className="text-description">
+                    <span>Base:</span>
+                    <span>Adicionador:</span>
+                  </div>
+                </div>
+                <div className="input">
+                  <div className="input-group">
+                <Field placeholder="Ex.: 12" name="mainAtributes.3.counter" type="string" />
+                <p><ErrorMessage className='error' name="mainAtributes.3.counter" /></p>
+                </div>
+                  <div className="input-group">
+                <Field placeholder="Ex.: +5" name="mainAtributes.3.passive" type="string" />
+                <p> <ErrorMessage className='error' name="strengthBase" /> </p>
+                </div>
+                </div>
+              </div>
+
+              <div className='strenght'>
+                <div className="text">
+                  <label>Sabedoria</label>
+                  <div className="text-description">
+                    <span>Base:</span>
+                    <span>Adicionador:</span>
+                  </div>
+                </div>
+                <div className="input">
+                  <div className="input-group">
+                <Field placeholder="Ex.: 12" name="mainAtributes.4.counter" type="string" />
+                <p><ErrorMessage className='error' name="mainAtributes.4.counter" /></p>
+                </div>
+                  <div className="input-group">
+                <Field placeholder="Ex.: +5" name="mainAtributes.4.passive" type="string" />
+                <p> <ErrorMessage className='error' name="strengthBase" /> </p>
+                </div>
+                </div>
+              </div>
+
+              <div className='strenght'>
+                <div className="text">
+                  <label>Carisma</label>
+                  <div className="text-description">
+                    <span>Base:</span>
+                    <span>Adicionador:</span>
+                  </div>
+                </div>
+                <div className="input">
+                  <div className="input-group">
+                <Field placeholder="Ex.: 12" name="mainAtributes.5.counter" type="string" />
+                <p><ErrorMessage className='error' name="mainAtributes.5.counter" /></p>
+                </div>
+                  <div className="input-group">
+                <Field placeholder="Ex.: +5" name="mainAtributes.5.passive" type="string" />
+                <p> <ErrorMessage className='error' name="strengthBase" /> </p>
+                </div>
+                </div>
+              </div>
+
             </div>
-            <button type="submit" disabled={!isValid}>Enviar</button>
+
+            <div className="footer">
+            <button onClick={() => console.log(values)} type="submit" 
+            // disabled={!isValid}
+            >Enviar</button>
+            </div>
           </Form>
           </>
         )}
