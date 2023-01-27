@@ -1,6 +1,6 @@
 import React from 'react'
 import { FcGoogle } from 'react-icons/fc'
-import { Container } from './signin.styled'
+import { Container } from '../../../styles/signin.styled'
 
 export default function signin() {
   return (
