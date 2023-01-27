@@ -71,7 +71,7 @@ function SpellsCard(props: SpellsCard) {
 
           {Verbal ?
           <div className="content-header-item ">
-              <ChatCircleText size={32} weight="fill" />
+              <ChatCircleText size={24} weight="fill" />
               <p>Verbal</p>
           </div>
           : null}
