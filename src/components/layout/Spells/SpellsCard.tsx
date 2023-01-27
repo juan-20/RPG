@@ -1,4 +1,4 @@
-import { Books, ChatCircleText, CookingPot, Crosshair, MagicWand, Timer } from 'phosphor-react'
+import { Books, ChatCircleText, CookingPot, Crosshair, MagicWand, Path, Timer } from 'phosphor-react'
 import React from 'react'
 import { GiFireSpellCast, GiSpellBook, GiSwordman } from 'react-icons/gi'
 import { FaHandSparkles } from 'react-icons/fa'
@@ -36,7 +36,7 @@ function SpellsCard(props: SpellsCard) {
         <div className="content-header">
           <div className="content-header-item">
             {Reach==='Pessoal' ? <GiSwordman size={24}/> 
-            : <Crosshair size={24} /> }
+            : <Path size={24} /> }
             <p>{Reach}</p>
           </div>
           <div className="content-header-item">
@@ -62,6 +62,13 @@ function SpellsCard(props: SpellsCard) {
           </div>
           : null}
 
+          {Concentration ?
+          <div className="content-header-item ">
+              <Crosshair size={24} />
+              <p>Concentração</p>
+          </div>
+          : null}
+
           {Verbal ?
           <div className="content-header-item ">
               <ChatCircleText size={32} weight="fill" />
@@ -84,8 +91,6 @@ function SpellsCard(props: SpellsCard) {
           </div>
         </div>
       </div>
-      
-      {Concentration ? 'saco' : 'lome'}
     </Container>
   )
 }
