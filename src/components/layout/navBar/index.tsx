@@ -44,7 +44,7 @@ function NavBar({ toggleTheme }: props) {
   const router = useRouter();
   const { name } = router.query;
   const [searchInput, setSearchInput] = useState('');
-    
+  const { title } = useContext(ThemeContext);
   return (
     <Container>
       <nav>
@@ -61,6 +61,13 @@ function NavBar({ toggleTheme }: props) {
         <div className="characters">
 
             <MenuDropdown toggleTheme={toggleTheme} />
+            <div onClick={toggleTheme} className="navigationMenuItem pointer">
+               {title === 'light' ? 
+               <Sun weight="bold" role="button"  size={32} /> 
+                  :
+                <Moon weight="bold" role="button" size={32} />
+                }
+                </div>
 
         </div>
       </nav>

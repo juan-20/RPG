@@ -6,12 +6,18 @@ export const LandingPageComponent = styled.div`
     flex-direction: column;
     .hero-text{
         display: flex;
+        flex-direction: column;
         justify-content: center;
         align-items: center;
         text-align: center;
         height: 210px;
         color: ${props => props.theme.colors.text};
         font-family: 'Montserrat';
+        gap: 1rem;
+        >p{
+            padding: 1rem;
+            font-weight: 400;
+        }
     }
 
 .hero-image{

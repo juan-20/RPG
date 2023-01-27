@@ -25,7 +25,7 @@ export default function handler(
     let data
     let arr: any =[]
     if (req.method === 'GET') {
-          // http://localhost:3000/api/GetSpellsByLevel/1/0
+          // http://localhost:3000/api/GetSpellsPerCharacterByLevel/1/0
         const findCharacter = characters.find(character => character.Id === characterIdSearch)
         findCharacter?.spells.map((characterAttack) => {
           let validator = characterAttack.level === magiclevel

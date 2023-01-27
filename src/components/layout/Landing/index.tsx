@@ -6,7 +6,9 @@ export default function Landing() {
     <LandingPageComponent>
 
       <div className="hero-text">
-      <h1>Bem vindo!</h1>
+      <h1>Bem vindo ao RPG Vault!</h1>
+      <h4>Organize suas fichas de personagem com facilidade</h4>
+      <p>🚧Em construção🚧</p>
       </div>
 
       <div className="hero-image">

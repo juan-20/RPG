@@ -13,6 +13,10 @@ export default createGlobalStyle`
       border: 2px solid #000;
     }
 
+    p{
+      font-size: 1rem;
+    }
+
     .Toastify__toast{
         background: ${props => props.theme.colors.primary};
         color: ${props => props.theme.colors.text};
@@ -24,7 +28,9 @@ export default createGlobalStyle`
     }    
   }
   html, #root, body{
-    height: 100vh;
+    height: 100%;
+    background: ${props => props.theme.colors.background};
+    color: ${props => props.theme.colors.text};
   }
   
 main{

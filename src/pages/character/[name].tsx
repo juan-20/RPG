@@ -13,8 +13,6 @@ import { CharactersType } from '../../types/D&D.type'
 import Attacks from '../../components/layout/Attacks/Attacks';
 import { onValue, ref } from 'firebase/database';
 import { db } from '../../services/firebase';
-import TooltipComponent from '../../components/interface/MenuDropdown/MenuDropdown';
-import Tooltip from '../../components/interface/MenuDropdown/MenuDropdown';
 import { Flask } from 'phosphor-react';
 
 

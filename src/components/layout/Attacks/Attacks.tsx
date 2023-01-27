@@ -63,7 +63,7 @@ export default function Attacks(props: AttacksType ) {
       if (activeType <= 20){
         console.log('abre tudo');
          setLoading(true)            
-              const response = await fetch(`${process.env.REACT_APP_BASE_URL}/api/GetSpellsByLevel/${id}/${activeType}`)
+              const response = await fetch(`${process.env.REACT_APP_BASE_URL}/api/GetSpellsPerCharacterByLevel/${id}/${activeType}`)
               .then((res) => res.json())
               .then((data) => {
                 setSpells(data)
