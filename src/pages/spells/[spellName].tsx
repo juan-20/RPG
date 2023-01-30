@@ -95,8 +95,19 @@ type routes ={
 
   export async function getServerSideProps (name: routes) {
 
-    const res = await fetch(`${process.env.REACT_APP_SSR}/api/getSpellsByName/${name.params.spellName}`);
-    const AllSpells: SpellsProps[] = await res.json()
+    let spellName = name.params.spellName
+
+    let AllSpells: any = []
+    const newSpell = query(ref(db, "/spells"),
+    orderByChild('SpellName'), 
+    equalTo(spellName),
+    );
+    onValue(newSpell, (snapshot) => {
+      const data = snapshot.val();
+      AllSpells = data
+     })
+
+
      return{
        props:{
         AllSpells,

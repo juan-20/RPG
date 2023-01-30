@@ -9,7 +9,8 @@ import { onValue, ref, set } from 'firebase/database'
 
 type LifeType ={
     lifeDice: string,
-    characterId: number
+    characterId: number,
+    totalLife: number
 }
 
 type InputProp ={
@@ -21,7 +22,8 @@ type InputProp ={
 
 
 export default function Life(props: LifeType) {
-  let {lifeDice, characterId} = props
+  let {lifeDice, characterId, totalLife} = props
+  console.log(characterId);
   
   const [changedLife, setChangedLife] = useState<any>(0)
   const [life, setLife] = useState<any>(0)
@@ -110,7 +112,7 @@ export default function Life(props: LifeType) {
               <Button size='base' label='Alterar vida' backgroundColor='brown' />
             </div>
           </div>
-          <p>Sua vida total: {}-{lifeDice}</p>
+          <p>Sua vida total: {totalLife}={lifeDice}</p>
         </div>
       </Container></>
   )

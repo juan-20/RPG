@@ -134,6 +134,7 @@ export default function Character({character, levels}: InferGetStaticPropsType<t
         <Life 
           lifeDice={Character.lifeDice}
           characterId={Character.Id}
+          totalLife={Character.totalLife}
          />
         </div>
 
