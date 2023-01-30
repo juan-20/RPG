@@ -10,35 +10,40 @@ import SearchInput from '../../components/interface/custom-input';
 import { equalTo, onValue, orderByChild, query, ref } from 'firebase/database';
 import { db } from '../../services/firebase';
 import Link from 'next/link';
+import { GetStaticPaths } from 'next';
 
-export default function SpellsName() {
+export default function SpellsName({AllSpells}: any) {
 
-  
-  const router = useRouter();
-  const { spellName }: any = router.query;
-  
-  const [allSpellLoaded, setallSpellSLoaded] = useState<SpellsProps[]>()
-  const [isLoading, setIsLoading] = useState(false)
+    const [search, setSearch] = useState('')
+    const [allSpellLoaded, setallSpellSLoaded] = useState<SpellsProps[]>(AllSpells)
+    const router = useRouter();
+    const { spellName }: any = router.query;
 
-  useEffect(() => {
-    setIsLoading(true)
-    const newSpell = query(ref(db, "/spells"),
-    orderByChild('SpellName'), 
-    equalTo(spellName),
-    );
-    onValue(newSpell, (snapshot) => {
-      const data = snapshot.val();
-      console.log('data:');
-      console.log(data);
-      setallSpellSLoaded(Object.values(data))
-    })
-    setIsLoading(false)
-  }, [])
+    // useEffect(() => {
   
-  console.log('spellLoaded:');
-  console.log(allSpellLoaded);
+    //   const newSpell = query(ref(db, "/spells"),
+    //   orderByChild('SpellName'), 
+    //   equalTo(spellName),
+    //   );
+    //   onValue(newSpell, (snapshot) => {
+    //     const data = snapshot.val();
+    //     setallSpellSLoaded(Object.values(data))
+    //    })
+
+    // }, [router.asPath])
+    
+
+
   return (
     <Container className="OneSpell">
+       <Head>
+            <title>Magias</title>
+            <meta name='description' content='Lista de todas magias de D&D 5e' />
+            <meta property='og:title' content='Magias D&D' />
+            <meta property='og:description' content='Lista de todas magias de D&D 5e' />
+            <meta property='og:type' content='website' />
+            <meta property="og:image" content='🪄' />
+        </Head>
         <div className="main-header">
           <h1>Magias</h1>
           <div className="input">
@@ -58,11 +63,10 @@ export default function SpellsName() {
               </div>
         </Link>
         </div>
-        {isLoading ? <p>Carregando...</p> :
-        <>
+          
         <div className="content">
-          {allSpellLoaded?.map((a: SpellsProps, i) => (
-            <SpellsCard
+        {allSpellLoaded.map((a: SpellsProps, i) => (
+          <SpellsCard  
               Concentration={a.Concentration}
               Description={a.Description}
               Duration={a.Duration}
@@ -75,21 +79,52 @@ export default function SpellsName() {
               SpellName={a.SpellName}
               Time={a.Time}
               Verbal={a.Verbal}
-              key={i} />
-          ))}
-
+              key={i}
+          />
+        ))}
+          
         </div>
-        <Head>
-            {allSpellLoaded?.map((a: SpellsProps, i) => (
-              <title>{a.SpellName}</title>
-            ))}
-            <meta name='description' content='Lista de todas magias de D&D 5e' />
-            <meta property='og:title' content='Magias D&D' />
-            <meta property='og:description' content='Lista de todas magias de D&D 5e' />
-            <meta property='og:type' content='website' />
-            <meta property="og:image" content='🪄' />
-          </Head>
-          </>}
     </Container>
   );
 }
+
+type routes ={
+    params:{
+        spellName: string
+    }
+  }
+
+  export async function getStaticProps (name: routes) {
+    let AllSpells: SpellsProps[] | undefined
+    try{
+      const newSpell = await query(ref(db, "/spells"),
+      orderByChild('SpellName'), 
+      equalTo(name.params.spellName),
+      );
+      onValue(newSpell, (snapshot) => {
+        const data = snapshot.val();
+        console.log(data);
+        AllSpells = (Object.values(data))
+       })
+    }catch(err){
+      console.log('ups')
+    }
+
+    // const res = await fetch(`${process.env.REACT_APP_SSR}/api/getSpellsByName/${name.params.spellName}`);
+  
+     return{
+       props:{
+        AllSpells,
+        fallback: false
+       }
+     }
+     
+   }
+
+   export const getStaticPaths: GetStaticPaths<{ slug: string }> = async () => {
+
+    return {
+        paths: [], //indicates that no page needs be created at build time
+        fallback: 'blocking' //indicates the type of fallback
+    }
+  }
