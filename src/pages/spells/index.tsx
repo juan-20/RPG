@@ -93,18 +93,9 @@ export default function Spells({AllSpells}:  InferGetStaticPropsType<typeof getS
 
 
 export const getStaticProps = async () => {
-  let AllSpells: any
-  const newSpell = query(ref(db, "/spells"), 
-  orderByKey(), 
-  startAt('0'), 
-  endAt('50') 
-  );
-  onValue(newSpell, (snapshot) => {
-  const data = snapshot.val();
-  AllSpells = data.filter((n: any) => n)
-  })
-    //  const spellsres = await fetch(`${process.env.REACT_APP_SSR}/api/getAllSpellsByPages/0/50`)
-    //  const AllSpells: SpellsProps[] = await spellsres.json()
+
+     const spellsres = await fetch(`${process.env.REACT_APP_SSR}/api/getAllSpellsByPages/0/50`)
+     const AllSpells: SpellsProps[] = await spellsres.json()
      return{
        props:{
         AllSpells,

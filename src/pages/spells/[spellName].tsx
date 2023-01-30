@@ -11,32 +11,31 @@ import { equalTo, onValue, orderByChild, query, ref } from 'firebase/database';
 import { db } from '../../services/firebase';
 import Link from 'next/link';
 
-export default function SpellsName({AllSpells}: any) {
+export default function SpellsName() {
 
-    const [search, setSearch] = useState('')
-    const [allSpellLoaded, setallSpellSLoaded] = useState<SpellsProps[]>(AllSpells)
-    const router = useRouter();
-    const { spellName }: any = router.query;
-
-    useEffect(() => {
   
-      const newSpell = query(ref(db, "/spells"),
-      orderByChild('SpellName'), 
-      equalTo(spellName),
-      );
-      onValue(newSpell, (snapshot) => {
-        const data = snapshot.val();
-        setallSpellSLoaded(Object.values(data))
-       })
+  const router = useRouter();
+  const { spellName }: any = router.query;
+  
+  const [allSpellLoaded, setallSpellSLoaded] = useState<SpellsProps[]>()
 
+  useEffect(() => {
+    const newSpell = query(ref(db, "/spells"),
+    orderByChild('SpellName'), 
+    equalTo(spellName),
+    );
+    onValue(newSpell, (snapshot) => {
+      const data = snapshot.val();
+      setallSpellSLoaded(Object.values(data))
+     })
     }, [router.asPath])
     
-
-
   return (
     <Container className="OneSpell">
        <Head>
-            <title>Magias</title>
+       {allSpellLoaded?.map((a: SpellsProps, i) => (
+            <title>{a.SpellName}</title>
+       ))}
             <meta name='description' content='Lista de todas magias de D&D 5e' />
             <meta property='og:title' content='Magias D&D' />
             <meta property='og:description' content='Lista de todas magias de D&D 5e' />
@@ -64,21 +63,21 @@ export default function SpellsName({AllSpells}: any) {
         </div>
           
         <div className="content">
-        {allSpellLoaded.map((a: SpellsProps, i) => (
+        {allSpellLoaded?.map((a: SpellsProps, i) => (
           <SpellsCard  
-    Concentration={a.Concentration}
-    Description={a.Description}
-    Duration={a.Duration}
-    Level={a.Level}
-    Material={a.Material}
-    Reach={a.Reach}
-    Ritual={a.Ritual}
-    School={a.School}
-    Somatic={a.Somatic}
-    SpellName={a.SpellName}
-    Time={a.Time}
-    Verbal={a.Verbal}
-    key={i}
+            Concentration={a.Concentration}
+            Description={a.Description}
+            Duration={a.Duration}
+            Level={a.Level}
+            Material={a.Material}
+            Reach={a.Reach}
+            Ritual={a.Ritual}
+            School={a.School}
+            Somatic={a.Somatic}
+            SpellName={a.SpellName}
+            Time={a.Time}
+            Verbal={a.Verbal}
+            key={i}
           />
         ))}
           
@@ -95,19 +94,8 @@ type routes ={
 
   export async function getServerSideProps (name: routes) {
 
-    let spellName = name.params.spellName
-
-    let AllSpells: any = []
-    const newSpell = query(ref(db, "/spells"),
-    orderByChild('SpellName'), 
-    equalTo(spellName),
-    );
-    onValue(newSpell, (snapshot) => {
-      const data = snapshot.val();
-      AllSpells = Object.values(data)
-     })
-
-
+    const res = await fetch(`${process.env.REACT_APP_SSR}/api/getSpellsByName/${name.params.spellName}`);
+    const AllSpells: SpellsProps[] = await res.json()
      return{
        props:{
         AllSpells,
