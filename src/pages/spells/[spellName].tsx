@@ -28,11 +28,15 @@ export default function SpellsName() {
     );
     onValue(newSpell, (snapshot) => {
       const data = snapshot.val();
+      console.log('data:');
+      console.log(data);
       setallSpellSLoaded(Object.values(data))
     })
     setIsLoading(false)
-  }, [router.asPath])
-    
+  }, [])
+  
+  console.log('spellLoaded:');
+  console.log(allSpellLoaded);
   return (
     <Container className="OneSpell">
         <div className="main-header">
