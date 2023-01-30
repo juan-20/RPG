@@ -18,6 +18,7 @@ export default function SpellsName({AllSpells}: any) {
     const [allSpellLoaded, setallSpellSLoaded] = useState<SpellsProps[]>(AllSpells)
     const router = useRouter();
     const { spellName }: any = router.query;
+    console.log(allSpellLoaded);
 
     // useEffect(() => {
   
