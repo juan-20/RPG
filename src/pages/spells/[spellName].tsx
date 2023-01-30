@@ -85,22 +85,3 @@ export default function SpellsName() {
     </Container>
   );
 }
-
-type routes ={
-    params:{
-        spellName: string
-    }
-  }
-
-  export async function getServerSideProps (name: routes) {
-
-    const res = await fetch(`${process.env.REACT_APP_SSR}/api/getSpellsByName/${name.params.spellName}`);
-    const AllSpells: SpellsProps[] = await res.json()
-     return{
-       props:{
-        AllSpells,
-        fallback: false
-       }
-     }
-     
-   }
