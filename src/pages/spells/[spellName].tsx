@@ -18,8 +18,10 @@ export default function SpellsName() {
   const { spellName }: any = router.query;
   
   const [allSpellLoaded, setallSpellSLoaded] = useState<SpellsProps[]>()
+  const [isLoading, setIsLoading] = useState(false)
 
   useEffect(() => {
+    setIsLoading(true)
     const newSpell = query(ref(db, "/spells"),
     orderByChild('SpellName'), 
     equalTo(spellName),
@@ -27,8 +29,9 @@ export default function SpellsName() {
     onValue(newSpell, (snapshot) => {
       const data = snapshot.val();
       setallSpellSLoaded(Object.values(data))
-     })
-    }, [router.asPath])
+    })
+    setIsLoading(false)
+  }, [router.asPath])
     
   return (
     <Container className="OneSpell">
@@ -51,26 +54,26 @@ export default function SpellsName() {
               </div>
         </Link>
         </div>
-          
+        {isLoading ? <p>Carregando...</p> :
+        <>
         <div className="content">
-        {allSpellLoaded?.map((a: SpellsProps, i) => (
-          <SpellsCard  
-            Concentration={a.Concentration}
-            Description={a.Description}
-            Duration={a.Duration}
-            Level={a.Level}
-            Material={a.Material}
-            Reach={a.Reach}
-            Ritual={a.Ritual}
-            School={a.School}
-            Somatic={a.Somatic}
-            SpellName={a.SpellName}
-            Time={a.Time}
-            Verbal={a.Verbal}
-            key={i}
-          />
-        ))}
-          
+          {allSpellLoaded?.map((a: SpellsProps, i) => (
+            <SpellsCard
+              Concentration={a.Concentration}
+              Description={a.Description}
+              Duration={a.Duration}
+              Level={a.Level}
+              Material={a.Material}
+              Reach={a.Reach}
+              Ritual={a.Ritual}
+              School={a.School}
+              Somatic={a.Somatic}
+              SpellName={a.SpellName}
+              Time={a.Time}
+              Verbal={a.Verbal}
+              key={i} />
+          ))}
+
         </div>
         <Head>
             {allSpellLoaded?.map((a: SpellsProps, i) => (
@@ -81,7 +84,8 @@ export default function SpellsName() {
             <meta property='og:description' content='Lista de todas magias de D&D 5e' />
             <meta property='og:type' content='website' />
             <meta property="og:image" content='🪄' />
-        </Head>
+          </Head>
+          </>}
     </Container>
   );
 }
