@@ -104,7 +104,7 @@ type routes ={
     );
     onValue(newSpell, (snapshot) => {
       const data = snapshot.val();
-      AllSpells = data
+      AllSpells = Object.values(data)
      })
 
 

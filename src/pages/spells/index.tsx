@@ -101,7 +101,7 @@ export const getStaticProps = async () => {
   );
   onValue(newSpell, (snapshot) => {
   const data = snapshot.val();
-  AllSpells = data
+  AllSpells = data.filter((n: any) => n)
   })
     //  const spellsres = await fetch(`${process.env.REACT_APP_SSR}/api/getAllSpellsByPages/0/50`)
     //  const AllSpells: SpellsProps[] = await spellsres.json()
