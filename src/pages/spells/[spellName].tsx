@@ -32,16 +32,6 @@ export default function SpellsName() {
     
   return (
     <Container className="OneSpell">
-       <Head>
-       {allSpellLoaded?.map((a: SpellsProps, i) => (
-            <title>{a.SpellName}</title>
-       ))}
-            <meta name='description' content='Lista de todas magias de D&D 5e' />
-            <meta property='og:title' content='Magias D&D' />
-            <meta property='og:description' content='Lista de todas magias de D&D 5e' />
-            <meta property='og:type' content='website' />
-            <meta property="og:image" content='🪄' />
-        </Head>
         <div className="main-header">
           <h1>Magias</h1>
           <div className="input">
@@ -82,6 +72,16 @@ export default function SpellsName() {
         ))}
           
         </div>
+        <Head>
+            {allSpellLoaded?.map((a: SpellsProps, i) => (
+              <title>{a.SpellName}</title>
+            ))}
+            <meta name='description' content='Lista de todas magias de D&D 5e' />
+            <meta property='og:title' content='Magias D&D' />
+            <meta property='og:description' content='Lista de todas magias de D&D 5e' />
+            <meta property='og:type' content='website' />
+            <meta property="og:image" content='🪄' />
+        </Head>
     </Container>
   );
 }
