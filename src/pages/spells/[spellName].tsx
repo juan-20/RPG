@@ -3,22 +3,28 @@ import { SpellsProps } from '../../types/D&D.type';
 import SpellsCard from '../../components/layout/Spells/SpellsCard';
 import { Container } from '../../../styles/spells.style';
 import Head from 'next/head';
-import { useRouter } from 'next/router';
-import { SpellName } from '../api/data/spellName';
 import {MdKeyboardBackspace} from 'react-icons/md'
-import SearchInput from '../../components/interface/custom-input';
 import { equalTo, onValue, orderByChild, query, ref } from 'firebase/database';
 import { db } from '../../services/firebase';
+import { useRouter } from "next/router";
 import Link from 'next/link';
-import { GetStaticPaths } from 'next';
 
 export default function SpellsName({AllSpells}: any) {
+  const router = useRouter();
+  const { spellName }: any = router.query;
+  console.log(spellName);
+  const [allSpellLoaded, setallSpellSLoaded] = useState<SpellsProps[]>(AllSpells)
 
-    const [search, setSearch] = useState('')
-    const [allSpellLoaded, setallSpellSLoaded] = useState<SpellsProps[]>(AllSpells)
-    const router = useRouter();
-    const { spellName }: any = router.query;
-    console.log(allSpellLoaded);
+  useEffect(() => {
+    if(spellName === undefined)return
+    fetch(`https://rpg-73e66-default-rtdb.firebaseio.com/spells.json?orderBy="SpellName"&equalTo="${spellName}"`)
+    .then(res => res.json())
+    .then(data => {
+      setallSpellSLoaded(Object.values(data))
+      console.log(allSpellLoaded)
+    })
+  }, [spellName])
+
 
   return (
     <Container className="OneSpell">
@@ -51,7 +57,9 @@ export default function SpellsName({AllSpells}: any) {
         </div>
           
         <div className="content">
-        {allSpellLoaded.map((a: SpellsProps, i) => (
+          {allSpellLoaded ? 
+          <>
+         {allSpellLoaded.map((a: SpellsProps, i) => (
           <SpellsCard  
               Concentration={a.Concentration}
               Description={a.Description}
@@ -68,42 +76,9 @@ export default function SpellsName({AllSpells}: any) {
               key={i}
           />
         ))}
-          
+        </>
+        : 'Carregando...' }
         </div>
     </Container>
   );
 }
-
-type routes ={
-    params:{
-        spellName: string
-    }
-  }
-
-  export async function getServerSideProps (name: routes) {
-    let AllSpells: SpellsProps[] | undefined
-    try{
-      const newSpell = await query(ref(db, "/spells"),
-      orderByChild('SpellName'), 
-      equalTo(name.params.spellName),
-      );
-      onValue(newSpell, (snapshot) => {
-        const data = snapshot.val();
-        console.log(data);
-        AllSpells = (Object.values(data))
-       })
-    }catch(err){
-      console.log('ups')
-    }
-
-    // const res = await fetch(`${process.env.REACT_APP_SSR}/api/getSpellsByName/${name.params.spellName}`);
-  
-     return{
-       props:{
-        AllSpells,
-        fallback: false
-       }
-     }
-     
-   }
-
