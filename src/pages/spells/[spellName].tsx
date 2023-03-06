@@ -20,21 +20,6 @@ export default function SpellsName({AllSpells}: any) {
     const { spellName }: any = router.query;
     console.log(allSpellLoaded);
 
-    // useEffect(() => {
-  
-    //   const newSpell = query(ref(db, "/spells"),
-    //   orderByChild('SpellName'), 
-    //   equalTo(spellName),
-    //   );
-    //   onValue(newSpell, (snapshot) => {
-    //     const data = snapshot.val();
-    //     setallSpellSLoaded(Object.values(data))
-    //    })
-
-    // }, [router.asPath])
-    
-
-
   return (
     <Container className="OneSpell">
        <Head>
@@ -95,7 +80,7 @@ type routes ={
     }
   }
 
-  export async function getStaticProps (name: routes) {
+  export async function getServerSideProps (name: routes) {
     let AllSpells: SpellsProps[] | undefined
     try{
       const newSpell = await query(ref(db, "/spells"),
@@ -122,10 +107,3 @@ type routes ={
      
    }
 
-   export const getStaticPaths: GetStaticPaths<{ slug: string }> = async () => {
-
-    return {
-        paths: [], //indicates that no page needs be created at build time
-        fallback: 'blocking' //indicates the type of fallback
-    }
-  }
