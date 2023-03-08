@@ -1,5 +1,6 @@
 import { ImageResponse } from '@vercel/og';
 import { NextRequest } from 'next/server';
+import { Url } from 'url';
 
 export const config = {
     runtime: 'experimental-edge',
@@ -16,11 +17,18 @@ export default function handler(req: NextRequest) {
       ? searchParams.get('title')?.slice(0, 100)
       : 'My default title';
 
+    const hasImage = searchParams.has('image');
+    const image = hasImage
+      ? searchParams.get('image')?.slice(0, 100)
+      : 'mage';
+
+      console.log(image);
+
     return new ImageResponse(
       (
         <div
           style={{
-            backgroundColor: 'black',
+            backgroundColor: '#5762d5',
             backgroundSize: '150px 150px',
             height: '100%',
             width: '100%',
@@ -41,10 +49,10 @@ export default function handler(req: NextRequest) {
           >
             <img
               alt="Vercel"
-              height={200}
-              src="https://pbs.twimg.com/media/FqqbE9xXsAEqc4P?format=jpg&name=900x900"
+              height={380}
+              src={`https://raw.githubusercontent.com/juan-20/RPG/23078a56dad1fa28a696afac567fdf509fa2a3f4/assets/og/${image}.svg`}
               style={{ margin: '0 30px' }}
-              width={232}
+              width={380}
             />
           </div>
           <div
