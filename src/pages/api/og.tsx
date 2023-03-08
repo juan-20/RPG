@@ -26,8 +26,8 @@ export default function handler(req: NextRequest) {
           style={{
             backgroundColor: '#5762d5',
             backgroundSize: '150px 150px',
-            height: '630px',
-            width: '1200px',
+            height: '100%',
+            width: '100%',
             display: 'flex',
             textAlign: 'center',
             alignItems: 'center',

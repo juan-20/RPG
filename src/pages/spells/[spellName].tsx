@@ -36,6 +36,7 @@ export default function SpellsName({AllSpells}: any) {
             <meta property='og:description' content='Lista de todas magias de D&D 5e' />
             <meta property='og:type' content='website' />
             <meta property="og:image" content={`${process.env.REACT_APP_ENVIROMENT}/api/og?title=$Magia&image=wand`} />
+            <meta name="twitter:image" content={`${process.env.REACT_APP_ENVIROMENT}/api/og?title=$Magia&image=wand`}></meta>
         </Head>
         <div className="main-header">
           <h1>Magias</h1>
