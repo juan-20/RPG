@@ -13,6 +13,7 @@
     "@radix-ui/react-checkbox": "^1.0.0",
     "@radix-ui/react-navigation-menu": "^1.1.1",
     "@radix-ui/react-toggle": "^1.0.1",
+    "@vercel/og": "^0.4.0",
     "axios": "^1.2.0",
     "dotenv": "^16.0.3",
     "firebase": "^9.14.0",
