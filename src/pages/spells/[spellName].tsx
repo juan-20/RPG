@@ -8,6 +8,7 @@ import { equalTo, onValue, orderByChild, query, ref } from 'firebase/database';
 import { db } from '../../services/firebase';
 import { useRouter } from "next/router";
 import Link from 'next/link';
+import { CircleNotch } from 'phosphor-react';
 
 export default function SpellsName({AllSpells}: any) {
   const router = useRouter();
@@ -77,7 +78,12 @@ export default function SpellsName({AllSpells}: any) {
           />
         ))}
         </>
-        : 'Carregando...' }
+        : 
+        <div className="center">
+          <p>Carregando...</p>
+          <CircleNotch size={24} weight="fill" />
+        </div>
+        }
         </div>
     </Container>
   );

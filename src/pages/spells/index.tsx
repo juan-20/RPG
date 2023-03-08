@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { GetStaticPaths, InferGetStaticPropsType } from 'next'
+import { GetServerSideProps, GetStaticPaths, InferGetStaticPropsType } from 'next'
 import { SpellsProps } from '../../types/D&D.type';
 import SpellsCard from '../../components/layout/Spells/SpellsCard';
 import { Container } from '../../../styles/spells.style';
@@ -9,16 +9,18 @@ import { db } from '../../services/firebase';
 import { CircleNotch, MagnifyingGlass } from 'phosphor-react';
 import { SpellName } from '../api/data/spellName';
 import SearchInput from '../../components/interface/custom-input';
-import AutocompleteInput from '../../components/interface/custom-input';
-import AutoComplete from '../../components/interface/custom-input';
 
-export default function Spells({AllSpells}:  InferGetStaticPropsType<typeof getStaticProps>) {
+export default function Spells({AllSpells}:  InferGetStaticPropsType<typeof getServerSideProps>) {
+
+    console.log(AllSpells);
 
     const [lastSpellLoaded, setLastSpellSLoaded] = useState(50)
     const [isLoading, setIsLoading] = useState(false)
-    const [allSpellLoaded, setallSpellSLoaded] = useState<SpellsProps[]>(AllSpells)
+    const [allSpellLoaded, setallSpellSLoaded] = useState<SpellsProps[]>(Object.values(AllSpells))
     const [search, setSearch] = useState('')
     const [resultSearch, setResultSearch] = useState(SpellName)
+
+    console.log(allSpellLoaded);
 
 
     async function LoadMore(){
@@ -64,22 +66,22 @@ export default function Spells({AllSpells}:  InferGetStaticPropsType<typeof getS
         </div>
         <div className="content">
         {allSpellLoaded.map((a: SpellsProps, i) => (
-          <SpellsCard  
-            Concentration={a.Concentration}
-            Description={a.Description}
-            Duration={a.Duration}
-            Level={a.Level}
-            Material={a.Material}
-            Reach={a.Reach}
-            Ritual={a.Ritual}
-            School={a.School}
-            Somatic={a.Somatic}
-            SpellName={a.SpellName}
-            Time={a.Time}
-            Verbal={a.Verbal}
-            key={i}
-          />
-        ))}
+            <SpellsCard  
+              Concentration={a.Concentration}
+              Description={a.Description}
+              Duration={a.Duration}
+              Level={a.Level}
+              Material={a.Material}
+              Reach={a.Reach}
+              Ritual={a.Ritual}
+              School={a.School}
+              Somatic={a.Somatic}
+              SpellName={a.SpellName}
+              Time={a.Time}
+              Verbal={a.Verbal}
+              key={i}
+            />
+          ))}
           <div className="content-pagination">
             <button onClick={LoadMore}>
               Carregar mais
@@ -92,10 +94,12 @@ export default function Spells({AllSpells}:  InferGetStaticPropsType<typeof getS
 }
 
 
-export const getStaticProps = async () => {
+export const getServerSideProps: GetServerSideProps = async () => {
 
-     const spellsres = await fetch(`${process.env.REACT_APP_SSR}/api/getAllSpellsByPages/0/50`)
-     const AllSpells: SpellsProps[] = await spellsres.json()
+
+  const res = await fetch(`https://rpg-73e66-default-rtdb.firebaseio.com/spells.json?orderBy="$key"&startAt="0"&endAt="50"`)
+  const AllSpells: SpellsProps[] = await res.json()
+
      return{
        props:{
         AllSpells,
