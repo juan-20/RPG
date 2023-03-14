@@ -1,237 +1,102 @@
-import { ErrorMessage, Field, Form, Formik } from 'formik'
-import { useSession } from 'next-auth/react';
-import Head from 'next/head';
-import React, { useState } from 'react'
+import { useState } from 'react';
+import { useForm } from 'react-hook-form';
 import { Container } from '../../../styles/create.style';
-import schema from '../../types/schema';
 
-export default function createCharacter() {
-  const { data  } = useSession({required: true})
+export default function Create() {
+  const { register, handleSubmit } = useForm();
 
-  const userEmail = data?.user?.email
+  const [steper, setStepper] = useState(1)
+  const [imgURL, setImgURL] = useState<string>();
 
-  function onSubmit(values: any) {
-    console.log('SUBMIT', values);
+  function handleImageChange(event: React.ChangeEvent<HTMLInputElement>): void {
+    const file = event.target.files?.[0];
+    const reader = new FileReader();
+
+    reader.onloadend = () => {
+      setImgURL(reader.result as string);
+    };
+
+    if (file) {
+      reader.readAsDataURL(file);
+    }
   }
 
-  const [isDev, setIsDev] = useState(true)
+  const onSubmit = (data: any) => {
+    console.log(data);
+    // submit form data to backend API
+  };
 
-    return (
-      
-      <Container>
-        {isDev? 
-        <div className="center">
-          <p>Em breve ⌛</p>
+  return (
+    <Container onSubmit={handleSubmit(onSubmit)}>
+      {steper === 1 ?
+      <div className="first-step">
+        <div className="title">
+          <h1>Informacoes basicas</h1>
         </div>
-          :
-          <><Head>
-          <title>Criar personagem</title>
-        </Head><Formik
-            onSubmit={onSubmit}
-            validateOnMount
-            validationSchema={schema}
-            initialValues={{
-              email: userEmail,
-              mainAtributes: [{ name: 'Força' }, { name: 'Destreza' }, { name: 'Constituição' }, { name: 'Inteligência' }, { name: 'Sabedoria' }, { name: 'Carisma' }],
-            }}
-            render={({ values, errors, touched, isValid }) => (
+        <div className="input-group">
+          <label htmlFor="name">Name:</label>
+          <input type="text" id="name" {...register('name')} />
+        </div>
 
-              <>
-                <div className="title">
-                  <h1>Complete seu cadastro</h1>
-                </div>
+        <div className="input-group">
+          <label htmlFor="image">Image:</label>
+          <input type="file" accept='image/*' id="image" onChange={handleImageChange}
+          //  {...register('image')} 
+           />
+          {imgURL && <img src={imgURL} alt="Imagem" height={200} />}
+        </div>
 
-                <Form className='form'>
-                  <h2>Informações basicas</h2>
+        <div className="input-group">
+          <label htmlFor="age">Age:</label>
+          <input type="number" id="age" {...register('age')} />
+        </div>
 
-                  <div className="personal-information">
-                    <div className='form-content'>
-                      <label>Imagem</label>
-                      <div className="form-content-required">
-                        <Field name="image" type="file" accept="image/*" />
-                        <p> <ErrorMessage className='error' name="name" render={() => (<p>Nome deve ser válido</p>)} /> </p>
-                      </div>
-                    </div>
-                    <div className='form-content'>
-                      <label>Nome</label>
-                      <div className="form-content-required">
-                        <Field name="name" type="text" />
-                        <p> <ErrorMessage className='error' name="name" render={() => (<p>Nome deve ser válido</p>)} /> </p>
-                      </div>
-                    </div>
-                    <div className='form-content'>
-                      <label>Idade</label>
-                      <Field name="age" type="number" />
-                      <p> <ErrorMessage className='error' name="age" /> </p>
-                    </div>
-                  </div>
-                  <div className='form-content'>
-                    <label>Armadura</label>
-                    <Field name="armor" type="number" />
-                    <p> <ErrorMessage className='error' name="armor" /> </p>
-                  </div>
-                  <div className='form-content'>
-                    <label>Descrição</label>
-                    <Field className="textarea" name="desc" type="string" />
-                    <p> <ErrorMessage className='error' name="desc" /> </p>
-                  </div>
-                  <div className='form-content'>
-                    <label>Deslocamento</label>
-                    <Field name="displacement" type="string" />
-                    <p> <ErrorMessage className='error' name="displacement" /> </p>
-                  </div>
-                  <div className='form-content'>
-                    <label>Iniciativa</label>
-                    <Field name="iniciative" type="number" />
-                    <p> <ErrorMessage className='error' name="iniciative" /> </p>
-                  </div>
-                  <div className='form-content'>
-                    <label>Vida</label>
-                    <Field name="life" type="number" />
-                    <p> <ErrorMessage className='error' name="life" /> </p>
-                  </div>
-                  <div className='form-content'>
-                    <label>Dado de vida:</label>
-                    <Field name="lifeDice" type="string" />
-                    <p> <ErrorMessage className='error' name="lifeDice" /> </p>
-                  </div>
+        <div className="input-group">
+          <label htmlFor="armor">Armor:</label>
+          <input type="text" id="armor" {...register('armor')} />
+        </div>
+        
+        <div className="input-group">
+        <label htmlFor="description">Description:</label>
+        <textarea id="description" {...register('description')} />
+        </div>
 
-                  <h2>Atributos</h2>
-                  <div className="accordion">
+        <div className="input-group">
+          <label htmlFor="displacement">Displacement:</label>
+          <input type="number" id="displacement" {...register('displacement')} />
+        </div>
 
-                    <div className='strenght'>
-                      <div className="text">
-                        <label>Força</label>
-                        <div className="text-description">
-                          <span>Base:</span>
-                          <span>Adicionador:</span>
-                        </div>
-                      </div>
-                      <div className="input">
-                        <div className="input-group">
-                          <Field placeholder="Ex.: 12" name="mainAtributes.0.counter" type="string" />
-                          <p><ErrorMessage className='error' name="mainAtributes.0.counter" /></p>
-                        </div>
-                        <div className="input-group">
-                          <Field placeholder="Ex.: +5" name="mainAtributes.0.passive" type="string" />
-                          <p> <ErrorMessage className='error' name="strengthBase" /> </p>
-                        </div>
-                      </div>
-                    </div>
+        <div className="input-group">
+          <label htmlFor="initiative">Initiative:</label>
+          <input type="number" id="initiative" {...register('initiative')} />
+        </div>
 
+        <div className="input-group">
+          <label htmlFor="life">Life:</label>
+          <input type="number" id="life" {...register('life')} />
+        </div>
 
-                    <div className='strenght'>
-                      <div className="text">
-                        <label>Destreza</label>
-                        <div className="text-description">
-                          <span>Base:</span>
-                          <span>Adicionador:</span>
-                        </div>
-                      </div>
-                      <div className="input">
-                        <div className="input-group">
-                          <Field placeholder="Ex.: 12" name="mainAtributes.1.counter" type="string" />
-                          <p><ErrorMessage className='error' name="mainAtributes.1.counter" /></p>
-                        </div>
-                        <div className="input-group">
-                          <Field placeholder="Ex.: +5" name="mainAtributes.1.passive" type="string" />
-                          <p> <ErrorMessage className='error' name="strengthBase" /> </p>
-                        </div>
-                      </div>
-                    </div>
-
-                    <div className='strenght'>
-                      <div className="text">
-                        <label>Constituição</label>
-                        <div className="text-description">
-                          <span>Base:</span>
-                          <span>Adicionador:</span>
-                        </div>
-                      </div>
-                      <div className="input">
-                        <div className="input-group">
-                          <Field placeholder="Ex.: 12" name="mainAtributes.2.counter" type="string" />
-                          <p><ErrorMessage className='error' name="mainAtributes.2.counter" /></p>
-                        </div>
-                        <div className="input-group">
-                          <Field placeholder="Ex.: +5" name="mainAtributes.2.passive" type="string" />
-                          <p> <ErrorMessage className='error' name="strengthBase" /> </p>
-                        </div>
-                      </div>
-                    </div>
-
-                    <div className='strenght'>
-                      <div className="text">
-                        <label>Inteligência</label>
-                        <div className="text-description">
-                          <span>Base:</span>
-                          <span>Adicionador:</span>
-                        </div>
-                      </div>
-                      <div className="input">
-                        <div className="input-group">
-                          <Field placeholder="Ex.: 12" name="mainAtributes.3.counter" type="string" />
-                          <p><ErrorMessage className='error' name="mainAtributes.3.counter" /></p>
-                        </div>
-                        <div className="input-group">
-                          <Field placeholder="Ex.: +5" name="mainAtributes.3.passive" type="string" />
-                          <p> <ErrorMessage className='error' name="strengthBase" /> </p>
-                        </div>
-                      </div>
-                    </div>
-
-                    <div className='strenght'>
-                      <div className="text">
-                        <label>Sabedoria</label>
-                        <div className="text-description">
-                          <span>Base:</span>
-                          <span>Adicionador:</span>
-                        </div>
-                      </div>
-                      <div className="input">
-                        <div className="input-group">
-                          <Field placeholder="Ex.: 12" name="mainAtributes.4.counter" type="string" />
-                          <p><ErrorMessage className='error' name="mainAtributes.4.counter" /></p>
-                        </div>
-                        <div className="input-group">
-                          <Field placeholder="Ex.: +5" name="mainAtributes.4.passive" type="string" />
-                          <p> <ErrorMessage className='error' name="strengthBase" /> </p>
-                        </div>
-                      </div>
-                    </div>
-
-                    <div className='strenght'>
-                      <div className="text">
-                        <label>Carisma</label>
-                        <div className="text-description">
-                          <span>Base:</span>
-                          <span>Adicionador:</span>
-                        </div>
-                      </div>
-                      <div className="input">
-                        <div className="input-group">
-                          <Field placeholder="Ex.: 12" name="mainAtributes.5.counter" type="string" />
-                          <p><ErrorMessage className='error' name="mainAtributes.5.counter" /></p>
-                        </div>
-                        <div className="input-group">
-                          <Field placeholder="Ex.: +5" name="mainAtributes.5.passive" type="string" />
-                          <p> <ErrorMessage className='error' name="strengthBase" /> </p>
-                        </div>
-                      </div>
-                    </div>
-
-                  </div>
-
-                  <div className="footer">
-                    <button onClick={() => console.log(values)} type="submit"
-                    >Enviar</button>
-                  </div>
-                </Form>
-              </>
-            )} /></>
-          }
-       
-      </Container>
-    )
-
+        <div className="input-group">
+          <label htmlFor="lifeDice">Life Dice:</label>
+          <input type="text" id="lifeDice" {...register('lifeDice')} />
+        </div>
+        <button onClick={()=> {setStepper(steper+1)}}>Próximo</button>
+      </div>
+      : 
+      <div>
+        <p>Força:</p>
+        <div>
+          <label htmlFor="base">Base:</label>
+          <input type="number" id="base" {...register('base')} />
+        </div>
+        <div>
+          <label htmlFor="adicionador">Adicionador:</label>
+          <input type="number" id="adicionador" {...register('adicionador')} />
+        </div>
+        <button onClick={()=> {setStepper(steper-1)}}>Voltar</button>
+        <button type="submit">Submit</button>
+      </div>
+      }
+    </Container>
+  );
 }

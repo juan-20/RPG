@@ -1,14 +1,32 @@
 import styled from "styled-components";
 
-export const Container = styled.div`
+export const Container = styled.form`
     background: ${props => props.theme.colors.background};
     color: ${props => props.theme.colors.text};
-    padding: 0 15% 0 15%;
+    padding: 0 30% 0 30%;
     .title{
         padding-top: 3rem;
         padding-bottom: 3rem;
     }
-    .form{
+    .input-group{
+        display: flex;
+        flex-direction: column;
+        padding: 0.3rem;
+        input{
+        background: #fff;
+        color: #8696a0;
+        border-radius: 6px;
+        height: 40px;
+        padding: 10px;
+        border: 1px solid #000;
+        :focus{
+            box-shadow: 0 0 0 2.5px #000;
+            border: none;
+            outline: none;
+        }
+    }
+    }
+    .first-step{
         background: ${props => props.theme.colors.primary};
         border-radius: 5px;
         display: flex;
@@ -34,18 +52,6 @@ export const Container = styled.div`
         height: 100px;
     }
 
-    input{
-        background: #fff;
-        color: #8696a0;
-        border-radius: 6px;
-        height: 40px;
-        padding: 10px;
-        border: none;
-        :focus{
-            box-shadow: 0 0 0 2.5px #5762d5;
-            outline: none;
-        }
-    }
     input[type=file]{
         background: #5762d5;
         display: flex;

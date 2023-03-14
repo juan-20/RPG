@@ -9,10 +9,10 @@ import { CharactersType } from '../types/D&D.type'
 // import { characters } from './api/data/character'
 
 export default function Home({character}: InferGetStaticPropsType<typeof getStaticProps>) {
-  const characters = character
+  const characters = Object.values(character)
+  console.log(character);
   const {data: session} = useSession()
   return (
-    <>
     <>
           <Head>
             <title>RPG</title>
@@ -24,8 +24,7 @@ export default function Home({character}: InferGetStaticPropsType<typeof getStat
         </Head>
     <Landing />
     <Body>
-      {session ? 
-      <p>Oi, {session.user?.name}</p>
+      {session ? null
        :
       
       <div className="register">
@@ -46,7 +45,6 @@ export default function Home({character}: InferGetStaticPropsType<typeof getStat
         </h1>
       </div>
       <div className="characters">
-    {characters.length > 0 ?
       <>
           {characters.map((character: CharactersType) => (
             <><CharacterResume
@@ -60,13 +58,9 @@ export default function Home({character}: InferGetStaticPropsType<typeof getStat
       </>
           ))}
       </>
-          : 'Banco de dados desconectado'  }
       </div>
         </Body>
     </> 
-
-    </>
-
 
   )
 }
@@ -75,7 +69,7 @@ export default function Home({character}: InferGetStaticPropsType<typeof getStat
 
 export const getStaticProps = async () => {
   
-  const res = await fetch(`${process.env.REACT_APP_SSR}/api/getAllCharacters`)
+  const res = await fetch(`https://rpg-73e66-default-rtdb.firebaseio.com/characters.json?orderBy="$key"&startAt="0"&endAt="10"`)
    const character: CharactersType[] = await res.json()
    return{
      props:{
