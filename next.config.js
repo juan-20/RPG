@@ -6,15 +6,20 @@ const nextConfig = {
   },
   images: {
     domains: [
-      'avribacki.gitlab.io', 
-      'pbs.twimg.com', 
-      'cdn.discordapp.com', 
+      'avribacki.gitlab.io',
+      'pbs.twimg.com',
+      'cdn.discordapp.com',
       'abs.twimg.com',
       'lh3.googleusercontent.com'
-    
+
     ]
   },
-  distDir:`build`
+  distDir: 'build'
 }
+
+const withBundleAnalyzer = require('@next/bundle-analyzer')({
+  enabled: process.env.ANALYZE === 'true'
+})
+module.exports = withBundleAnalyzer({})
 
 module.exports = nextConfig

@@ -169,15 +169,15 @@ type routes ={
 }
 
 export const getStaticProps = async (name: routes) => {
-  const res = await fetch(`${process.env.REACT_APP_SSR}/api/getCharactersByName/${name.params.name}`)
+   const res = await fetch(`${process.env.REACT_APP_SSR}/api/getCharactersByName/${name.params.name}`)
    const character: CharactersType = await res.json()
    const levelsres = await fetch(`${process.env.REACT_APP_SSR}/api/getSpellsLevel/${character.Id}`)
    const levels = await levelsres.json()
    return{
      props:{
-      character,
-      levels,
-      fallback: false
+        character,
+        levels,
+        fallback: false
      }
    }
    
