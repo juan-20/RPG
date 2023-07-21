@@ -1,45 +1,19 @@
-import { useState } from 'react'
-import type { AppProps } from 'next/app'
-import GlobalStyles from '../../styles/GlobalStyles'
-import { SessionProvider } from 'next-auth/react'
+import { type Session } from "next-auth";
+import { SessionProvider } from "next-auth/react";
+import { type AppType } from "next/app";
+import { api } from "~/utils/api";
+import { appWithTranslation } from 'next-i18next'
+import "~/styles/globals.css";
 
-import { ThemeProvider } from 'styled-components'
-import dark from '../../styles/theme/dark'
-import light from '../../styles/theme/light'
-import NavBar from '../components/layout/navBar'
-import Router from 'next/router'
-
-import ProgressBar from "@badrap/bar-of-progress";
-
-const progress = new ProgressBar({
-  size: 4,
-  color: "#5762d5",
-  delay: 100
-});
-
-Router.events.on('routeChangeStart', progress.start)
-Router.events.on('routeChangeComplete', progress.finish)
-Router.events.on('routeChangeError', progress.finish)
-
-
-
-function MyApp({ Component, pageProps }: AppProps, {session}: any) {
-
-  const [theme, setTheme] = useState(dark);
-
-  const toggleTheme = () => {
-    setTheme(theme.title === "dark" ? light : dark)
-  }
-
+const MyApp: AppType<{ session: Session | null }> = ({
+  Component,
+  pageProps: { session, ...pageProps },
+}) => {
   return (
-    <ThemeProvider theme={theme}>
-      <SessionProvider session={session}>
-      <GlobalStyles />
-      <NavBar toggleTheme={toggleTheme} />
+    <SessionProvider session={session}>
       <Component {...pageProps} />
-      </SessionProvider>
-    </ThemeProvider>
-  )
-}
+    </SessionProvider>
+  );
+};
 
-export default MyApp
+export default  api.withTRPC(appWithTranslation(MyApp));

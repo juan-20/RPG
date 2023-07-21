@@ -1,12 +1,9 @@
 {
   "compilerOptions": {
-    "target": "es2015",
-    "lib": [
-      "dom",
-      "dom.iterable",
-      "esnext"
-    ],
+    "target": "es2017",
+    "lib": ["dom", "dom.iterable", "esnext"],
     "allowJs": true,
+    "checkJs": true,
     "skipLibCheck": true,
     "strict": true,
     "forceConsistentCasingInFileNames": true,
@@ -17,17 +14,20 @@
     "resolveJsonModule": true,
     "isolatedModules": true,
     "jsx": "preserve",
-    "incremental": true
+    "incremental": true,
+    "noUncheckedIndexedAccess": true,
+    "baseUrl": ".",
+    "paths": {
+      "~/*": ["./src/*"]
+    }
   },
   "include": [
+    ".eslintrc.cjs",
     "next-env.d.ts",
     "**/*.ts",
-    "**/*.tsx"
-, "src/pages/api/getCharactersByName/[characterName].ts", "src/pages/api/Cantrip/[characterId]"  ],
-  "exclude": [
-    "node_modules"
+    "**/*.tsx",
+    "**/*.cjs",
+    "**/*.mjs"
   ],
-  "files": [
-    "styles/styled.d.ts"
-  ],
+  "exclude": ["node_modules"]
 }
