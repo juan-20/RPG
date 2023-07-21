@@ -15,7 +15,7 @@ datasource db {
 }
 
 model Example {
-    id        String   @id @default(cuid()) @map("_id") @db.ObjectId
+    id        String   @id @default(cuid()) @map("_id") 
     createdAt DateTime @default(now())
     updatedAt DateTime @updatedAt
 }
@@ -47,6 +47,68 @@ model Session {
     user         User     @relation(fields: [userId], references: [id], onDelete: Cascade)
 }
 
+model Character {	
+    id        String @id @default(cuid()) @map("_id")
+    createdAt DateTime @default(now())
+    updatedAt DateTime @updatedAt
+
+    name      String
+    race     String
+    level    Int
+    class    String
+    alignment String
+    age     Int
+    height     Float
+    weight     Int
+    eyes     String
+    skin     String
+    hair     String
+    background     String
+
+    Atuallife      Int
+    temporarylife      Int
+    maxlife      Int
+    temporaryLife Int
+
+    mana      Int
+    displacement Int
+    ac      Int
+    initiative     Int
+    cdToAvoidMagic    Int
+    modAtackMagic    Int
+    spellcastingAttribute     String
+
+    spells    SpellsOnCharacter[] 
+    author    User     @relation(fields: [authorId], references: [id], onDelete: Cascade)
+    authorId String 
+}
+
+model SpellsOnCharacter {
+    id        String   @id @default(cuid()) @map("_id") 
+    characterId String
+    spellId String
+    character Character @relation(fields: [characterId], references: [id], onDelete: Cascade)
+    spell Spells @relation(fields: [spellId], references: [id], onDelete: Cascade)
+}
+
+model Spells {
+    id        String   @id @default(cuid()) @map("_id") 
+    SpellName      String
+    Concentration Boolean
+    Description String
+    Duration String
+    Level Int
+    Material String
+    Reach String
+    Ritual Boolean
+    School String
+    Time String
+    Classes String[]
+    Somatic Boolean
+    Verbal Boolean
+    characters SpellsOnCharacter[]
+}
+
 model User {
     id            String    @id @default(cuid()) @map("_id")
     name          String?
@@ -55,6 +117,7 @@ model User {
     image         String?
     accounts      Account[]
     sessions      Session[]
+    characters    Character[]
 }
 
 model VerificationToken {
