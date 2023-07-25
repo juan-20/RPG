@@ -53,6 +53,7 @@ model Character {
     updatedAt DateTime @updatedAt
 
     name      String
+    AvatarURL String
     race     String
     level    Int
     class    String
@@ -77,7 +78,6 @@ model Character {
     cdToAvoidMagic    Int
     modAtackMagic    Int
     spellcastingAttribute     String
-
     spells    SpellsOnCharacter[] 
     author    User     @relation(fields: [authorId], references: [id], onDelete: Cascade)
     authorId String 
