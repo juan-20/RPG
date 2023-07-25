@@ -18,7 +18,10 @@ export default function CharacterCard({
     <div>
         {Character?.map((character) => (
             <div key={character.id}>
-                <p>{character.name}</p>
+                <p>Nome: {character.name}</p>
+                <p>Raça: {character.race}</p>
+                <p>Classe: {character.class}</p>
+                <p>Raça: {character.race}</p>
             </div>
         ))}
     </div>
