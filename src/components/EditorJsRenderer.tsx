@@ -1,6 +1,14 @@
-import { BlockToolData, OutputBlockData, OutputData } from '@editorjs/editorjs'
+/* eslint-disable @typescript-eslint/no-var-requires */
+/* eslint-disable @typescript-eslint/no-unsafe-assignment */
+/* eslint-disable @typescript-eslint/no-unsafe-call */
+import {
+ BlockToolData,
+ type OutputBlockData,
+ type OutputData,
+} from '@editorjs/editorjs'
 import React from 'react'
 const editorJsHtml = require('editorjs-html')
+
 const EditorJsToHtml = editorJsHtml({
  code: (block: OutputBlockData<string>) => {
   console.log(block)
@@ -8,7 +16,7 @@ const EditorJsToHtml = editorJsHtml({
  },
 })
 
-type Props = {
+interface Props {
  data: OutputData
 }
 type ParsedContent = string | JSX.Element

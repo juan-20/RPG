@@ -1,7 +1,7 @@
-import { OutputData } from '@editorjs/editorjs'
+import { type OutputData } from '@editorjs/editorjs'
 import dynamic from 'next/dynamic'
-import { useRef, useState } from 'react'
-import { useForm, SubmitHandler } from 'react-hook-form'
+import { useState } from 'react'
+import { useForm, type SubmitHandler } from 'react-hook-form'
 import EditorComponent from '~/components/Editor'
 import Editor from '~/components/Editor'
 import EditorJsRenderer from '~/components/EditorJsRenderer'
@@ -179,7 +179,7 @@ export default function Create() {
          </div>
          <div className="col-span-1 p-16">
           <label htmlFor="">Preview:</label>
-          {data && <EditorJsRenderer data={data} />}
+          {/* {data && <EditorJsRenderer data={data} />} */}
          </div>
         </div>
 
