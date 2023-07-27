@@ -82,6 +82,9 @@ export async function getServerSideProps(context: GetServerSidePropsContext) {
  const providers = await getProviders()
 
  return {
-  props: { providers: providers ?? [] },
+  props: {
+   providers: providers ?? [],
+   fallback: false,
+  },
  }
 }
