@@ -1,9 +1,15 @@
+/* eslint-disable @typescript-eslint/ban-ts-comment */
+
 import React, { memo, useCallback, useEffect, useRef } from 'react'
 import Header from '@editorjs/header'
 import EditorJS, { type OutputData } from '@editorjs/editorjs'
+// @ts-ignore
 import List from '@editorjs/list'
+// @ts-ignore
 import Embed from '@editorjs/embed'
+// @ts-ignore
 import Quote from '@editorjs/quote'
+// @ts-ignore
 import Table from '@editorjs/table'
 
 export const EDITOR_TOOLS = {
