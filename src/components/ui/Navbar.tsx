@@ -124,6 +124,9 @@ export default function Navbar() {
                 active ? 'bg-gray-100' : '',
                 'block px-4 py-2 text-sm text-gray-700'
                )}
+               onClick={
+                sessionData ? () => void signOut() : () => void signIn()
+               }
               >
                Sign out
               </a>
@@ -138,7 +141,7 @@ export default function Navbar() {
           className="mr-3 rounded-lg bg-pink-500 px-4 py-2 text-center text-sm font-medium text-white hover:bg-pink-600 focus:outline-none focus:ring-4 focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800 md:mr-0"
          >
           <span className="relative text-base font-semibold text-white">
-           {sessionData ? 'Sair' : 'Login'}
+           {sessionData ? '' : 'Login'}
           </span>
          </button>
         )}

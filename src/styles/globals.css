@@ -16,6 +16,26 @@
  }
 }
 
+blockquote {
+ border-left: 0.25rem solid #949494;
+ padding-left: 1rem;
+ margin-left: 0;
+}
+
+.ce-inline-toolbar__toggler-and-button-wrapper {
+ fill: #000;
+ color: #000;
+}
+.ce-conversion-tool {
+ fill: #000;
+ color: #000;
+}
+
+h2 {
+ font-size: 1.5rem;
+ margin-bottom: 1rem;
+}
+
 body {
  color: rgb(var(--foreground-rgb));
 
