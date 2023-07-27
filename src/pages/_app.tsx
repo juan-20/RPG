@@ -1,21 +1,21 @@
-import { type Session } from "next-auth";
-import { SessionProvider } from "next-auth/react";
-import { type AppType } from "next/app";
-import { api } from "~/utils/api";
+import { type Session } from 'next-auth'
+import { SessionProvider } from 'next-auth/react'
+import { type AppType } from 'next/app'
+import { api } from '~/utils/api'
 import { appWithTranslation } from 'next-i18next'
-import "~/styles/globals.css";
-import Navbar from "~/components/ui/navbar";
+import '~/styles/globals.css'
+import Navbar from '~/components/ui/Navbar'
 
 const MyApp: AppType<{ session: Session | null }> = ({
-  Component,
-  pageProps: { session, ...pageProps },
+ Component,
+ pageProps: { session, ...pageProps },
 }) => {
-  return (
-    <SessionProvider session={session}>
-      <Navbar />
-      <Component {...pageProps} />
-    </SessionProvider>
-  );
-};
+ return (
+  <SessionProvider session={session}>
+   <Navbar />
+   <Component {...pageProps} />
+  </SessionProvider>
+ )
+}
 
-export default  api.withTRPC(appWithTranslation(MyApp));
+export default api.withTRPC(appWithTranslation(MyApp))

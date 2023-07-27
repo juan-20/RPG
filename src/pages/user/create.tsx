@@ -37,7 +37,7 @@ const EditorBlock = dynamic(() => import('../../components/Editor'), {
 })
 
 export default function Create() {
- const [image, setImage] = useState(null)
+ const [image, setImage] = useState<any>(null)
  const [data, setData] = useState<OutputData>()
  const {
   register,
@@ -50,16 +50,19 @@ export default function Create() {
  const avatarUrl = watch('avatarUrl')
  const bg = watch('background')
 
- function convertToBase64(e) {
+ function convertToBase64(e: React.ChangeEvent<HTMLInputElement>): void {
   console.log(e)
   const reader = new FileReader()
-  reader.readAsDataURL(e.target.files[0])
-  reader.onload = () => {
-   console.log(reader.result)
-   setImage(reader.result)
-  }
-  reader.onerror = function (error) {
-   console.log('Error: ', error)
+  const file = e.target.files?.[0]
+  if (file) {
+   reader.readAsDataURL(file)
+   reader.onload = () => {
+    console.log(reader.result)
+    setImage(reader.result as string)
+   }
+   reader.onerror = function (error) {
+    console.log('Error: ', error)
+   }
   }
  }
 
