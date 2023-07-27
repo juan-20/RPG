@@ -33,7 +33,7 @@ interface Inputs {
 }
 
 const EditorBlock = dynamic(() => import('../../components/Editor'), {
- ssr: true,
+ ssr: false,
 })
 
 export default function Create() {
