@@ -8,7 +8,6 @@ import { getServerSession } from 'next-auth'
 import { getProviders, signIn } from 'next-auth/react'
 import { Icons } from '~/components/Icons'
 import { ChevronLeft } from 'lucide-react'
-import { buttonVariants } from '../../components/ui/Button'
 
 export default function signin({
  providers,
@@ -16,13 +15,13 @@ export default function signin({
  return (
   <div className="absolute inset-0">
    <div className="mx-auto flex h-full max-w-2xl flex-col items-center justify-center gap-20">
-    <Link
+    {/* <Link
      href="/"
      className={cn(buttonVariants({ variant: 'ghost' }), '-mt-20 self-start')}
     >
      <ChevronLeft className="mr-2 h-4 w-4" />
      Home
-    </Link>
+    </Link> */}
     <div className="container mx-auto flex w-full flex-col justify-center space-y-6 sm:w-[400px]">
      <div className="flex flex-col space-y-2 text-center">
       <Icons.logo className="mx-auto h-6 w-6" />
