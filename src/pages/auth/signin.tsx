@@ -9,9 +9,10 @@ import { getProviders, signIn } from 'next-auth/react'
 import { Icons } from '~/components/Icons'
 import { ChevronLeft } from 'lucide-react'
 
-export default function signin({
- providers,
-}: InferGetServerSidePropsType<typeof getServerSideProps>) {
+export default function signin() {
+//   {
+//  providers,
+// }: InferGetServerSidePropsType<typeof getServerSideProps>
  return (
   <div className="absolute inset-0">
    <div className="mx-auto flex h-full max-w-2xl flex-col items-center justify-center gap-20">
@@ -89,22 +90,22 @@ export default function signin({
  )
 }
 
-export async function getServerSideProps(context: GetServerSidePropsContext) {
- const session = await getServerSession(context.req, context.res, authOptions)
+// export async function getServerSideProps(context: GetServerSidePropsContext) {
+//  const session = await getServerSession(context.req, context.res, authOptions)
 
- // If the user is already logged in, redirect.
- // Note: Make sure not to redirect to the same page
- // To avoid an infinite loop!
- //  if (session) {
- //   return { redirect: { destination: '/dashboard' } }
- //  }
+//  // If the user is already logged in, redirect.
+//  // Note: Make sure not to redirect to the same page
+//  // To avoid an infinite loop!
+//  //  if (session) {
+//  //   return { redirect: { destination: '/dashboard' } }
+//  //  }
 
- const providers = await getProviders()
+//  const providers = await getProviders()
 
- return {
-  props: {
-   providers: providers ?? [],
-   fallback: false,
-  },
- }
-}
+//  return {
+//   props: {
+//    providers: providers ?? [],
+//    fallback: false,
+//   },
+//  }
+// }
