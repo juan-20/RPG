@@ -8,7 +8,7 @@ import { getServerSession } from 'next-auth'
 import { getProviders, signIn } from 'next-auth/react'
 import { Icons } from '~/components/Icons'
 import { ChevronLeft } from 'lucide-react'
-import { buttonVariants } from '~/components/ui/Button'
+import { buttonVariants } from '../../components/ui/Button'
 
 export default function signin({
  providers,
