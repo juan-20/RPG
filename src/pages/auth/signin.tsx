@@ -8,7 +8,6 @@ import { getServerSession } from 'next-auth'
 import { getProviders, signIn } from 'next-auth/react'
 import { Icons } from '~/components/Icons'
 import { ChevronLeft } from 'lucide-react'
-import { env } from '~/env.mjs'
 
 export default function signin() {
  //   {
@@ -58,7 +57,9 @@ export default function signin() {
 
      <button
       onClick={() =>
-       signIn('Google', { callbackUrl: `${env.NEXTAUTH_URL}/dashboard` })
+       signIn('Google', {
+        callbackUrl: 'https://rpg-dusky.vercel.app/dashboard',
+       })
       }
       className={`mb-2 mr-2  inline-flex  items-center justify-around rounded-lg
         bg-[#050708] px-5  py-2.5 text-center text-sm font-medium text-white hover:bg-[#050708]/90 focus:outline-none focus:ring-4 focus:ring-[#050708]/50 dark:hover:bg-[#050708]/30 dark:focus:ring-[#050708]/50`}
@@ -68,7 +69,9 @@ export default function signin() {
      </button>
      <button
       onClick={() =>
-       signIn('Discord', { callbackUrl: `${env.NEXTAUTH_URL}/dashboard` })
+       signIn('Discord', {
+        callbackUrl: 'https://rpg-dusky.vercel.app/dashboard',
+       })
       }
       className={`mb-2  mr-2  inline-flex items-center justify-around rounded-lg bg-[#5865F2]  px-5 py-2.5 text-center text-sm font-medium hover:bg-[#5865F2]/90 focus:outline-none focus:ring-4 focus:ring-[#5865F2]/50 dark:hover:bg-[#5865F2]/30 dark:focus:ring-[#5865F2]/50 `}
      >
