@@ -3,11 +3,14 @@ import CredentialsProvider from "next-auth/providers/credentials";
 import { PrismaAdapter } from "@next-auth/prisma-adapter";
 import { db } from "./db";
 import { compare } from "bcrypt";
+import GoogleProvider from "next-auth/providers/google";
 
 export const authOptions: NextAuthOptions = {
   adapter: PrismaAdapter(db),
   session: {
     strategy: "jwt",
+    // ** Seconds - How long until an idle session expires and is no longer valid
+    maxAge: 30 * 24 * 60 * 60, // ** 30 days
   },
   secret: process.env.NEXTAUTH_SECRET,
   pages: {
@@ -47,6 +50,10 @@ export const authOptions: NextAuthOptions = {
           email: existUser.email,
         };
       },
+    }),
+    GoogleProvider({
+      clientId: process.env.GOOGLE_CLIENT_ID || "",
+      clientSecret: process.env.GOOGLE_CLIENT_SECRET || "",
     }),
   ],
   callbacks: {

@@ -75,7 +75,7 @@ const SignUpForm = () => {
             name="username"
             render={({ field }) => (
               <FormItem>
-                <FormLabel>Username</FormLabel>
+                <FormLabel className="dark:text-black">Username</FormLabel>
                 <FormControl>
                   <Input placeholder="johndoe" {...field} />
                 </FormControl>
@@ -88,7 +88,7 @@ const SignUpForm = () => {
             name="email"
             render={({ field }) => (
               <FormItem>
-                <FormLabel>Email</FormLabel>
+                <FormLabel className="dark:text-black">Email</FormLabel>
                 <FormControl>
                   <Input placeholder="mail@example.com" {...field} />
                 </FormControl>
@@ -101,7 +101,7 @@ const SignUpForm = () => {
             name="password"
             render={({ field }) => (
               <FormItem>
-                <FormLabel>Password</FormLabel>
+                <FormLabel className="dark:text-black">Password</FormLabel>
                 <FormControl>
                   <Input
                     type="password"
@@ -118,7 +118,9 @@ const SignUpForm = () => {
             name="confirmPassword"
             render={({ field }) => (
               <FormItem>
-                <FormLabel>Re-Enter your password</FormLabel>
+                <FormLabel className="dark:text-black">
+                  Re-Enter your password
+                </FormLabel>
                 <FormControl>
                   <Input
                     placeholder="Re-Enter your password"
@@ -135,10 +137,11 @@ const SignUpForm = () => {
           Sign up
         </Button>
       </form>
-      <div className="mx-auto my-4 flex w-full items-center justify-evenly before:mr-4 before:block before:h-px before:flex-grow before:bg-stone-400 after:ml-4 after:block after:h-px after:flex-grow after:bg-stone-400">
-        or
+      <div className="dark:text-black mx-auto my-4 flex w-full items-center justify-evenly before:mr-4 before:block before:h-px before:flex-grow before:bg-stone-400 after:ml-4 after:block after:h-px after:flex-grow after:bg-stone-400">
+        {/* TODO: ADD GOOGLE LOGIN */}
+        {/* or */}
       </div>
-      <GoogleSignInButton>Sign up with Google</GoogleSignInButton>
+      {/* <GoogleSignInButton>Sign up with Google</GoogleSignInButton> */}
       <p className="text-center text-sm text-gray-600 mt-2">
         If you don&apos;t have an account, please&nbsp;
         <Link className="text-blue-500 hover:underline" href="/sign-in">
