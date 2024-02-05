@@ -28,7 +28,7 @@ const Tiptap = ({
     editorProps: {
       attributes: {
         class:
-          "flex min-h-20 w-full rounded-b-md border border-slate-800 bg-white text-black px-3 py-2 text-sm ring-offset-background file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50",
+          "flex w-full rounded-b-md border border-slate-800 bg-white text-black px-3 py-2 text-sm ring-offset-background file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50",
       },
     },
     onUpdate: ({ editor }) => {
@@ -38,7 +38,7 @@ const Tiptap = ({
   });
 
   return (
-    <div className="flex flex-col justify-stretch min-h-[250px]">
+    <div className="flex flex-col justify-stretch">
       <Toolbar editor={editor} />
       <EditorContent editor={editor} />
     </div>

@@ -116,6 +116,17 @@ const CreateCharacter = () => {
                 </FormItem>
               )}
             />
+            <FormField
+              control={form.control}
+              name="age"
+              render={({ field }) => (
+                <FormItem>
+                  <FormLabel className="dark:text-black">Age</FormLabel>
+                  <Input placeholder="" {...field} />
+                  <FormMessage />
+                </FormItem>
+              )}
+            />
           </div>
           <Button className="w-full mt-6" type="submit">
             Create
