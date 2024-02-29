@@ -3,7 +3,6 @@ import React from "react";
 
 function User() {
   const { data: session } = useSession();
-  console.log(session);
   return <pre>{session?.user.username}</pre>;
 }
 

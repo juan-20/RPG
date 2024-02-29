@@ -17,7 +17,7 @@ const Navbar = async () => {
           <Sword className="stroke-amber-400" />
         </Link>
         {session?.user ? (
-          <ProfileDropdowMenu />
+          <ProfileDropdowMenu user={session.user} session={session} image={session.user.image} />
         ) : (
           <Link className={buttonVariants()} href="/sign-in">
             Sign in

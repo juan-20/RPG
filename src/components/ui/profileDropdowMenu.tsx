@@ -13,13 +13,13 @@ import {
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
 import { useTheme } from "next-themes";
-import { signOut } from "next-auth/react";
 import { SignoutButtonNavBar } from "./signoutButton";
 import User from "./user";
+import Image from 'next/image'
 
 type Checked = DropdownMenuCheckboxItemProps["checked"];
 
-export function ProfileDropdowMenu() {
+export function ProfileDropdowMenu({ user}: any) {
   const { systemTheme, theme, setTheme } = useTheme();
   const currentTheme = theme === "system" ? systemTheme : theme;
 
@@ -30,7 +30,9 @@ export function ProfileDropdowMenu() {
   return (
     <DropdownMenu>
       <DropdownMenuTrigger asChild>
-        <Button variant="outline">Open</Button>
+        <Button variant="outline">
+          {user.username}
+        </Button>
       </DropdownMenuTrigger>
       <DropdownMenuContent className="w-56">
         <DropdownMenuLabel>
